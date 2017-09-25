@@ -10,4 +10,4 @@
   <link rel="stylesheet" href="<?=BASE_ASSETS_PATH?>/css/custom.css">
 </head>
 <body>
-<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/_flash.php'); ?>
+<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/_menu.php'); ?>

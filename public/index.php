@@ -4,6 +4,7 @@ require_once(BASE_INSTALL_FOLDER . 'site.php');
 
 $routes = [  
   'GET:/' => 'index/index',
+  'GET:/menu' => 'index/menu',
 ];
 
 $BASE = new BaseCMS($config, $routes);
