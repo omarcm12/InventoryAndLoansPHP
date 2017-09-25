@@ -1,5 +1,4 @@
 /admin.php
-/site.php
 public/uploads/*
 uploads/*
 lib/Vendor/HTMLPurifier/standalone/HTMLPurifier/DefinitionCache/*
