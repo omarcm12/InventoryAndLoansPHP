@@ -27,3 +27,18 @@ CREATE TABLE `users` (
 
 
 
+DROP TABLE IF EXISTS `material`;
+
+CREATE TABLE `material` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT '',  
+  `catalog_number` varchar(255) DEFAULT '',  
+  `stock_count` int(11) unsigned DEFAULT 0,
+  `borrowed_count` int(11) unsigned DEFAULT 0,
+  `total_count` int(11) unsigned DEFAULT 0,
+  `price_per_unit` int(11) unsigned DEFAULT 0,
+  `image_path` varchar(255) DEFAULT '',  
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

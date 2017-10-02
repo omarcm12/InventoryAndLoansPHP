@@ -15,6 +15,7 @@ require_once(BASE_LIB_FOLDER . 'upload.php');
 require_once(BASE_LIB_FOLDER . 'user_session.php');
 
 require_once(BASE_MODELS_FOLDER . 'user.php');
+require_once(BASE_MODELS_FOLDER . 'material.php');
 
 class BaseCMS {
   private $config;

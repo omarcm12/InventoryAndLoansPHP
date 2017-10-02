@@ -38,7 +38,7 @@ function FetchUsers($page = 1, $per = 20) {
 function FetchUserWithID($id=0) {
   global $BASE;
 
-  $author = null;
+  $user = null;
 
   try {
     $stmt = $BASE->DB()->prepare("SELECT * FROM `users` WHERE `id` = :id LIMIT 1;");
@@ -46,12 +46,12 @@ function FetchUserWithID($id=0) {
 
     $stmt->execute();
 
-    $author = $stmt->fetchObject('User');
+    $user = $stmt->fetchObject('User');
   } catch(PDOException $e) {
     die($e->getMessage());
   }
 
-  return $author;
+  return $user;
 }
 
 function FetchUserWithEmail($email='') {
