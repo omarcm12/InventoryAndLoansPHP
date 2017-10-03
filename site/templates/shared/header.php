@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/menu">
                       <img class="logo-nav" src="<?= BASE_IMAGE_ASSETS_PATH ?>logo-small.png" >
                       <h3>Almacen de Química</h3><br>
                       <span>FACULTAD DE CIENCIAS QUÍMICAS E INGENIERÍA</span>
@@ -35,7 +35,7 @@
 
                     <ul class="nav navbar-nav navbar-right">                                                
                         <li>
-                            <a href="#">                                
+                            <a href="/">                                
                                 Cerrar Sesión
                                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                             </a>

@@ -1,5 +1,6 @@
 <?php /* templates/admin/sessions/new */
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
+require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/_flash.php');
 ?>
 
 
@@ -12,14 +13,14 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <h4 class="title">Nuevo material</h4>
                 </div>
                 <div class="content">
-                    <form>
+                    <form method="post" action="/inventario" accept-charset="UTF-8">
                         
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control"  >
+                                    <input type="text" class="form-control" name="material[name]" id="material_name" value="<?= $material->Name() ?>" >
                                 </div>
                             </div>                            
                         </div>
@@ -27,7 +28,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Cantidad</label>
-                                    <input type="text" class="form-control"  >
+                                    <input type="number" class="form-control" name="material[total_count]" id="material_total_count" value="<?= $material->TotalCount() ?>" >
                                 </div>
                             </div>                            
                         </div>
@@ -36,7 +37,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Descripción</label>
-                                    <textarea rows="5" class="form-control"  ></textarea>
+                                    <textarea rows="5" class="form-control" name="material[description]" id="material_description" value="<?= $material->Description() ?>" ></textarea>
                                 </div>
                             </div>
                         </div>
