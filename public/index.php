@@ -8,6 +8,7 @@ $routes = [
   'GET:/inventario' => 'stock/index',
   'GET:/inventario/nuevo' => 'stock/new',
   'POST:/inventario' => 'stock/create',
+  'POST:/login' => 'index/login',
 ];
 
 $BASE = new BaseCMS($config, $routes);

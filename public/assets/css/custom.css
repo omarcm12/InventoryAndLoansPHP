@@ -1001,3 +1001,13 @@ box-shadow: none;
 input{
   text-align: left; !important;
 }
+
+.nav li a:hover{
+  color: #d1be16 !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+    
+    color: #FFf;
+    border-color: #FFF;
+}
