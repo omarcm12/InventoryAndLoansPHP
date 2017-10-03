@@ -16,5 +16,5 @@ if ($postParams['email'] != "test@mail.com" || $postParams['pass'] != "test123")
 	$BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER); 	
 }
 
-$BASE->Response()->RedirectAndExit('/inventario/', BASE_RESPONSE_REDIRECT_OTHER);
+$BASE->Response()->RedirectAndExit('/menu/', BASE_RESPONSE_REDIRECT_OTHER);
 ?>
