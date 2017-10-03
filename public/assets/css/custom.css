@@ -117,8 +117,7 @@ body{
   min-width:320px !important; 
 }
 
-.content{
-	  max-width: 720px;
+.content{	  
     width: 100%;
     margin: 0 auto;
     padding: 0 15px;
@@ -130,7 +129,7 @@ body{
 }
 
 .login-form{
-  margin-top:50px; 
+  padding-top:50px; 
 }
 
 .login-form .content{
@@ -858,65 +857,147 @@ margin-bottom:20px;
 
 @media(min-width:1200px){}
 
-
-/* MAGIC PLACEHOLDER STYLE ONLY */ 
-label.magic-placeholder{
-  color: #BFBFBF;
-  font-size:18px;
-  font-weight:normal;
-  position:absolute;
-  pointer-events:none;
-  left:35px;
-  top:10px;
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
+* {
+box-sizing: border-box;
 }
 
-.inputMaterial:focus ~ label.magic-placeholder, .inputMaterial:valid ~ label.magic-placeholder      {
-  top:-23px;
-  font-size:16px;
-  color: #95A5A6; 
-  left:16px;
+*:focus {
+  outline: none;
+}
+
+.wrapper-login{
+  background-color: #83D134;
+}
+.login {
+margin: 20px auto;
+width: 500px;
+}
+.login-screen {
+background-color: #FFF;
+padding: 20px;
+border-radius: 5px
+}
+
+.app-title {
+text-align: center;
+}
+
+.app-title h1{
+  font-size: 2em !important;
+  font-weight: bold !important;
+  color: #777 !important;
+  margin: 20px 0;
+}
+
+.login-form {
+text-align: center;
+}
+.control-group {
+margin-bottom: 10px;
+}
+
+input {
+text-align: center;
+background-color: #ECF0F1;
+border: 2px solid transparent;
+border-radius: 3px;
+font-size: 16px;
+font-weight: 200;
+padding: 10px 0;
+width: 250px;
+transition: border .5s;
+}
+
+input:focus {
+border: 2px solid #3498DB;
+box-shadow: none;
+}
+
+.btn {
+  border: 2px solid transparent;
+  background: #04B404;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  text-decoration: none;
+  text-shadow: none;
+  border-radius: 3px;
+  box-shadow: none;
+  transition: 0.25s;
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  background-color:#04B404;
+}
+
+.login-link {
+  font-size: 12px;
+  color: #444;
+  display: block;
+  margin-top: 12px;
 }
 
 
-.inputMaterial:focus ~ .bar:before, .inputMaterial:focus ~ .bar:after {
-  width:50%;
+/* ALMACEN ADMIN STYLE */
+
+.logo-nav{
+  width: 50px;
+  margin: -5px 30px;
+  display: block;
+  float: left;
 }
 
-.inputMaterial:focus ~ .highlight {
-  -webkit-animation:inputHighlighter 0.3s ease;
-  -moz-animation:inputHighlighter 0.3s ease;
-  animation:inputHighlighter 0.3s ease;
+.navbar-brand h3{
+  display: block;
+  float: left;
 }
 
-@-webkit-keyframes inputHighlighter {
-    from { background:#5264AE; }
-  to    { width:0; background:transparent; }
-}
-@-moz-keyframes inputHighlighter {
-    from { background:#5264AE; }
-  to    { width:0; background:transparent; }
-}
-@keyframes inputHighlighter {
-    from { background:#5264AE; }
-  to    { width:0; background:transparent; }
+.navbar-brand span{
+  float: left;
+  display: block;
+  font-size: 10px;
+  color: #109853;
 }
 
-
-$transition: all 0.3s;
-$shadow-L1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-$shadow-L2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-$shadow-L3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
-
-@keyframes bounce-nds{
-    from {opacity: 0;}
-    to {opacity: 1; transform: scale(1);}
+.navbar{  
+  border-bottom: 2px solid #d1be16;
 }
 
-@keyframes bounce-out-nds{
-    from {opacity: 1; transform: scale(1);}
-    to {opacity: 0; transform: scale(0);}
+.navbar-header{  
+  height: 85px !important;
+}
+
+.caption{
+  position: absolute;
+  bottom: 20px;  
+  width: 30%;
+}
+
+.caption p{
+  font-size: 20px !important
+}
+
+.stock-list{
+  min-height: 400px;
+}
+
+.btn-info.btn-fill {
+    color: #FFFFFF;
+    background-color: #d1be16;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.btn-info.btn-fill:hover, .btn-info.btn-fill:focus, .btn-info.btn-fill:active, .btn-info.btn-fill.active, .open > .btn-info.btn-fill.dropdown-toggle {
+    background-color: #d1be16;
+        border-color: #d1be16;
+    color: #FFFFFF;
+}
+
+input{
+  text-align: left; !important;
 }

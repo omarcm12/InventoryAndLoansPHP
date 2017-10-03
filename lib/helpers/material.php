@@ -1,5 +1,5 @@
 <?php
-function FetchUserWithID($id=0) {
+function FetchMaterialWithID($id=0) {
   global $BASE;
 
   $user = null;

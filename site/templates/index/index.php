@@ -1,40 +1,34 @@
 <?php /* templates/admin/sessions/new */
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
+<div class="wrapper wrapper-login">
 <!-- BEGIN LOGIN FORM -->
 <div class="login-form">
 	<div class="content">
-	   	<div class="box-colored bg-white">
-	    	<h3 class="sesion-title text-center">Prueba</h3>
-			<form  action="/create" method="post" accept-charset="UTF-8">
-		  		<div class="form-body">
-		  			<div class="row">
-			    		 <div class="col-xs-12">
-							<div class="form-group">
-							  <input type="text" class="inputMaterial form-control" name="register[name]" value="<?= $register->Name() ?>"  required/>
-					        <label class="magic-placeholder">Nombre</label>
-							</div>
-						</div>
+	   	<div class="login">
+			<div class="login-screen">
+				<div class="app-title">
+					<h1>Iniciar Sesión</h1>
+				</div>
+				<img src="<?= BASE_IMAGE_ASSETS_PATH ?>logo.png" width="50">
+				<br>
+				<div class="login-form">
+					<div class="control-group">
+					<input type="text" class="login-field" value="" placeholder="Correo @uabc.edu.mx" id="login-name">
+					<label class="login-field-icon fui-user" for="login-name"></label>
 					</div>
-					<div class="row">
-			    		 <div class="col-xs-12">
-							<div class="form-group">
-							  <input type="text" class="inputMaterial form-control" name="register[last_name]" value="<?= $register->LastName() ?>"  required/>
-					        <label class="magic-placeholder">Apellidos</label>
-							</div>
-						</div>
+
+					<div class="control-group">
+					<input type="password" class="login-field" value="" placeholder="Contraseña" id="login-pass">
+					<label class="login-field-icon fui-lock" for="login-pass"></label>
 					</div>
-				    <div class="row">
-			    		 <div class="col-xs-12">
-							<div class="form-group">
-							<input type="text" class="inputMaterial form-control" name="register[email]" value="<?= $register->Email() ?>"  required/>
-					        <label class="magic-placeholder"><?= faIconGreen('envelope');?> Email</label>
-							</div>
-						</div>
-					</div>												       
-	      		</div>  
-			</form>
-	   </div>	   
+
+					<a class="btn btn-primary btn-large btn-block" href="/menu">Iniciar</a>
+						
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 </div>
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
