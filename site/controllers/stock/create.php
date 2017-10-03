@@ -17,7 +17,7 @@ $material->description = $postParams['description'];
 $material->total_count = $postParams['total_count'];
 
 if ($material->Valid() && $material->Create()) {			
-  	$BASE->Session()->SetFlash(['success' => 'Material created.']);
+  	$BASE->Session()->SetFlash(['success' => 'Material creado.']);
   	$BASE->Response()->RedirectAndExit('/inventario/', BASE_RESPONSE_REDIRECT_OTHER);
 }
 

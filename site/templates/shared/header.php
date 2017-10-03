@@ -44,3 +44,5 @@
                 </div>
             </div>
         </nav>
+
+<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/_flash.php'); ?>

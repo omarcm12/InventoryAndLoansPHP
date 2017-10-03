@@ -1,6 +1,5 @@
 <?php /* templates/admin/sessions/new */
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
-require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/_flash.php');
 ?>
 
 
