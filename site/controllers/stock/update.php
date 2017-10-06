@@ -15,8 +15,7 @@ if (empty($postParams)) { $postParams = []; }
 $material->name = $postParams['name'];
 $material->description = $postParams['description'];
 $material->total_count = $postParams['total_count'];
-
-error_log(print_r($material, true));
+$material->catalog_number = $postParams['catalog_number'];
 
 if ($material->Valid() && $material->Update()) {
   $BASE->Session()->SetFlash(['success' => 'Material actualizado.']);

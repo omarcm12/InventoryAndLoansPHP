@@ -13,7 +13,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                 <div class="content table-responsive table-full-width stock-list">
                     <table class="table table-hover table-striped">
                         <thead>
-                          <th>ID</th>
+                          <th>Núm. Catálogo</th>
                           <th>Nombre</th>
                           <th>En almacen</th>
                           <th>En prestamo</th>

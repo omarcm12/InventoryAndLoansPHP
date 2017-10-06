@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS `materials`;
 CREATE TABLE `materials` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT '',
-  `description`  varchar(255) DEFAULT '',  
+  `description` text DEFAULT '',  
   `catalog_number` varchar(255) DEFAULT '',  
   `stock_count` int(11) unsigned DEFAULT 0,
   `borrowed_count` int(11) unsigned DEFAULT 0,

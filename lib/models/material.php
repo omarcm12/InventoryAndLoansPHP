@@ -34,6 +34,10 @@ class Material extends BaseModel {
     return true;
   }
 
+  public function CatalogNumber(){
+    return $this->catalog_number;
+  }
+
   public function Name(){
     return $this->name;
   }

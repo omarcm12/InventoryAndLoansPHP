@@ -1,5 +1,5 @@
 <tr>
-  <td><?= $material->ID() ?></td>
+  <td><?= $material->CatalogNumber() ?></td>  
   <td><?= $material->Name() ?></td>
   <td><?= $material->TotalCount() ?></td>
   <td>0</td>

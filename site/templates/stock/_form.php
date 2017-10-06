@@ -1,6 +1,14 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
+            <label>Núm. Catálogo</label>
+            <input type="text" class="form-control" name="material[catalog_number]" id="material_catalog_number" value="<?= $material->CatalogNumber() ?>" >
+        </div>
+    </div>                            
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
             <label>Nombre</label>
             <input type="text" class="form-control" name="material[name]" id="material_name" value="<?= $material->Name() ?>" >
         </div>
