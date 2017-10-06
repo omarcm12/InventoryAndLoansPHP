@@ -9,7 +9,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         <div class="col-md-8 col-md-offset-2">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Editar Material - <small><?= $material->Name() ?></small></h4>
+                    <h4 class="title">Editar Material - <small><?= $material->CatalogNumber() ?></small></h4>
                 </div>
                 <div class="content">
                     <form method="post" action="/inventario/<?= $material->ID() ?>" accept-charset="UTF-8">

@@ -7,7 +7,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         <div class="col-md-12">                      
             <div class="card">                        
                 <div class="header">
-                    <h4 class="title">Inventario</h4>
+                    <h3 class="title">Inventario</h3>
                                                 
                 </div>
                 <div class="content table-responsive table-full-width stock-list">
