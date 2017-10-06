@@ -98,3 +98,7 @@
 	opacity: 10;
 	transition: 1s;
 }
+
+.btn-uabc-green{
+	border-color: #d1be16;
+}

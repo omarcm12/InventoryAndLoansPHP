@@ -5,7 +5,7 @@ function FetchMaterialWithID($id=0) {
   $material = null;
 
   try {
-    $stmt = $BASE->DB()->prepare("SELECT * FROM `material` WHERE `id` = :id LIMIT 1;");
+    $stmt = $BASE->DB()->prepare("SELECT * FROM `materials` WHERE `id` = :id LIMIT 1;");
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
     $stmt->execute();

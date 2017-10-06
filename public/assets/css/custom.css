@@ -913,7 +913,7 @@ border: 2px solid #3498DB;
 box-shadow: none;
 }
 
-.btn {
+#btn-login.btn {
   border: 2px solid transparent;
   background: #04B404;
   color: #ffffff;

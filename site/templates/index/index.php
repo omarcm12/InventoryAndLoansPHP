@@ -25,7 +25,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header_login.php');
 					<label class="login-field-icon fui-lock" for="login-pass"></label>
 					</div>
 
-					<button type="submit" class="btn btn-primary btn-large btn-block">Iniciar</button>						
+					<button type="submit" id="btn-login" class="btn btn-primary btn-large btn-block">Iniciar</button>						
 				</div>
 				</form>
 			</div>

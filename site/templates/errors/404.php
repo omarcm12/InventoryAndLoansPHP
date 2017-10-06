@@ -1,4 +1,4 @@
-<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'errors/_header.php'); ?>
+<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php'); ?>
 <body class="page-404-full-page">
 <div class="row">
 	<div class="col-md-12 page-404">
@@ -12,4 +12,4 @@
 		</div>
 	</div>
 </div>
-<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'errors/_footer.php'); ?>
+<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
