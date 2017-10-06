@@ -50,6 +50,10 @@ class Material extends BaseModel {
     return $this->total_count;
   }
 
+  public function PricePerUnit(){
+    return $this->price_per_unit;
+  }
+
   public function Valid() {
     if (empty($this->name)) { return false; }  
     if (empty($this->total_count)) { return false; }  

@@ -16,6 +16,7 @@ $material->name = $postParams['name'];
 $material->description = $postParams['description'];
 $material->total_count = $postParams['total_count'];
 $material->catalog_number = $postParams['catalog_number'];
+$material->price_per_unit = $postParams['price_per_unit'];
 
 if ($material->Valid() && $material->Create()) {			
   	$BASE->Session()->SetFlash(['success' => 'Material creado.']);

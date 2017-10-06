@@ -16,6 +16,7 @@ $material->name = $postParams['name'];
 $material->description = $postParams['description'];
 $material->total_count = $postParams['total_count'];
 $material->catalog_number = $postParams['catalog_number'];
+$material->price_per_unit = $postParams['price_per_unit'] * 100;
 
 if ($material->Valid() && $material->Update()) {
   $BASE->Session()->SetFlash(['success' => 'Material actualizado.']);

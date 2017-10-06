@@ -15,10 +15,16 @@
     </div>                            
 </div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="form-group">
             <label>Cantidad</label>
             <input type="number" class="form-control" name="material[total_count]" id="material_total_count" value="<?= $material->TotalCount() ?>" >
+        </div>
+    </div>                            
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Costo</label>
+            <input type="text" class="form-control" name="material[price_per_unit]" id="material_price_per_unit" value="<?= $material->PricePerUnit() / 100 ?>" >
         </div>
     </div>                            
 </div>
