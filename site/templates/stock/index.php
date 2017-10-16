@@ -3,12 +3,17 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
     <div class="row">
-      <a href="/inventario/nuevo" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 14px;">Crear material</a>
+      
+    <div class="col-md-12"> 
+        <a href="/inventario/nuevo" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 14px;">Crear material</a>
+        <input type="text" id="material_search" placeholder="Buscar" >
+        <a href="/inventario/buscar" class="btn btn-info btn-fill btn-uabc-green" style="margin: 10px 14px;">Buscar</a>
+    </div>
+     
         <div class="col-md-12">                      
             <div class="card">                        
                 <div class="header">
-                    <h3 class="title">Inventario</h3>
-                                                
+                    <h3 class="title">Inventario</h3>                       
                 </div>
                 <div class="content table-responsive table-full-width stock-list">
                     <table class="table table-hover table-striped">
@@ -37,6 +42,6 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                 </div>
             </div>
         </div>
-      </div>
+    </div>
 </div>
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
