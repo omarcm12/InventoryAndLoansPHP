@@ -11,7 +11,7 @@ class Material extends BaseModel {
   public $borrowed_count;  
   public $total_count;  
   public $price_per_unit;  
-  public $image_path;  
+  public $image_path; 
 
   public function AttributesForCreate() {
     return [
@@ -59,6 +59,24 @@ class Material extends BaseModel {
     if (empty($this->total_count)) { return false; }  
     return true;
   }
+
+  public function ImagePath() {
+    return $this->image_path;
+  }
+
+  public function Folder() {
+    return 'catalog/' . $this->ID() . '/';
+  }
+
+  public function LocalPath() {
+    return BASE_UPLOADS_FOLDER . $this->Folder() . $this->ImagePath();
+  }
+
+  public function Path() {
+    if (empty($this->image_path)) { return BASE_IMAGE_ASSETS_PATH . 'chemistry.png'; }
+    
+    return BASE_UPLOADS_PATH . $this->Folder() . rawurlencode($this->ImagePath());
+  }  
 }
 
 require_once(BASE_LIB_FOLDER . 'helpers/material.php');

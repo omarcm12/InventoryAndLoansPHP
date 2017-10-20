@@ -1,4 +1,12 @@
 <?php /* templates/admin/sessions/new */
+$custom_css_plugins = [
+  'bootstrap-fileinput/bootstrap-fileinput.css'
+];
+$custom_js_plugins = [
+  'bootstrap-fileinput/bootstrap-fileinput.js',
+];
+
+
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 
@@ -12,7 +20,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <h4 class="title">Nuevo material</h4>
                 </div>
                 <div class="content">
-                    <form method="post" action="/inventario" accept-charset="UTF-8">
+                    <form method="post" action="/inventario" accept-charset="UTF-8" enctype="multipart/form-data">
                         <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_form.php'); ?>         
                         <button type="submit" class="btn btn-info btn-fill pull-right btn-uabc-green">Crear material</button>
                         <div class="clearfix"></div>

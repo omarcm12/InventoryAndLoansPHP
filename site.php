@@ -12,4 +12,5 @@ $config = [
   'site_name' => 'Almacen',
   'timezone' => 'America/Mexico_City'
 ];
+
 ?>

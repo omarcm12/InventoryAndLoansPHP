@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="<?=BASE_PLUGIN_ASSETS_PATH ?>bootstrap/css/bootstrap.min.css">
   <link href="<?= BASE_PLUGIN_ASSETS_PATH ?>font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>  
   <link href="<?= BASE_PLUGIN_ASSETS_PATH ?>theme/css/light-bootstrap-dashboard.css" rel="stylesheet" type="text/css"/>
+  <?php if (empty($custom_css_plugins)) { $custom_css_plugins = []; } ?>
+<?php foreach ($custom_css_plugins as $css) { ?>
+<link href="<?= BASE_PLUGIN_ASSETS_PATH . $css ?>" type="text/css" rel="stylesheet" />
+<?php } ?>
   <link rel="stylesheet" href="<?=BASE_ASSETS_PATH?>/css/custom.css">
   <link rel="stylesheet" href="<?=BASE_ASSETS_PATH?>/css/styles.css">
 
