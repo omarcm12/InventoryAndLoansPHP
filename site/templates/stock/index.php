@@ -31,7 +31,6 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                             <?php } else { ?>
                               <?php                              
                               foreach ($materials as $material) {                              
-                                error_log(print_r($material, true));
                                 include(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_list_item.php');
                               }
                               ?>

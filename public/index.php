@@ -11,7 +11,7 @@ $routes = [
   'POST:/inventario' => 'stock/create',
   'GET:/inventario/(\d+)' => 'stock/edit',
   'POST:/inventario/(\d+)' => 'stock/update',
-  'POST:/inventario/(\d+)/delete' => 'stock/delete',
+  'POST:/inventario/borrar/(\d+)' => 'stock/delete',
   'POST:/login' => 'index/login',
 ];
 
