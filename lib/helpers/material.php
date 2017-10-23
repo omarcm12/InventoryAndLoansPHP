@@ -33,7 +33,7 @@ function MaterialsCount() {
   return $count;
 }
 
-function FetchAllMaterials($page = 1, $per = 20) {
+function FetchAllMaterials($page = 1, $per = 20, $search = "") {
   global $BASE;
 
   $page = intval($page);
@@ -42,7 +42,7 @@ function FetchAllMaterials($page = 1, $per = 20) {
   $offset = $per * ($page - 1);
 
   try {
-    $stmt = $BASE->DB()->query("SELECT * FROM `materials` ORDER BY `id` DESC LIMIT $per OFFSET $offset;");
+    $stmt = $BASE->DB()->query("SELECT * FROM `materials` WHERE `name` LIKE '%$search%' OR `catalog_number` LIKE '%$search%' ORDER BY `id` DESC LIMIT $per OFFSET $offset;");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Material');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {
