@@ -17,15 +17,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Eliminar <?= $material->Name()  ?></h4>
+          <h4 class="modal-title">Desea eliminar <?= $material->Name()?>?</h4>
         </div>
         <div class="modal-body">
+        <br>
+        <img src="<?= $material->Path() ?>" style="width:100%; margin-bottom:15px;">
           <form action="/inventario/borrar/<?= $material->ID()?>" method="post">
-          	<input type="submit" class="btn btn-default" value="Borrar">	
+          	<input type="submit" class="btn btn-info btn-sm btn-fill btn-uabc-green" value="Borrar" style="float:right">
+            <br>
           </form>
+          
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info btn-sm btn-fill btn-uabc-green" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
       
