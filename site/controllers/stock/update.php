@@ -15,6 +15,8 @@ if (empty($postParams)) { $postParams = []; }
 $material->name = $postParams['name'];
 $material->description = $postParams['description'];
 $material->total_count = $postParams['total_count'];
+$material->stock_min = $postParams['stock_min'];
+$material->stock_max = $postParams['stock_max'];
 $material->catalog_number = $postParams['catalog_number'];
 $material->price_per_unit = $postParams['price_per_unit'] * 100;
 

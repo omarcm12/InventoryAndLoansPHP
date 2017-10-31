@@ -8,7 +8,10 @@ if (empty($postParams)) { $postParams = []; }
 $material->name = $postParams['name'];
 $material->description = $postParams['description'];
 $material->total_count = $postParams['total_count'];
+$material->stock_min = $postParams['stock_min'];
+$material->stock_max = $postParams['stock_max'];
 $material->catalog_number = $postParams['catalog_number'];
+$material->price_per_unit = $postParams['price_per_unit'];
 $material->price_per_unit = $postParams['price_per_unit'];
 
 
@@ -23,7 +26,7 @@ if ($material->Valid() && $material->Create()) {
     if ($_FILES['image']['error']['filename'] > 0) {
       $BASE->Session()->SetFlash(['danger' => 'Error uploading image.']);
       $BASE->Response()->RedirectAndExit('/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
-    }
+    } 
 
     $found = false;
     $whitelist = array(".jpg", ".jpeg", ".png", ".gif");

@@ -35,6 +35,8 @@ CREATE TABLE `materials` (
   `description` text DEFAULT '',  
   `catalog_number` varchar(255) DEFAULT '',  
   `stock_count` int(11) unsigned DEFAULT 0,
+  `stock_min` int(11) unsigned DEFAULT 0,
+  `stock_max` int(11) unsigned DEFAULT 0,
   `borrowed_count` int(11) unsigned DEFAULT 0,
   `total_count` int(11) unsigned DEFAULT 0,
   `price_per_unit` int(11) unsigned DEFAULT 0,

@@ -32,6 +32,21 @@
 </div>
 
 <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Minimo</label>
+            <input type="number" class="form-control" name="material[stock_min]" id="material_count_min" value="<?= $material->StockMin() ?>" >
+        </div>
+    </div>                            
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Maximo</label>
+            <input type="text" class="form-control" name="material[stock_max]" id="material_count_min" value="<?= $material->StockMax() ?>" >
+        </div>
+    </div>                            
+</div>
+
+<div class="row">
     <div class="col-md-12">
         <div class="form-group">
             <label>Descripción</label>

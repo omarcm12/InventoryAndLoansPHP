@@ -7,7 +7,9 @@ class Material extends BaseModel {
   public $name;
   public $description;
   public $catalog_number;
-  public $stock_count;  
+  public $stock_count;
+  public $stock_min;
+  public $stock_max;  
   public $borrowed_count;  
   public $total_count;  
   public $price_per_unit;  
@@ -19,6 +21,8 @@ class Material extends BaseModel {
       'description' => PDO::PARAM_STR,      
       'catalog_number' => PDO::PARAM_STR,
       'stock_count' => PDO::PARAM_INT,
+      'stock_min' => PDO::PARAM_INT,
+      'stock_max' => PDO::PARAM_INT,
       'borrowed_count' => PDO::PARAM_INT,
       'total_count' => PDO::PARAM_INT,
       'price_per_unit' => PDO::PARAM_INT,  
@@ -48,6 +52,14 @@ class Material extends BaseModel {
 
   public function TotalCount(){
     return $this->total_count;
+  }
+
+  public function StockMin(){
+    return $this->stock_min;
+  }
+
+  public function StockMax(){
+    return $this->stock_max;
   }
 
   public function PricePerUnit(){
