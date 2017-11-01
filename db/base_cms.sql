@@ -45,3 +45,17 @@ CREATE TABLE `materials` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `moves`;
+
+CREATE TABLE `moves` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_material` varchar(255) DEFAULT '', 
+  `catalog_number_material` varchar(255) DEFAULT '',
+  `id_user` int(11) unsigned NOT NULL,
+  `type` varchar(10) DEFAULT '', 
+  `no_order` varchar(255) DEFAULT '',    
+  `date` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`), 
+  FOREIGN KEY (`id_material`) REFERENCES `materials`  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

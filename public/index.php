@@ -8,6 +8,7 @@ $routes = [
   'GET:/inventario' => 'stock/index',
   'GET:/inventario/nuevo' => 'stock/new',
   'GET:/inventario/buscar' => 'stock/search',
+  'GET:/inventario/movimientos' => 'stock/indexMovs',
   'POST:/inventario' => 'stock/create',
   'GET:/inventario/(\d+)' => 'stock/edit',
   'POST:/inventario/(\d+)' => 'stock/update',
