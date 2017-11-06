@@ -27,6 +27,7 @@ CREATE TABLE `users` (
 
 
 
+DROP TABLE IF EXISTS `moves`;
 DROP TABLE IF EXISTS `materials`;
 
 CREATE TABLE `materials` (
@@ -46,7 +47,6 @@ CREATE TABLE `materials` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `moves`;
 
 CREATE TABLE `moves` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -55,7 +55,8 @@ CREATE TABLE `moves` (
   `id_user` int(11) unsigned NOT NULL,
   `type` varchar(10) DEFAULT '', 
   `no_order` varchar(255) DEFAULT '',    
-  `date` timestamp NULL DEFAULT NULL,
+  `description` text DEFAULT '', 
+  `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`), 
   FOREIGN KEY (`id_material`) REFERENCES `materials` (`id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
