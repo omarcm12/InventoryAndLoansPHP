@@ -21,17 +21,17 @@ $material->price_per_unit = $postParams['price_per_unit'];
 
 if ($material->Valid() && $material->Create()) {			
 
+  $has_image = false;  
   if (array_key_exists('image', $_FILES) && array_key_exists('filename', $_FILES['image']['name'])) {
     if (!imagesUploadFolderIsWriteable()) {
       $BASE->Session()->SetFlash(['danger' => 'Uploads folder must be writeable for images to be uploaded.']);
-      $BASE->Response()->RedirectAndExit('/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
+      $BASE->Response()->RedirectAndExit('/admin/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
     }
 
-    if ($_FILES['image']['error']['filename'] > 0) {
-      $BASE->Session()->SetFlash(['danger' => 'Error uploading image.']);
-      $BASE->Response()->RedirectAndExit('/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
-    } 
+    $has_image = $_FILES['image']['error']['filename'] == 0;
+  }
 
+  if($has_image){    
     $found = false;
     $whitelist = array(".jpg", ".jpeg", ".png", ".gif");
     foreach ($whitelist as $ext) {
@@ -42,13 +42,11 @@ if ($material->Valid() && $material->Create()) {
     }
 
     if (!$found || !getimagesize($_FILES['image']['tmp_name']['filename'])) {
-      $BASE->Session()->SetFlash(['warning' => 'Uploaded file must be an image (jpeg, png, gif).']);
-      $BASE->Response()->RedirectAndExit('/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
+      $BASE->Session()->SetFlash(['warning' => 'Los formatos de imagen permitidos solo son (jpeg, png, gif).']);
+      $BASE->Response()->RedirectAndExit('/admin/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
     }
 
     $name = $_FILES['image']['name']['filename'];
-    //$sha1_slug = sha1_file($_FILES["image"]["tmp_name"]['filename']);    
-    //$filename = $sha1_slug . '.' . pathinfo($name, PATHINFO_EXTENSION);
     $material->image_path = $name;
 
     $components = explode('/', $material->Folder());
@@ -64,7 +62,7 @@ if ($material->Valid() && $material->Create()) {
     }
 
     if (!move_uploaded_file($_FILES['image']['tmp_name']['filename'], $material->LocalPath())) {
-      $BASE->Session()->SetFlash(['danger' => 'Error storing uploaded image. Verify folder permissions.']);
+      $BASE->Session()->SetFlash(['danger' => 'Error guardando imagen. Revise los permisos del folder']);
       $BASE->Response()->RedirectAndExit('/admin/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
     } else {      
       chmod($material->LocalPath(), BASE_UPLOADS_IMAGE_PERMISSION);
@@ -72,8 +70,8 @@ if ($material->Valid() && $material->Create()) {
     }
   }
 
-  	$BASE->Session()->SetFlash(['success' => 'Material creado.']);
-  	$BASE->Response()->RedirectAndExit('/admin/inventario/', BASE_RESPONSE_REDIRECT_OTHER);
+	$BASE->Session()->SetFlash(['success' => 'Material creado.']);
+	$BASE->Response()->RedirectAndExit('/admin/inventario/', BASE_RESPONSE_REDIRECT_OTHER);
 }
 
 $BASE->Session()->SetFlash(['danger' => 'Error guardando el material.']);
