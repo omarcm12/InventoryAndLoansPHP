@@ -1,8 +1,8 @@
 <?php /* controllers/admin/tags/edit */
 
-// if ($BASE->Session()->LoggedOut()) {
-//   $BASE->Response()->RedirectAndExit('/admin/login');
-// }
+if ($BASE->Session()->LoggedOut()) {
+  $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
+}
 
 $material = FetchMaterialWithID($BASE->RouteParam(0));
 if (empty($material)) {

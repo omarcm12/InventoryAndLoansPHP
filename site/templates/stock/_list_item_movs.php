@@ -6,7 +6,7 @@
   <td>0</td>
   <td><?= '$'. $move->PricePerUnit() / 100 ?></td>  
   <td>
-  	<a href="/inventario/movimientos/<?= $move->ID()?>" class="btn btn-info btn-sm btn-fill btn-uabc-green">Editar</a>
+  	<a href="/admin/inventario/movimientos/<?= $move->ID()?>" class="btn btn-info btn-sm btn-fill btn-uabc-green">Editar</a>
   	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-<?= $move->ID()?>">Eliminar</a>
   </td>
 
@@ -23,7 +23,7 @@
         <div class="modal-body">
         <br>
         <img src="<?= $move->Path() ?>" style="width:100%; margin-bottom:15px;">
-          <form action="/inventario/movimientos/borrar/<?= $move->ID()?>" method="post">
+          <form action="/admin/inventario/movimientos/borrar/<?= $move->ID()?>" method="post">
           	<input type="submit" class="btn btn-info btn-sm btn-fill btn-uabc-green" value="Borrar" style="float:right">
             <br>
           </form>

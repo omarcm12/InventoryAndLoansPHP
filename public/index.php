@@ -4,15 +4,17 @@ require_once(BASE_INSTALL_FOLDER . 'site.php');
 
 $routes = [  
   'GET:/' => 'index/index',
-  'GET:/menu' => 'index/menu',
-  'GET:/inventario' => 'stock/index',
-  'GET:/inventario/nuevo' => 'stock/new',
-  'GET:/inventario/buscar' => 'stock/search',
-  'GET:/inventario/movimientos' => 'stock/indexMovs',
-  'POST:/inventario' => 'stock/create',
-  'GET:/inventario/(\d+)' => 'stock/edit',
-  'POST:/inventario/(\d+)' => 'stock/update',
-  'POST:/inventario/borrar/(\d+)' => 'stock/delete',
+  'GET:/admin' => 'index/menu',
+  'GET:/admin/inventario' => 'stock/index',
+  'GET:/admin/inventario/nuevo' => 'stock/new',
+  'GET:/admin/inventario/buscar' => 'stock/search',
+  'GET:/admin/inventario/movimientos' => 'stock/indexMovs',
+  'POST:/admin/inventario' => 'stock/create',
+  'GET:/admin/inventario/(\d+)' => 'stock/edit',
+  'POST:/admin/inventario/(\d+)' => 'stock/update',
+  'POST:/admin/inventario/borrar/(\d+)' => 'stock/delete',
+
+  'GET:/logout' => 'index/logout',
   'POST:/login' => 'index/login',
 ];
 

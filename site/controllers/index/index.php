@@ -1,14 +1,10 @@
 <?php
 
-$register = new User();
+if ($BASE->Session()->LoggedIn()) {
+  $BASE->Response()->RedirectAndExit('/admin/', BASE_RESPONSE_REDIRECT_OTHER);
+}
 
-$register->name = "Uriel";  
-$register->last_name = "Cebreros";  
-$register->email = "urielcebreros@gmail.com";
-
-$vars = [
-	"register" => $register
-];
+$vars = [];
 
 $BASE->Response()->Render($BASE->Template(), $vars);
 

@@ -29,7 +29,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         </div>
 
         <div class=" options col-lg-6" style="position:relative;">
-          <a href="/inventario">
+          <a href="admin/inventario">
             <img class="img-responsive" src="<?= BASE_IMAGE_ASSETS_PATH ?>inventario.png" alt="" width = "100%" href = "#" >
           <div class="caption">
             <p>Inventario</p>

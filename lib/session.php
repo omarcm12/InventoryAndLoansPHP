@@ -19,7 +19,7 @@ class Session {
     session_commit();
   }
 
-  public function CurrentAuthor() {
+  public function CurrentUser() {
     if (is_null($this->session_user)) {
       $aid = $this->SessionParam('aid');
       if (is_null($aid)) {
@@ -46,7 +46,7 @@ class Session {
   }
 
   public function LoggedIn() {
-    return !!$this->CurrentAuthor();
+    return !!$this->CurrentUser();
   }
 
   public function LoggedOut() {

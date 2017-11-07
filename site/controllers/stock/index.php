@@ -1,5 +1,9 @@
 <?php
 
+if ($BASE->Session()->LoggedOut()) {
+  $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
+}
+
 $materials = FetchAllMaterials($BASE->GetParam('page'), 20, $BASE->GetParam('s'));
 $materials->SetResultsTotal(MaterialsCount());
 

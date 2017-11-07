@@ -1,20 +1,27 @@
 <?php
 
+if ($BASE->Session()->LoggedIn()) {
+  $BASE->Response()->RedirectAndExit('/admin/', BASE_RESPONSE_REDIRECT_OTHER);
+}
 
 $postParams = $BASE->PostParam('login');
 if (empty($postParams)) { 
-	$postParams = []; 
+       $postParams = []; 
 }
 
-if (empty($postParams['email']) || empty($postParams['pass'])) {			  	
- 	$BASE->Session()->SetFlash(['danger' => 'Favor de ingresar datos']);
-	$BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER); 	
+$email = $postParams['email'];
+$password = $postParams['pass'];
+error_log(print_r($_POST, true));
+if (empty($email) || empty($password)) {
+	$BASE->Session()->SetFlash(['danger' => 'Usuario o contraseña vacío']);
+  	$BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
 }
 
-if ($postParams['email'] != "test@mail.com" || $postParams['pass'] != "test123") {			  	
- 	$BASE->Session()->SetFlash(['danger' => 'Usuario o contraseña incorrecto']);
-	$BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER); 	
+$user = FetchUserWithEmail($email);
+if ($user && $password == "test123") {
+  $BASE->Session()->Login($user);
 }
 
-$BASE->Response()->RedirectAndExit('/menu/', BASE_RESPONSE_REDIRECT_OTHER);
+$BASE->Response()->RedirectAndExit('/admin/', BASE_RESPONSE_REDIRECT_OTHER);
+
 ?>

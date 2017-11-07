@@ -1,11 +1,8 @@
 <?php /* controllers/admin/categories/delete */
 
-// if ($BASE->Session()->LoggedOut()) {
-//   $BASE->Response()->RedirectAndExit('/admin/login', BASE_RESPONSE_REDIRECT_OTHER);
-// }
-// if (!adminCurrentAuthor()->IsAdmin()) {
-//   $BASE->Response()->RedirectAndExit('/admin/', BASE_RESPONSE_REDIRECT_OTHER);
-// }
+if ($BASE->Session()->LoggedOut()) {
+  $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
+}
 
 $material = FetchMaterialWithId($BASE->RouteParam(0));
 if (empty($material)) {
@@ -18,6 +15,6 @@ if ($material->Destroy()) {
   $BASE->Session()->SetFlash(['danger' => 'Error eliminando Material.']);
 }
 
-$BASE->Response()->RedirectAndExit('/inventario', BASE_RESPONSE_REDIRECT_OTHER);
+$BASE->Response()->RedirectAndExit('/admin/inventario', BASE_RESPONSE_REDIRECT_OTHER);
 
 ?>

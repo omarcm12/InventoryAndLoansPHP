@@ -25,6 +25,10 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`)
+VALUES
+  (1, 'Juan', 'Perez', 'test@mail.com');
+
 
 
 DROP TABLE IF EXISTS `moves`;

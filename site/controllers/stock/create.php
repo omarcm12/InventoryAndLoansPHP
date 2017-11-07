@@ -1,5 +1,9 @@
 <?php /* controllers/admin/transactions/create */
 
+if ($BASE->Session()->LoggedOut()) {
+  $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
+}
+
 $material = new Material();
 
 $postParams = $BASE->PostParam('material');
@@ -61,7 +65,7 @@ if ($material->Valid() && $material->Create()) {
 
     if (!move_uploaded_file($_FILES['image']['tmp_name']['filename'], $material->LocalPath())) {
       $BASE->Session()->SetFlash(['danger' => 'Error storing uploaded image. Verify folder permissions.']);
-      $BASE->Response()->RedirectAndExit('/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
+      $BASE->Response()->RedirectAndExit('/admin/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
     } else {      
       chmod($material->LocalPath(), BASE_UPLOADS_IMAGE_PERMISSION);
       $material->Update();
@@ -69,10 +73,10 @@ if ($material->Valid() && $material->Create()) {
   }
 
   	$BASE->Session()->SetFlash(['success' => 'Material creado.']);
-  	$BASE->Response()->RedirectAndExit('/inventario/', BASE_RESPONSE_REDIRECT_OTHER);
+  	$BASE->Response()->RedirectAndExit('/admin/inventario/', BASE_RESPONSE_REDIRECT_OTHER);
 }
 
 $BASE->Session()->SetFlash(['danger' => 'Error guardando el material.']);
-$BASE->Response()->RedirectAndExit('/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
+$BASE->Response()->RedirectAndExit('/admin/inventario/nuevo', BASE_RESPONSE_REDIRECT_OTHER);
 
 ?>

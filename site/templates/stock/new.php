@@ -20,10 +20,10 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <h4 class="title">Nuevo material</h4>
                 </div>
                 <div class="content">
-                    <form method="post" action="/inventario" accept-charset="UTF-8" enctype="multipart/form-data">
+                    <form method="post" action="/admin/inventario" accept-charset="UTF-8" enctype="multipart/form-data">
                         <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_form.php'); ?> 
                          
-                         <a type="button" href="/inventario" class="btn btn-info btn-fill pull-right btn-uabc-green" style = "margin-left: 10px" >Cancelar</a>
+                         <a type="button" href="/admin/inventario" class="btn btn-info btn-fill pull-right btn-uabc-green" style = "margin-left: 10px" >Cancelar</a>
 
                         <button type="submit" class="btn btn-info btn-fill pull-right btn-uabc-green">Crear material</button>
 
