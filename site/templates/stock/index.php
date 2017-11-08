@@ -6,6 +6,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
       
     <div class="col-md-12"> 
         <a href="/admin/inventario/nuevo" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 14px;">Crear material</a>
+        <a href="/admin/inventario/movimientos" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Movimientos</a>
        
         <form action="/admin/inventario/" method="get">
           <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" style="background-color:black;">

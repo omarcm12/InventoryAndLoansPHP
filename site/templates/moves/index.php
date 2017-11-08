@@ -5,8 +5,6 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
     <div class="row">
       
     <div class="col-md-12"> 
-        <a href="/admin/inventario/movimientos/nuevo" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 14px;">Nuevo movimiento</a>
-       
         <form action="/admin/inventario/movimientos/" method="get">
           <input type="text" id="move_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" style="background-color:black;">
           <input type="submit" class="btn btn-info btn-fill btn-uabc-green" value="Buscar">
@@ -33,7 +31,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                             <?php } else { ?>
                               <?php                              
                               foreach ($moves as $move) {                              
-                                include(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_list_item_movs.php');
+                                include(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_list_item.php');
                               }
                               ?>
                             <?php } ?>                            
