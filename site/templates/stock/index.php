@@ -8,9 +8,19 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         <a href="/admin/inventario/nuevo" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 14px;">Crear material</a>
         <a href="/admin/inventario/movimientos" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Movimientos</a>
        
-        <form action="/admin/inventario/" method="get">
-          <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" style="background-color:black;">
-          <input type="submit" class="btn btn-info btn-fill btn-uabc-green" value="Buscar">
+        <form id="search-form" action="/admin/inventario/" method="get">
+          <div class="input-group"> 
+            <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
+            <div class="input-group-btn"> 
+              <button type="button" class="btn btn-default" onclick="$('#search-form').submit()">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+              <button type="button" class="btn btn-default" onclick="$('#material_search').val('');$('#search-form').submit();">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button> 
+            </div> 
+          </div>          
+          <input type="submit" style="display: none" />
         </form>
     </div>
      

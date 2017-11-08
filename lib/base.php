@@ -5,6 +5,7 @@ if(count(get_included_files()) == 1) exit("Direct access not permitted.");
 require_once(BASE_LIB_FOLDER . 'vendor/inflector.php');
 require_once(BASE_LIB_FOLDER . 'vendor/password.php');
 require_once(BASE_LIB_FOLDER . 'vendor/normalizer.php');
+require_once(BASE_LIB_FOLDER . 'helpers/admin.php');
 require_once(BASE_LIB_FOLDER . 'helpers/site.php');
 require_once(BASE_LIB_FOLDER . 'db.php');
 require_once(BASE_LIB_FOLDER . 'model.php');
