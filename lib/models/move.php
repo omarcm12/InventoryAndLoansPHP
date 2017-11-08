@@ -43,7 +43,7 @@ class Move extends BaseModel {
   }  
 
   public function Type() {
-    return $type;
+    return $this->type;
   }
 
   public function NoOrder() {
@@ -56,7 +56,7 @@ class Move extends BaseModel {
 
   public function Valid() {
     if (empty($this->catalog_number_material)) { return false; }       
-    if (empty($this->id_user)) { return false; }    
+    //if (empty($this->id_user)) { return false; }    
     if (empty($this->type)) { return false; }
     if (empty($this->no_order)) { return false; }       
 

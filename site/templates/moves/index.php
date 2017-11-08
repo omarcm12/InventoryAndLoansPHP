@@ -23,6 +23,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                           <th>No catalogo</th>
                           <th>Tipo</th>
                           <th>Usuario</th>
+                          <th>Descripcion</th>
                           <th></th>
                         </thead>
                         <tbody>
@@ -31,7 +32,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                             <?php } else { ?>
                               <?php                              
                               foreach ($moves as $move) {                              
-                                include(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_list_item.php');
+                                include(BASE_SECTION_TEMPLATES_FOLDER . 'moves/_list_item.php');
                               }
                               ?>
                             <?php } ?>                            

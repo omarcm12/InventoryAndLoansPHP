@@ -15,7 +15,7 @@ function FetchMoveWithID($id=0) {
     die($e->getMessage());
   }
 
-  return $material;
+  return $move;
 }
 
 function MovesCount() {

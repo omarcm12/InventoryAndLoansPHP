@@ -3,8 +3,7 @@
   <td><?= $move->CatalogNumberMaterial() ?></td>  
   <td><?= $move->Type() ?></td>
   <td><?= $move->IdUser() ?></td>
-  <td>0</td>
-  <td><?= '$'. $move->PricePerUnit() / 100 ?></td>  
+  <td><?= $move->Description() ?></td>
   <td>
   	<a href="/admin/inventario/movimientos/<?= $move->ID()?>" class="btn btn-info btn-sm btn-fill btn-uabc-green">Editar</a>
   	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-<?= $move->ID()?>">Eliminar</a>

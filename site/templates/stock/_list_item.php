@@ -59,13 +59,13 @@
       <div class="modal-body">
         <form action="/admin/inventario/movimientos/new/<?= $material->ID()?>" method="post">
         <label>Material</label>
-        <input id="txtTitleEdit" name="name" type="text" placeholder="Title" class="form-control" value="<?= $material->Name()?>" disabled>
+        <input id="txtTitleEdit" name="move[]" type="text" placeholder="Title" class="form-control" value="<?= $material->Name()?>" disabled>
         <label>Numero de catalogo</label>
-        <input id="txtTitleEdit" name="name" type="text" placeholder="Title" class="form-control" value="<?= $material->CatalogNumber()?>" disabled>
+        <input id="txtTitleEdit" name="move[catalog_number_material]" type="text" placeholder="Title" class="form-control" value="<?= $material->CatalogNumber()?>" disabled>
         <label>Usuario</label>
         <input id="txtTitleEdit" name="name" type="text" placeholder="Title" class="form-control" value="El brayan" disabled>
         <label>Tipo</label>
-        <input id="txtTitleEdit" name="name" type="text" placeholder="Title" class="form-control" value="Alta" disabled>
+        <input id="txtTitleEdit" name="type" type="text" placeholder="Title" class="form-control" value="Alta" disabled>
         <label>Numero de orden</label>
         <input id="txtTitleEdit" name="name" type="text" placeholder="Numero de orden" class="form-control">
         <label>Numero de piezas</label>
