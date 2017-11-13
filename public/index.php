@@ -4,7 +4,11 @@ require_once(BASE_INSTALL_FOLDER . 'site.php');
 
 $routes = [  
   'GET:/' => 'index/index',
+  'GET:/login' => 'index/indexalumnos',
+  'GET:/alumnos/singup' => 'alumnos/registro',
   'GET:/admin' => 'index/menu',
+  'GET:/admin/alumnos' => 'index/menualumnos',
+  'GET:/admin/alumnos/infopersonal' => 'alumnos/infopersonal',
   'GET:/admin/inventario' => 'stock/index',
   'GET:/admin/inventario/nuevo' => 'stock/new',
   'GET:/admin/inventario/buscar' => 'stock/search',

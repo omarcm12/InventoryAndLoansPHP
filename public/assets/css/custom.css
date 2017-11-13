@@ -930,8 +930,6 @@ box-shadow: none;
   margin: 0 auto;
 }
 
-
-
 .login-link {
   font-size: 12px;
   color: #444;
@@ -1019,4 +1017,8 @@ input{
 
 .input-group-btn{
   float: left; 
+}
+
+.singup-form{
+  margin: 10px;
 }
