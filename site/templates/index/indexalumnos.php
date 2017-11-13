@@ -28,9 +28,9 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header_login.php');
 					<button type="submit" id="btn-login" class="btn btn-primary btn-large btn-block" >Iniciar Sesion</button>						
 				</div>
 				</form>
-				<form method="post" action="/alumnos/singup" accept-charset="UTF-8">
-					<button type="submit" id="btn-login" class="btn btn-primary btn-large btn-block" style="margin-top: 10px; background-color: #ff4330;">Registrarse</button>
-				</form>
+	
+					<a href="/alumnos/singup" type="submit" id="btn-login" class="btn btn-primary btn-large btn-block" style="margin-top: 10px; background-color: #ff4330;">Registrarse</a>
+				
 			</div>
 		</div>
 	</div>
