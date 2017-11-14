@@ -2,6 +2,9 @@
 
 if(count(get_included_files()) == 1) exit("Direct access not permitted.");
 
+define('MATERIAL_STATUS_NORMAL', 0);
+define('MATERIAL_STATUS_OVERAGE', 1);
+define('MATERIAL_STATUS_SHORTAGE', 2);
 
 class Material extends BaseModel {
   public $name;
@@ -50,8 +53,8 @@ class Material extends BaseModel {
     return $this->description;
   }
 
-  public function TotalCount(){
-    return $this->total_count;
+  public function StockCount(){
+    return $this->stock_count;
   }
 
   public function StockMin(){
@@ -64,6 +67,26 @@ class Material extends BaseModel {
 
   public function PricePerUnit(){
     return $this->price_per_unit;
+  }
+
+  public function StatusName(){
+    $status = "Normal";
+    if($this->stock_count < $this->stock_min){
+      $status = "Escaso";
+    }else if($this->stock_count > $this->stock_max){
+      $status = "Exceso";
+    }
+    return $status;
+  }
+
+  public function StatusLabel(){
+    $status = "normal";
+    if($this->stock_count < $this->stock_min){
+      $status = "danger";
+    }else if($this->stock_count > $this->stock_max){
+      $status = "overage";
+    }
+    return $status;
   }
 
   public function Valid() {

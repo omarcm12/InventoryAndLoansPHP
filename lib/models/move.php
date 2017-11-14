@@ -2,6 +2,8 @@
 
 if(count(get_included_files()) == 1) exit("Direct access not permitted.");
 
+define('MOVE_TYPE_REMOVE', 0);
+define('MOVE_TYPE_ADD', 1);
 
 class Move extends BaseModel {
   public $catalog_number_material;
