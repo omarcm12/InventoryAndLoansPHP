@@ -5,10 +5,14 @@
 
 <?php
   if (empty($custom_js_plugins)) { $custom_js_plugins = []; }  
+  if (empty($js_assets)) { $js_assets = []; }  
 ?>
 <?php foreach ($custom_js_plugins as $js) { ?>
 <script src="<?= BASE_PLUGIN_ASSETS_PATH . $js ?>" type="text/javascript"></script>
 <?php } ?>
 
+<?php foreach ($js_assets as $js) { ?>
+<script src="<?= BASE_JS_ASSETS_PATH . $js ?>" type="text/javascript"></script>
+<?php } ?>
 </body>
 </html>

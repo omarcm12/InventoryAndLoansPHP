@@ -14,6 +14,7 @@ $routes = [
   'GET:/admin/inventario/buscar' => 'stock/search',
   'GET:/admin/inventario/movimientos' => 'moves/index',
   'POST:/admin/inventario/movimientos/new/(\d+)' => 'moves/create',
+  'POST:/admin/movimientos/create' => 'moves/create_api',
   'POST:/admin/inventario' => 'stock/create',
   'GET:/admin/inventario/(\d+)' => 'stock/edit',
   'POST:/admin/inventario/(\d+)' => 'stock/update',

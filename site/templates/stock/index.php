@@ -1,4 +1,9 @@
 <?php /* templates/admin/sessions/new */
+
+$js_assets = [
+  "moves/create_api.js"
+];
+
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
@@ -58,4 +63,6 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         </div>
     </div>
 </div>
+
+<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_modal_moves.php'); ?>
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
