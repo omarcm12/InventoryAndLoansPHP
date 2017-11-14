@@ -1,21 +1,19 @@
 <tr>
   <td><?= $material->CatalogNumber() ?></td>  
   <td><?= $material->Name() ?></td>
-  <td><?= $material->TotalCount() ?></td>
-  <td>0</td>
+  <td class="total-material">
+    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+    <span><?= $material->StockCount() ?></span>
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>    
+  </td>
+  <td>0</td>  
   <td><?= '$'. $material->PricePerUnit() / 100 ?></td>  
+  <td>    
+    <span class="label label-<?= $material->StatusLabel() ?>"><?= $material->StatusName() ?></span>
+  </td>
   <td>
   	<a href="/admin/inventario/<?= $material->ID()?>" class="btn btn-info btn-sm btn-fill btn-uabc-green">Editar</a>
-  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-<?= $material->ID()?>">Eliminar</a>
-    
-    <a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#AddMaterial" data-toggle="tooltip" title="Añadir piezas">
-    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-    </a>
-     
-     <a type="button" class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#deleteMaterial" data-toggle="tooltip" title="Quitar piezas">
-    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-    </a>
-
+  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-<?= $material->ID()?>">Eliminar</a>    
   </td>
 
   <!-- Modal -->

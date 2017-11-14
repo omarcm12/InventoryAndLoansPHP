@@ -32,11 +32,12 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                 <div class="content table-responsive table-full-width stock-list">
                     <table class="table table-hover table-striped">
                         <thead>
-                          <th>Num catalogo</th>
+                          <th>Núm catalogo</th>
                           <th>Nombre</th>
                           <th>En almacen</th>
                           <th>En prestamo</th>
-                          <th>costo</th>
+                          <th>Costo</th>
+                          <th>Estatus</th>
                           <th></th>
                         </thead>
                         <tbody>
