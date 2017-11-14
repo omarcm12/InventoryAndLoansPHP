@@ -10,7 +10,7 @@
       <div class="modal-body">
         <form id="create-move-form" method="post">
           <label>Material</label>
-          <input type="text" placeholder="Title" class="form-control" value="<?= $material->CatalogNumber(). " - " .$material->Name()?>" disabled>                            
+          <input type="text" placeholder="Title" class="form-control" value="" disabled>                            
           <label>Número de orden</label>
           <input id="txtTitleEdit" name="move[no-order]" type="text" class="form-control">
           <label>Número de piezas</label>

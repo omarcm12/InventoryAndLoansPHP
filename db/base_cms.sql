@@ -19,15 +19,18 @@ CREATE TABLE `users` (
   `name` varchar(255) DEFAULT '',  
   `last_name` varchar(255) NOT NULL DEFAULT '',
   `email` varchar(255) DEFAULT NULL,  
+  `type` int(11) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),  
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `users` (`id`, `name`, `last_name`, `email`)
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `type`)
 VALUES
-  (1, 'Juan', 'Perez', 'test@mail.com');
+  (1, 'Juan', 'Perez', 'test@mail.com', 0),
+  (2, 'Cristian', 'Martinez', 'alumno@mail.com', 1);
+
 
 
 
@@ -55,8 +58,6 @@ CREATE TABLE `materials` (
 CREATE TABLE `moves` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_material` int(11) unsigned NOT NULL, 
-  `catalog_number_material` varchar(255) DEFAULT '',
-  `name_material` varchar(255) DEFAULT '',
   `pieces` int(11) unsigned NOT NULL,
   `id_user` int(11) unsigned NOT NULL,
   `type` varchar(10) DEFAULT '', 

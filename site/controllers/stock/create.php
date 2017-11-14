@@ -2,6 +2,8 @@
 
 if ($BASE->Session()->LoggedOut()) {
   $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
+}else if(!adminCurrentUser()->IsAdmin()) {
+  $BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
 $material = new Material();
@@ -11,14 +13,14 @@ if (empty($postParams)) { $postParams = []; }
 
 $material->name = $postParams['name'];
 $material->description = $postParams['description'];
-$material->stock_count = $postParams['stock_count'];
+$material->total_count = $postParams['total_count'];
 $material->stock_min = $postParams['stock_min'];
 $material->stock_max = $postParams['stock_max'];
 $material->catalog_number = $postParams['catalog_number'];
 $material->price_per_unit = $postParams['price_per_unit'];
 $material->price_per_unit = $postParams['price_per_unit'];
 
-
+error_log(print_r($material, true));
 if ($material->Valid() && $material->Create()) {			
 
   $has_image = false;  

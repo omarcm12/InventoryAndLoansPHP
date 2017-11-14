@@ -69,11 +69,15 @@ class Material extends BaseModel {
     return $this->price_per_unit;
   }
 
+  public function TotalCount(){
+    return $this->total_count;
+  }
+
   public function StatusName(){
     $status = "Normal";
-    if($this->stock_count < $this->stock_min){
+    if($this->total_count < $this->stock_min){
       $status = "Escaso";
-    }else if($this->stock_count > $this->stock_max){
+    }else if($this->total_count > $this->stock_max){
       $status = "Exceso";
     }
     return $status;
@@ -81,9 +85,9 @@ class Material extends BaseModel {
 
   public function StatusLabel(){
     $status = "normal";
-    if($this->stock_count < $this->stock_min){
+    if($this->total_count < $this->stock_min){
       $status = "danger";
-    }else if($this->stock_count > $this->stock_max){
+    }else if($this->total_count > $this->stock_max){
       $status = "overage";
     }
     return $status;

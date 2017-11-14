@@ -20,7 +20,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Cantidad</label>
-            <input type="number" class="form-control" name="material[stock_count]" id="material_stock" value="<?= $material->StockCount() ?>" >
+            <input type="number" class="form-control" name="material[total_count]" id="material_total_count" value="<?= $material->TotalCount() ?>" >
         </div>
     </div>                            
     <div class="col-md-6">

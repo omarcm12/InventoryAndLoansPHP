@@ -17,7 +17,6 @@ class AdminHelpers {
 function adminCurrentUser() {
   global $BASE;
 
-  error_log(print_r($BASE->Session()->CurrentUser(), true));
   return $BASE->Session()->CurrentUser();
 }
 

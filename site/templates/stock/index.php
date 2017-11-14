@@ -47,7 +47,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         </thead>
                         <tbody>
                             <?php if (count($materials) == 0) { ?>
-                            <tr><td colspan="6"><h4 class="text-center">No hay materiales disponible.</h4></td></tr>
+                            <tr><td colspan="7"><h4 class="text-center">No hay materiales disponible.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
                               foreach ($materials as $material) {                              

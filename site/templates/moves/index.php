@@ -21,7 +21,6 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <table class="table table-hover table-striped">
                         <thead>
                           <th>Num orden</th>
-                          <th>No catalogo</th>
                           <th>Material</th>
                           <th>Tipo</th>
                           <th>Usuario</th>

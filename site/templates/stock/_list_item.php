@@ -3,7 +3,7 @@
   <td><?= $material->Name() ?></td>
   <td class="total-material">
     <i class="fa fa-minus-circle" aria-hidden="true" onclick="showCreateMoveModal(<?=MOVE_TYPE_REMOVE?>,<?= $material->ID()?>)"></i>
-    <span><?= $material->StockCount() ?></span>
+    <span><?= $material->TotalCount() ?></span>
     <i class="fa fa-plus-circle" aria-hidden="true" onclick="showCreateMoveModal(<?=MOVE_TYPE_ADD?>,<?= $material->ID()?>)"></i>    
   </td>
   <td>0</td>  
@@ -12,7 +12,7 @@
     <span class="label label-<?= $material->StatusLabel() ?>"><?= $material->StatusName() ?></span>
   </td>
   <td>
-  	<a href="/admin/inventario/<?= $material->ID()?>" class="btn btn-info btn-sm btn-fill btn-uabc-green">Editar</a>
+  	<a style="margin-left: 10px" href="/admin/inventario/<?= $material->ID()?>" class="btn btn-info btn-sm btn-fill btn-uabc-green">Editar</a>
   	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-<?= $material->ID()?>">Eliminar</a>    
   </td>
 

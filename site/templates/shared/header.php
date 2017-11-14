@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/admin">
+                    <a class="navbar-brand" href="<?= adminCurrentUser()->IsAdmin() ? '/admin' : '/alumnos' ?>">
                       <img class="logo-nav" src="<?= BASE_IMAGE_ASSETS_PATH ?>logo-small.png" >
                       <h3>Almacen de Química</h3><br>
                       <span>FACULTAD DE CIENCIAS QUÍMICAS E INGENIERÍA</span>
@@ -47,7 +47,7 @@
                           </ul>
                     
 
-                         <!--  <ul class="nav navbar-nav navbar-right">
+                          <ul class="nav navbar-nav navbar-right">
                     
                             <li class="dropdown">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -69,7 +69,7 @@
                             </li>
                            
                       <li class="separator hidden-lg hidden-md"></li>
-                        </ul> -->
+                        </ul>
                 </div>
             </div>
         </nav>

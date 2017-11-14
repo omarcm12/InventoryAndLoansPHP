@@ -1,6 +1,5 @@
 <tr>
-  <td><?= $move->NoOrder() ?></td> 
-  <td><?= $move->CatalogNumberMaterial() ?></td>  
+  <td><?= $move->NoOrder() ?></td>   
   <td><?= $move->Type() ?></td>
   <td><?= $move->IdUser() ?></td>
   <td><?= $move->Description() ?></td>

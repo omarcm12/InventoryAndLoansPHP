@@ -6,30 +6,26 @@ define('MOVE_TYPE_REMOVE', 0);
 define('MOVE_TYPE_ADD', 1);
 
 class Move extends BaseModel {
-  public $catalog_number_material;
   public $id_user;
   public $type;
   public $no_order;  
   public $description;
   public $pieces;
-  public $name_material;
 
 
   public function AttributesForCreate() {
-    return [
-      'catalog_number_material' => PDO::PARAM_STR,      
+    return [   
       'id_user' => PDO::PARAM_STR,
       'type' => PDO::PARAM_STR,
       'no_order' => PDO::PARAM_STR,
       'description' => PDO::PARAM_STR,
       'pieces' => PDO::PARAM_STR,
-      'name_material' => PDO::PARAM_STR                  
+               
     ];
   }
 
   public function AttributesForUpdate() {
     return [
-      'catalog_number_material' => PDO::PARAM_STR,      
       'id_user' => PDO::PARAM_STR,
       'type' => PDO::PARAM_STR,
       'no_order' => PDO::PARAM_STR
@@ -38,10 +34,6 @@ class Move extends BaseModel {
 
   public function AttributesWithTimestamps() {
     return true;
-  }
-
-  public function CatalogNumberMaterial() {
-    return $this->catalog_number_material;
   }
 
   public function IdUser() {
@@ -64,15 +56,12 @@ class Move extends BaseModel {
     return $this->description;
   }
 
-  public function NameMaterial(){
-    return $this->name_material;
-  }
 
-  public function Valid() {
-    if (empty($this->catalog_number_material)) { return false; }       
-    //if (empty($this->id_user)) { return false; }    
+  public function Valid() {     
+    if (empty($this->id_user)) { return false; }    
     if (empty($this->type)) { return false; }
     if (empty($this->no_order)) { return false; }       
+    if (empty($this->pieces)) { return false; }
 
     return true;
   }
