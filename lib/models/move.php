@@ -9,6 +9,8 @@ class Move extends BaseModel {
   public $type;
   public $no_order;  
   public $description;
+  public $pieces;
+  public $name_material;
 
 
   public function AttributesForCreate() {
@@ -17,7 +19,9 @@ class Move extends BaseModel {
       'id_user' => PDO::PARAM_STR,
       'type' => PDO::PARAM_STR,
       'no_order' => PDO::PARAM_STR,
-      'description' => PDO::PARAM_STR                  
+      'description' => PDO::PARAM_STR,
+      'pieces' => PDO::PARAM_STR,
+      'name_material' => PDO::PARAM_STR                  
     ];
   }
 
@@ -42,6 +46,10 @@ class Move extends BaseModel {
     return $this->id_user;
   }  
 
+  public function Pieces() {
+    return $this->pieces;
+  } 
+
   public function Type() {
     return $this->type;
   }
@@ -52,6 +60,10 @@ class Move extends BaseModel {
 
   public function Description(){
     return $this->description;
+  }
+
+  public function NameMaterial(){
+    return $this->name_material;
   }
 
   public function Valid() {

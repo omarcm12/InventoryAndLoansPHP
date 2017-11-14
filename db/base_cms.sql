@@ -56,6 +56,8 @@ CREATE TABLE `moves` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_material` int(11) unsigned NOT NULL, 
   `catalog_number_material` varchar(255) DEFAULT '',
+  `name_material` varchar(255) DEFAULT '',
+  `pieces` int(11) unsigned NOT NULL,
   `id_user` int(11) unsigned NOT NULL,
   `type` varchar(10) DEFAULT '', 
   `no_order` varchar(255) DEFAULT '',    

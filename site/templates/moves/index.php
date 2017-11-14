@@ -21,9 +21,11 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         <thead>
                           <th>Num orden</th>
                           <th>No catalogo</th>
+                          <th>Material</th>
                           <th>Tipo</th>
                           <th>Usuario</th>
                           <th>Descripcion</th>
+                          <th>Fecha</th>
                           <th></th>
                         </thead>
                         <tbody>

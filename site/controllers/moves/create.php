@@ -5,14 +5,15 @@ if ($BASE->Session()->LoggedOut()) {
 }
 
 $move = new Move();
-
+$id = $BASE->RouteParam(0);
 $postParams = $BASE->PostParam('move');
 if (empty($postParams)) { $postParams = []; }
 
-$move->id_material = $postParams['id_material'];
+$move->id_material = $id;
 $move->catalog_number_material = $postParams['catalog_number_material'];
-//$move->id_user = $postParams['id_user'];
+$move->id_user = $postParams['id_user'];
 $move->type = $postParams['type'];
+$move->pieces = $postParams['pieces'];
 $move->no_order = $postParams['no_order'];
 $move->description = $postParams['description'];
 
