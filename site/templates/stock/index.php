@@ -11,7 +11,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
       
     <div class="col-md-12"> 
         <a href="/admin/inventario/nuevo" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 14px;">Crear material</a>
-        <a href="/admin/inventario/movimientos" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Movimientos</a>
+        <a href="/admin/movimientos" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Movimientos</a>
        
         <form id="search-form" action="/admin/inventario/" method="get">
           <div class="input-group"> 
