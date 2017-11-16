@@ -11,23 +11,43 @@ $move = new Move();
 $postParams = $BASE->PostParam('move');
 if (empty($postParams)) { $postParams = []; }
 
-//$move->id_material = $postParams['id_material'];
-// $move->catalog_number_material = $postParams['catalog_number_material'];
+$move->id_material = $postParams['id_material'];
 $move->id_user = adminCurrentUser()->ID();
-// $move->type = $postParams['type'];
-// $move->no_order = $postParams['no_order'];
-// $move->description = $postParams['description'];
+$move->type = $postParams['type'];
+$move->no_order = $postParams['no-order'];
+$move->description = $postParams['description'];
+$move->pieces = $postParams['pieces'];
 
 if (!$move->Valid()) {
-  $BASE->Response()->RenderJSON(['result' => 'Error, por favor revisa la información']);
+  $BASE->Response()->RenderJSON([
+  	'errorCode' => 1,
+  	'result' => 'Error, favor de llenar todos los campos'
+  	]);
   exit();
 }
 
 if (!$move->Create()) {
-  $BASE->Response()->RenderJSON(['result' => 'Error al crear movimiento, intentalo mas tarde.']);
+  $BASE->Response()->RenderJSON([
+  	'errorCode' => 1,
+  	'result' => 'Error al crear movimiento, intentalo mas tarde.'
+  	]);
   exit();
 }
 
+$material = FetchMaterialWithID($move->id_material);
+$material->total_count += $move->pieces * ($move->type == MOVE_TYPE_ADD ? 1 : -1);
 
-$BASE->Response()->RenderJSON(['result' => 'OK']);
+if (!$material->Update()) {
+  $move->Destroy();
+  $BASE->Response()->RenderJSON([
+    'errorCode' => 1,
+    'result' => 'Error al crear movimiento, intentalo mas tarde.'
+    ]);
+  exit();
+}
+
+$BASE->Response()->RenderJSON([
+	'errorCode' => 0,
+	'result' => 'Movimiento creado'
+	]);
 ?>
