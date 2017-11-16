@@ -13,6 +13,8 @@ class Move extends BaseModel {
   public $description;
   public $pieces;
 
+  private $material;
+  private $user;
 
   public function AttributesForCreate() {
     return [   
@@ -50,12 +52,30 @@ class Move extends BaseModel {
     return $this->type;
   }
 
+  public function TypeName() {
+    return $this->type == MOVE_TYPE_ADD ? "Alta" : "Baja";
+  }
+
   public function NoOrder() {
     return $this->no_order;
   }
 
   public function Description(){
     return $this->description;
+  }
+
+  public function Material(){
+    if(empty($material)){
+      $material = FetchMaterialWithID($this->id_material);
+    }
+    return $material;
+  }
+
+  public function User(){
+    if(empty($user)){
+      $user = FetchUserWithID($this->id_user);
+    }
+    return $user;
   }
 
   public function Valid() {     

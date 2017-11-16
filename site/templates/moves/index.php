@@ -6,9 +6,20 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
     <div class="row">
       
     <div class="col-md-12"> 
-        <form action="/admin/inventario/movimientos/" method="get">
-          <input type="text" id="move_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" style="background-color:black;">
-          <input type="submit" class="btn btn-info btn-fill btn-uabc-green" value="Buscar">
+        <form id="search-form" action="/admin/movimientos/" method="get">
+          <div class="input-group"> 
+            <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
+            <div class="input-group-btn"> 
+              <button type="button" class="btn btn-default" onclick="$('#search-form').submit()">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+              <button type="button" class="btn btn-default" onclick="$('#material_search').val('');$('#search-form').submit();">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button> 
+            </div> 
+          </div>          
+          <input type="submit" style="display: none" />
+          <br>
         </form>
     </div>
      
@@ -22,15 +33,16 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         <thead>
                           <th>Num orden</th>
                           <th>Material</th>
+                          <th>Piezas</th>
                           <th>Tipo</th>
                           <th>Usuario</th>
                           <th>Descripcion</th>
                           <th>Fecha</th>
-                          <th></th>
+                          
                         </thead>
                         <tbody>
                             <?php if (count($moves) == 0) { ?>
-                            <tr><td colspan="6"><h4 class="text-center">No hay movimientos disponible.</h4></td></tr>
+                            <tr><td colspan="6"><h4 class="text-center">No hay movimientos disponibles.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
                               foreach ($moves as $move) {                              
