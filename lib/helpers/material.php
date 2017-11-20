@@ -33,16 +33,21 @@ function MaterialsCount() {
   return $count;
 }
 
-function FetchAllMaterials($page = 1, $per = 20, $search = "") {
+function FetchAllMaterials($page = 1, $per = 20, $search = "", $sort = 0) {
   global $BASE;
-
   $page = intval($page);
   if ($page < 1) { $page = 1; }
 
   $offset = $per * ($page - 1);
 
   try {
-    $stmt = $BASE->DB()->query("SELECT * FROM `materials` WHERE `name` LIKE '%$search%' OR `catalog_number` LIKE '%$search%' ORDER BY `id` DESC LIMIT $per OFFSET $offset;");
+    $stmt = $BASE->DB()->query("SELECT *, 
+      (CASE
+        WHEN `total_count` < `stock_min` THEN 2
+        WHEN `total_count` > `stock_max` THEN 1
+        ELSE 0
+      END) as `status`
+      FROM `materials` WHERE `name` LIKE '%$search%' OR `catalog_number` LIKE '%$search%' ". SortParamsMaterial($sort). " LIMIT $per OFFSET $offset;");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Material');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {
@@ -51,5 +56,11 @@ function FetchAllMaterials($page = 1, $per = 20, $search = "") {
   }
 
   return $results;
+}
+
+function SortParamsMaterial($id){
+  $sorts = array("catalog_number", "name", "status");  
+  $sortType = $id & 0x1 == 1 ? "DESC" : "ASC";
+  return "ORDER BY `" . $sorts[ ($id >> 1) & 0x3] . "` " . $sortType;
 }
 ?>

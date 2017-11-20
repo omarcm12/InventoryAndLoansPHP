@@ -37,12 +37,27 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                 <div class="content table-responsive table-full-width stock-list">
                     <table class="table table-hover table-striped">
                         <thead>
-                          <th>Núm catalogo</th>
-                          <th>Nombre</th>
+                          <th>
+                            Núm catalogo                             
+                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_CATALOG << 1) + ($sort_type == 1 ? 0 : 1)?>">
+                              <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_CATALOG ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
+                            </a>                           
+                          </th>
+                          <th>                            
+                            Nombre 
+                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_NAME << 1) + ($sort_type == 1 ? 0 : 1)?>">
+                            <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_NAME ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
+                            </a>                           
+                          </th>
                           <th>En almacen</th>
                           <th>En prestamo</th>
                           <th>Costo</th>
-                          <th>Estatus</th>
+                          <th>
+                            Estatus
+                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_STATUS << 1) + ($sort_type == 1 ? 0 : 1)?>">
+                            <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_STATUS ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
+                            </a>                           
+                          </th>
                           <th></th>
                         </thead>
                         <tbody>

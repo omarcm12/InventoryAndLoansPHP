@@ -6,6 +6,10 @@ define('MATERIAL_STATUS_NORMAL', 0);
 define('MATERIAL_STATUS_OVERAGE', 1);
 define('MATERIAL_STATUS_SHORTAGE', 2);
 
+define('MATERIAL_SORT_CATALOG', 0); // default
+define('MATERIAL_SORT_NAME', 1);
+define('MATERIAL_SORT_STATUS', 2);
+
 class Material extends BaseModel {
   public $name;
   public $description;
@@ -16,7 +20,7 @@ class Material extends BaseModel {
   public $borrowed_count;  
   public $total_count;  
   public $price_per_unit;  
-  public $image_path; 
+  public $image_path;   
 
   public function AttributesForCreate() {
     return [
