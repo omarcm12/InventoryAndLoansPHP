@@ -20,6 +20,7 @@ $routes = [
 
   'GET:/alumnos' => 'alumnos/menu',
   'GET:/alumnos/infopersonal' => 'alumnos/infopersonal',
+  'GET:/alumnos/prestamos' => 'alumnos/prestamos',
 
   'GET:/logout' => 'index/logout',
   'POST:/login' => 'index/login',
