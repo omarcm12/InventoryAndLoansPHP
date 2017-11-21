@@ -39,13 +39,13 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         <thead>
                           <th>
                             Núm catalogo                             
-                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_CATALOG << 1) + ($sort_type == 1 ? 0 : 1)?>">
+                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_CATALOG << 1) + ($sort_type == 1 ? 0 : 1)?>&s=<?= $search_default_value ?>">
                               <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_CATALOG ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
                             </a>                           
                           </th>
                           <th>                            
                             Nombre 
-                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_NAME << 1) + ($sort_type == 1 ? 0 : 1)?>">
+                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_NAME << 1) + ($sort_type == 1 ? 0 : 1)?>&s=<?= $search_default_value ?>">
                             <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_NAME ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
                             </a>                           
                           </th>
@@ -54,7 +54,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                           <th>Costo</th>
                           <th>
                             Estatus
-                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_STATUS << 1) + ($sort_type == 1 ? 0 : 1)?>">
+                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_STATUS << 1) + ($sort_type == 1 ? 0 : 1)?>&s=<?= $search_default_value ?>">
                             <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_STATUS ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
                             </a>                           
                           </th>
