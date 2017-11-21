@@ -3,7 +3,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
     <div class="row">  
-        <form id="search-form" action="/admin/inventario/" method="get">
+        <form id="search-form" action="/alumnos/prestamos/" method="get">
           <div class="input-group"> 
             <input type="text" id="material_search" name="s" placeholder="Buscar" value="" class="form-control"> 
             <div class="input-group-btn"> 
