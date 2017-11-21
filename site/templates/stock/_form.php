@@ -19,7 +19,11 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>Cantidad</label>
+            <label>Cantidad 
+              <?php if (isset($is_edit)): ?>
+                <a href="/admin/movimientos?s=<?= $material->CatalogNumber() ?>"><small>(Ver Movimientos)</small></a>
+              <?php endif ?>              
+            </label>
             <input type="number" class="form-control" name="material[total_count]" id="material_total_count" value="<?= $material->TotalCount() ?>" >
         </div>
     </div>                            

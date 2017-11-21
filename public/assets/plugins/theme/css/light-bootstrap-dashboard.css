@@ -160,7 +160,7 @@ a {
 }
 a:hover, a:focus {
   color: #109853;;
-  text-decoration: none;
+  text-decoration: underline !important;
 }
 
 a:focus, a:active,

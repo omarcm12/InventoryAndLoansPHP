@@ -42,7 +42,7 @@ function FetchAllMoves($page = 1, $per = 20, $search = "") {
   $offset = $per * ($page - 1);
 
   try {
-    $stmt = $BASE->DB()->query("SELECT * FROM `moves` WHERE `no_order` LIKE '%$search%' OR `id_material` IN (SELECT `id` FROM `materials` WHERE `name` LIKE '%$search%') ORDER BY `id` DESC LIMIT $per OFFSET $offset;");
+    $stmt = $BASE->DB()->query("SELECT * FROM `moves` WHERE `no_order` LIKE '%$search%' OR `id_material` IN (SELECT `id` FROM `materials` WHERE `name` LIKE '%$search%') OR `id_material` IN (SELECT `id` FROM `materials` WHERE `catalog_number` LIKE '%$search%') ORDER BY `id` DESC LIMIT $per OFFSET $offset;");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Move');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {

@@ -11,6 +11,9 @@ if (empty($material)) {
   $BASE->Response()->ExitWithNotFound('Material not found.', 'Material: ' . $BASE->RouteParam(0));
 }
 
-$BASE->Response()->Render($BASE->Template(), ['material' => $material]);
+$BASE->Response()->Render($BASE->Template(), [
+	'material' => $material,
+	'is_edit' => true
+	]);
 
 ?>
