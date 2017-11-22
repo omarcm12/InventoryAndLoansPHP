@@ -4,11 +4,11 @@ if ($BASE->Session()->LoggedOut()) {
   $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
 }
 
-$moves = FetchAllMoves($BASE->GetParam('page'), 20, $BASE->GetParam('s'));
-$moves->SetResultsTotal(MovesCount());
+$loans = FetchAllLoans($BASE->GetParam('page'), 20, $BASE->GetParam('s'));
+$loans->SetResultsTotal(LoansCount());
 
 $vars = [
-	'moves' => $moves,
+	'loans' => $loans,
 	'search_default_value' => $BASE->GetParam('s')
 ];
 

@@ -20,7 +20,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         </div>
 
         <div class=" options col-lg-6" style="position:relative;">
-          <a href="#">
+          <a href="/admin/prestamos">
             <img class="img-responsive" src="<?= BASE_IMAGE_ASSETS_PATH ?>equipo.png" alt="" width = "100%" href = "#" >
           <div class="caption">
             <p>Prestamos</p>

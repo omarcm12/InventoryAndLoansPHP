@@ -15,7 +15,7 @@ function LoansCount() {
   return $count;
 }
 
-function FetchLoans($page = 1, $per = 20) {
+function FetchAllLoans($page = 1, $per = 20, $search, $status = LOAN_STATUS_WAITING) {
   global $BASE;
 
   $page = intval($page);
@@ -24,7 +24,8 @@ function FetchLoans($page = 1, $per = 20) {
   $offset = $per * ($page - 1);
 
   try {
-    $stmt = $BASE->DB()->query("SELECT * FROM `loans` ORDER BY `id` DESC LIMIT $per OFFSET $offset;");
+    error_log($status);
+    $stmt = $BASE->DB()->query("SELECT * FROM `loans` WHERE `status` = $status ORDER BY `id` DESC LIMIT $per OFFSET $offset;");    
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Loan');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {
