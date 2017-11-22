@@ -29,7 +29,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `type`)
 VALUES
   (1, 'Juan', 'Perez', 'test@mail.com', 0),
-  (2, 'Cristian', 'Martinez', 'alumno@mail.com', 1);
+  (2, 'Cristian', 'Martinez', 'alumno@mail.com', 1),
+  (3, 'Sergio', 'Jimenez', 'alumno2@mail.com', 1);
 
 
 

@@ -33,7 +33,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         <thead>
                           <th>ID</th>
                           <th>Alumno</th>                          
-                          
+                          <th></th>
                         </thead>
                         <tbody>
                             <?php if (count($loans) == 0) { ?>
@@ -53,4 +53,10 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         </div>
     </div>
 </div>
+
+<?php                              
+  foreach ($loans as $loan) {                              
+    include(BASE_SECTION_TEMPLATES_FOLDER . 'loan/_modal_deliver.php');
+  }
+?>
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
