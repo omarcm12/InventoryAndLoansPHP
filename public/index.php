@@ -21,6 +21,9 @@ $routes = [
   'GET:/alumnos' => 'alumnos/menu',
   'GET:/alumnos/infopersonal' => 'alumnos/infopersonal',
   'GET:/alumnos/prestamos' => 'alumnos/prestamos',
+  'POST:/alumnos/prestamo/agregar-material' => 'alumnos/loan/add',
+  'POST:/alumnos/prestamo/eliminar-material/(\d+)' => 'alumnos/loan/remove',
+  'POST:/alumnos/prestamo/confirmar/(\d+)' => 'alumnos/loan/confirm',
 
   'GET:/logout' => 'index/logout',
   'POST:/login' => 'index/login',

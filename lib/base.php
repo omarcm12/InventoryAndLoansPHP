@@ -18,6 +18,8 @@ require_once(BASE_LIB_FOLDER . 'user_session.php');
 require_once(BASE_MODELS_FOLDER . 'user.php');
 require_once(BASE_MODELS_FOLDER . 'material.php');
 require_once(BASE_MODELS_FOLDER . 'move.php');
+require_once(BASE_MODELS_FOLDER . 'loan.php');
+require_once(BASE_MODELS_FOLDER . 'loan_material.php');
 
 class BaseCMS {
   private $config;

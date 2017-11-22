@@ -64,6 +64,33 @@ CREATE TABLE `moves` (
   `no_order` varchar(255) DEFAULT '',    
   `description` text DEFAULT '', 
   `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`), 
   FOREIGN KEY (`id_material`) REFERENCES `materials` (`id`) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `loans`;
+
+CREATE TABLE `loans` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_student` int(11) unsigned NOT NULL,   
+  `id_employee` int(11) unsigned DEFAULT NULL,
+  `status` varchar(10) DEFAULT '',     
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `loan_materials`;
+
+CREATE TABLE `loan_materials` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_loan` int(11) unsigned NOT NULL,     
+  `id_material` int(11) unsigned NOT NULL,
+  `amount` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_loan_id_materialx` (`id_loan`,`id_material`),
+  UNIQUE KEY `id_material_id_loanx` (`id_material`, `id_loan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -3,6 +3,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
     <div class="row">  
+        <div class="col-md-12">
         <form id="search-form" action="/alumnos/prestamos/" method="get">
           <div class="input-group"> 
             <input type="text" id="material_search" name="s" placeholder="Buscar" value="" class="form-control"> 
@@ -17,6 +18,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
           </div>          
           <input type="submit" style="display: none" />
         </form>
+        </div>
     </div>
      
      <div class="row">
@@ -30,8 +32,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         <thead>
                           <th>Núm catalogo</th>
                           <th>Nombre</th>
-                          <th>En almacen</th>
-                          <th>En prestamo</th>
+                          <th>En almacen</th>                          
                           <th></th>
                         </thead>
                         <tbody>
@@ -53,11 +54,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         </div>
 
 		<div class="col-xs-4">
-			<div class="card leftBar">
-				<h3>Material solicitado</h3>
-				<br><br>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat velit 	praesentium nisi natus incidunt veritatis maxime blanditiis libero modi 	ut, omnis culpa ullam repudiandae molestias beatae ea deserunt aperiam 	sint!</p>
-			</div>
+			<?php include(BASE_SECTION_TEMPLATES_FOLDER . 'alumnos/loan_list.php'); ?>
 		</div>
      </div>
     </div>
