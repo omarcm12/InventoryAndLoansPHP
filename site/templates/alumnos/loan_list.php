@@ -9,7 +9,7 @@
             	<th></th>
             </tr></thead>
             <tbody>
-            	<?php foreach ($loan->Materials() as $loan_material): ?>                  	
+            	<?php foreach ($loan->LoanMaterials() as $loan_material): ?>                  	
                 <tr>                	
                 	<td><?= $loan_material->Material()->CatalogNumber() . " - " . $loan_material->Material()->Name()?></td>
                 	<td><?= $loan_material->Amount() ?></td>                	                	
@@ -24,10 +24,14 @@
                 	<input type="hidden" name="test">
 		          </form>
       			<?php endforeach ?>                       
+
+            <?php if (count($loan->LoanMaterials()) == 0): ?>
+               <tr><td colspan="3"><h4 class="text-center">Agrega los materiales de la lista.</h4></td></tr>
+            <?php endif ?>
             </tbody>
         </table>
 	</div>
-    <?php if (count($loan->Materials())): ?>
+    <?php if (count($loan->LoanMaterials())): ?>
       <a href="#" class="btn btn-info btn-fill pull-right" onclick="$('#confirm-loan').submit()">Solicitar Prestamo</a>  
     <?php endif ?>
   	

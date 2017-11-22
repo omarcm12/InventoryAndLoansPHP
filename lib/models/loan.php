@@ -46,7 +46,7 @@ class Loan extends BaseModel {
     return $this->status;
   }  
 
-  public function Materials(){
+  public function LoanMaterials(){
     if(is_null($this->materials))
       $this->materials = FetchLoanMaterialWithLoanID($this->ID());
     return $this->materials;
@@ -54,7 +54,7 @@ class Loan extends BaseModel {
 
   public function isInMaterials($material){
     $is_in = false;
-    foreach ($this->Materials() as $_material) {      
+    foreach ($this->LoanMaterials() as $_material) {      
       if($material->ID() == $_material->Material()->ID()) {
         $is_in = true;
         break;
