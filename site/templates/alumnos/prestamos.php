@@ -32,7 +32,8 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         <thead>
                           <th>Núm catalogo</th>
                           <th>Nombre</th>
-                          <th>En almacen</th>                          
+                          <th>En almacen</th> 
+                          <th>En Prestamo</th>                          
                           <th></th>
                         </thead>
                         <tbody>

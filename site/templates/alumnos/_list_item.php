@@ -2,9 +2,9 @@
   <td><?= $material->CatalogNumber() ?></td>  
   <td><?= $material->Name() ?></td>
   <td><?= $material->TotalCount() ?> </td>
-
+  <td><?= $material->BorrowedCount() ?> </td>
   <td>
-  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-foto">Ver foto</a> 
+  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-ver-foto-<?= $material->ID()?>">Ver foto</a> 
   	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" onclick="$('#add-material-<?= $material->ID() ?>').submit()" <?= $loan->isInMaterials($material) ? 'disabled' : ''?>>Agregar</a>    
     
     <form id="add-material-<?= $material->ID() ?>" action="/alumnos/prestamo/agregar-material" method="post" style="display:none">
@@ -17,7 +17,7 @@
 </tr>
 
 <!-- Modal -->
-  <div class="modal fade" id="modal-delete-foto" role="dialog">
+  <div class="modal fade" id="modal-ver-foto-<?= $material->ID()?>" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content -->
@@ -28,7 +28,7 @@
         </div>
         <div class="modal-body">
         <br>
-        <img src="<?= $material->Path() ?>" style="width:100%; margin-bottom:15px;">  
+        <img src="<?= $material->Path() ?>" style="width:100%; height:400px;  margin-bottom:15px;">  
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-info btn-sm btn-fill btn-uabc-green" data-dismiss="modal">Cerrar</button>
@@ -36,4 +36,4 @@
       </div>
       
     </div>
-  </div>
+  </div> 
