@@ -135,3 +135,9 @@
     padding: 5px 20px;
     text-align: center;
 }
+
+.in-table{
+	width: 100px;
+	background-color: #FFFFFF !important;
+	border: 1px solid #E3E3E3 !important;
+}

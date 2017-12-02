@@ -15,6 +15,11 @@ $loan_material->id_loan = $postParams['id-loan'];
 $loan_material->id_material = $postParams['id-material'];
 $loan_material->amount = $postParams['amount'];
 
+if($loan_material->amount < 1){
+	$BASE->Session()->SetFlash(['danger' => 'Es necesario que la cantidad del producto sea al menos de 1.']);
+	$BASE->Response()->RedirectAndExit('/alumnos/prestamos/', BASE_RESPONSE_REDIRECT_OTHER);
+}
+
 if ($loan_material->Valid() && $loan_material->Create()) {      
   $BASE->Response()->RedirectAndExit('/alumnos/prestamos/', BASE_RESPONSE_REDIRECT_OTHER);
 }
