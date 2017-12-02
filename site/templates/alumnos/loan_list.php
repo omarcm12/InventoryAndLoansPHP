@@ -12,7 +12,9 @@
             	<?php foreach ($loan->LoanMaterials() as $loan_material): ?>                  	
                 <tr>                	
                 	<td><?= $loan_material->Material()->CatalogNumber() . " - " . $loan_material->Material()->Name()?></td>
-                	<td><?= $loan_material->Amount() ?></td>                	                	
+                	<td>
+                    <input type="number" class="form-control" id="material_count_min" value="<?= $loan_material->Amount() ?>" style="height: 30px; width:80px; " >
+                                 	                	
                 	<td>
                 		<a href="#" onclick="$('#delete-material-<?= $loan_material->ID() ?>').submit()">
                 			<i class="fa fa-times-circle" aria-hidden="true"></i>

@@ -1,6 +1,7 @@
 <tr>
   <td><?= $material->CatalogNumber() ?></td>  
   <td><?= $material->Name() ?></td>
+
   <td><input id="amount-<?= $material->ID() ?>" type="number" class="form-control in-table" value="1"></td>
 
   <td>
@@ -17,7 +18,7 @@
 </tr>
 
 <!-- Modal -->
-  <div class="modal fade" id="modal-delete-foto" role="dialog">
+  <div class="modal fade" id="modal-ver-foto-<?= $material->ID()?>" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content -->
@@ -28,7 +29,7 @@
         </div>
         <div class="modal-body">
         <br>
-        <img src="<?= $material->Path() ?>" style="width:100%; margin-bottom:15px;">  
+        <img src="<?= $material->Path() ?>" style="width:100%; height:400px;  margin-bottom:15px;">  
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-info btn-sm btn-fill btn-uabc-green" data-dismiss="modal">Cerrar</button>
@@ -36,4 +37,4 @@
       </div>
       
     </div>
-  </div>
+  </div> 

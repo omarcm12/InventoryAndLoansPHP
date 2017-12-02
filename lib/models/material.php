@@ -49,6 +49,10 @@ class Material extends BaseModel {
     return $this->catalog_number;
   }
 
+  public function BorrowedCount(){
+    return $this->borrowed_count;
+  }
+
   public function Name(){
     return $this->name;
   }
