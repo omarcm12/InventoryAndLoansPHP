@@ -28,10 +28,22 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                 <div class="header">
                     <h3 class="title">Prestamos</h3>                       
                 </div>
+                <ul class="nav nav-tabs nav-tabs-right">
+                  <li role="presentation" <?= $filter == LOAN_STATUS_ENDED ? 'class="active"' : ''?> style="margin-right: 20px;">
+                    <a href="/admin/prestamos?s=<?= $search_default_value?>&f=<?= LOAN_STATUS_ENDED ?>">Finalizados</a>
+                  </li>
+                  <li role="presentation" <?= $filter == LOAN_STATUS_IN_PROGRESS ? 'class="active"' : ''?>>
+                    <a href="/admin/prestamos?s=<?= $search_default_value?>&f=<?= LOAN_STATUS_IN_PROGRESS ?>">En Curso</a>
+                  </li>
+                  <li role="presentation" <?= $filter == LOAN_STATUS_WAITING ? 'class="active"' : ''?>>
+                    <a href="/admin/prestamos?s=<?= $search_default_value?>&f=<?= LOAN_STATUS_WAITING ?>">Pendientes</a>
+                  </li>
+                </ul>
                 <div class="content table-responsive table-full-width stock-list">
                     <table class="table table-hover table-striped">
                         <thead>
-                          <th>ID</th>
+                          <th>ID de Prestamo</th>
+                          <th>Matrícula</th>
                           <th>Alumno</th>                          
                           <th></th>
                         </thead>

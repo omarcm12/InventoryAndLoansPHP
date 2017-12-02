@@ -4,6 +4,8 @@ if(count(get_included_files()) == 1) exit("Direct access not permitted.");
 
 define('LOAN_STATUS_DRAFT', 0);
 define('LOAN_STATUS_WAITING', 1);
+define('LOAN_STATUS_IN_PROGRESS', 2);
+define('LOAN_STATUS_ENDED', 3);
 
 class Loan extends BaseModel {
   public $id_student;

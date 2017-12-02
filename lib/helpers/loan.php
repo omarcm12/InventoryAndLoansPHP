@@ -15,17 +15,19 @@ function LoansCount() {
   return $count;
 }
 
-function FetchAllLoans($page = 1, $per = 20, $search, $status = LOAN_STATUS_WAITING) {
+function FetchAllLoans($page = 1, $per = 20, $search = "", $status = LOAN_STATUS_WAITING) {
   global $BASE;
 
   $page = intval($page);
   if ($page < 1) { $page = 1; }
-
   $offset = $per * ($page - 1);
 
-  try {
-    error_log($status);
-    $stmt = $BASE->DB()->query("SELECT * FROM `loans` WHERE `status` = $status ORDER BY `id` DESC LIMIT $per OFFSET $offset;");    
+  $search_numer = 0;
+  if(!empty($search) && is_numeric($search))  
+    $search_numer = (int) $search;
+
+  try {        
+    $stmt = $BASE->DB()->query("SELECT * FROM `loans` WHERE `status` = $status AND `id_student` IN (SELECT `id` FROM `users` WHERE `name` LIKE '%$search%' OR `last_name` LIKE '%$search%' OR `id` = $search_numer) ORDER BY `id` DESC LIMIT $per OFFSET $offset;");        
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Loan');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {
