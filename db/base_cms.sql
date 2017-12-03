@@ -61,8 +61,8 @@ CREATE TABLE `moves` (
   `id_material` int(11) unsigned NOT NULL, 
   `pieces` int(11) unsigned NOT NULL,
   `id_user` int(11) unsigned NOT NULL,
-  `type` varchar(10) DEFAULT '', 
-  `no_order` varchar(255) DEFAULT '',    
+  `type` varchar(10) DEFAULT '',
+  `no_order` varchar(255) DEFAULT '',
   `description` text DEFAULT '', 
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -75,9 +75,9 @@ DROP TABLE IF EXISTS `loans`;
 
 CREATE TABLE `loans` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `id_student` int(11) unsigned NOT NULL,   
+  `id_student` int(11) unsigned NOT NULL,
   `id_employee` int(11) unsigned DEFAULT NULL,
-  `status` varchar(10) DEFAULT '',     
+  `status` varchar(10) DEFAULT '',  
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -91,6 +91,8 @@ CREATE TABLE `loan_materials` (
   `id_loan` int(11) unsigned NOT NULL,     
   `id_material` int(11) unsigned NOT NULL,
   `amount` int(11) unsigned NOT NULL,
+  `returned_amount` int(11) unsigned NOT NULL,
+  `description` text DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_loan_id_materialx` (`id_loan`,`id_material`),
   UNIQUE KEY `id_material_id_loanx` (`id_material`, `id_loan`)

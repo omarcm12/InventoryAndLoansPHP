@@ -6,6 +6,8 @@ class LoanMaterial extends BaseModel {
   public $id_loan;
   public $id_material;
   public $amount;
+  public $description;
+  public $returned_amount;
 
   private $loan;
   private $material;
@@ -13,8 +15,10 @@ class LoanMaterial extends BaseModel {
   public function AttributesForCreate() {
     return [
       'id_loan' => PDO::PARAM_INT,      
-      'id_material' => PDO::PARAM_INT,      
-      'amount' => PDO::PARAM_INT                  
+      'id_material' => PDO::PARAM_INT, 
+      'description' => PDO::PARAM_INT,      
+      'amount' => PDO::PARAM_INT,
+      'returned_amount' => PDO::PARAM_INT                  
     ];
   }
 
@@ -36,6 +40,22 @@ class LoanMaterial extends BaseModel {
 
   public function Amount() {
     return $this->amount;
+  }
+
+  public function ReturnedAmount() {
+    return $this->returned_amount;
+  }
+
+  public function Description() {
+    return $this->description;
+  }
+
+  public function ShortDescription($length = 400) {
+    $blurb = $this->blurb;
+    if (empty($blurb)) {
+      $blurb = textTrim($this->body, $length, true, true);      
+    }
+    return $blurb;
   }
 
   public function Valid() {

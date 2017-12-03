@@ -49,7 +49,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         </thead>
                         <tbody>
                             <?php if (count($loans) == 0) { ?>
-                            <tr><td colspan="6"><h4 class="text-center">No hay pedidos disponibles.</h4></td></tr>
+                            <tr><td colspan="6"><h4 class="text-center">No hay prestamos disponibles.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
                               foreach ($loans as $loan) {                              
@@ -66,9 +66,27 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
     </div>
 </div>
 
+<?php if ($filter == LOAN_STATUS_WAITING): ?>
 <?php                              
   foreach ($loans as $loan) {                              
     include(BASE_SECTION_TEMPLATES_FOLDER . 'loan/_modal_deliver.php');
   }
 ?>
+<?php endif ?>
+
+<?php if ($filter == LOAN_STATUS_IN_PROGRESS): ?>
+<?php                              
+  foreach ($loans as $loan) {                              
+    include(BASE_SECTION_TEMPLATES_FOLDER . 'loan/_modal_return.php');
+  }
+?>
+<?php endif ?>
+
+<?php if ($filter == LOAN_STATUS_ENDED): ?>
+<?php                              
+  foreach ($loans as $loan) {                              
+    include(BASE_SECTION_TEMPLATES_FOLDER . 'loan/_modal_view.php');
+  }
+?>
+<?php endif ?>
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>

@@ -20,7 +20,7 @@ class Loan extends BaseModel {
     return [
       'id_student' => PDO::PARAM_INT,      
       'id_employee' => PDO::PARAM_INT,      
-      'status' => PDO::PARAM_INT                  
+      'status' => PDO::PARAM_INT      
     ];
   }
 
