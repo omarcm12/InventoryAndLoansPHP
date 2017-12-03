@@ -5,7 +5,7 @@
   <td><input id="amount-<?= $material->ID() ?>" type="number" class="form-control in-table" value="1"></td>
 
   <td>
-  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-foto">Ver foto</a> 
+  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-ver-foto-<?= $material->ID()?>">Ver foto</a> 
   	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" onclick="$('#move-amount-<?= $material->ID() ?>').val($('#amount-<?= $material->ID() ?>').val()); $('#add-material-<?= $material->ID() ?>').submit()" <?= $loan->isInMaterials($material) ? 'disabled' : ''?>>Agregar</a>    
     
     <form id="add-material-<?= $material->ID() ?>" action="/alumnos/prestamo/agregar-material" method="post" style="display:none">
@@ -29,7 +29,7 @@
         </div>
         <div class="modal-body">
         <br>
-        <img src="<?= $material->Path() ?>" style="width:100%; height:400px;  margin-bottom:15px;">  
+        <img src="<?= $material->Path() ?>" style="width:100%;  margin-bottom:15px;">  
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-info btn-sm btn-fill btn-uabc-green" data-dismiss="modal">Cerrar</button>
