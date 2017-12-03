@@ -58,13 +58,7 @@
 
                                   </a>
                                   <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">Configuraciones</a></li>                                  
                                   </ul>
                             </li>
                            
