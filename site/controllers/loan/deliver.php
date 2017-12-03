@@ -1,8 +1,8 @@
-<?php /* controllers/admin/categories/delete */
+<?php
 
 if ($BASE->Session()->LoggedOut()) {
   $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
-}else if(!adminCurrentUser()->IsStudent()) {
+}else if(!adminCurrentUser()->IsAdmin()) {
 	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
@@ -13,7 +13,7 @@ if (empty($loan)) {
 
 foreach ($loan->LoanMaterials() as $loan_material){
 	$send_loan_material = $_POST["loan-material"][$loan_material->ID()];
-	if($send_loan_material["amount"] == 0){
+	if($send_loan_material["amount"] == 0 || $send_loan_material["deliver"] == 0){
 		$loan_material->Destroy();
 	}else{
 		$loan_material->amount = $send_loan_material["amount"];
@@ -21,14 +21,14 @@ foreach ($loan->LoanMaterials() as $loan_material){
 	}
 }
 
-$loan->status = LOAN_STATUS_WAITING;
+$loan->status = LOAN_STATUS_IN_PROGRESS;
 
-if (!$loan->Update()) {
-  $BASE->Session()->SetFlash(['danger' => 'Error eliminando Material.']);
+if($loan->Update()){
+	$BASE->Session()->SetFlash(['success' => 'Prestamo entregado.']);
+	$BASE->Response()->RedirectAndExit('/admin/prestamos', BASE_RESPONSE_REDIRECT_OTHER);
 }else{
-	$BASE->Session()->SetFlash(['success' => 'Prestamo creado.']);
+	$BASE->Session()->SetFlash(['danger' => 'Error agregando material al prestamo.']);
+	$BASE->Response()->RedirectAndExit('/admin/prestamos', BASE_RESPONSE_REDIRECT_OTHER);
 }
-
-$BASE->Response()->RedirectAndExit('/alumnos/prestamos', BASE_RESPONSE_REDIRECT_OTHER);
 
 ?>

@@ -18,6 +18,7 @@ $routes = [
   'POST:/admin/inventario/(\d+)' => 'stock/update',
   'POST:/admin/inventario/borrar/(\d+)' => 'stock/delete',
   'GET:/admin/prestamos' => 'loan/index',
+  'POST:/admin/prestamos/entregar/(\d+)' => 'loan/deliver',
 
   'GET:/alumnos' => 'alumnos/menu',
   'GET:/alumnos/infopersonal' => 'alumnos/infopersonal',

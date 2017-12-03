@@ -9,23 +9,25 @@
             	<th></th>
             </tr></thead>
             <tbody>
-            	<?php foreach ($loan->LoanMaterials() as $loan_material): ?>                  	
+              <form id="confirm-loan" action="/alumnos/prestamo/confirmar/<?= $loan->ID()?>" method="post">                           
+            	<?php foreach ($loan->LoanMaterials() as $loan_material): ?>                  	              
                 <tr>                	
                 	<td><?= $loan_material->Material()->CatalogNumber() . " - " . $loan_material->Material()->Name()?></td>
                 	<td>
-                    <input type="number" class="form-control" id="material_count_min" value="<?= $loan_material->Amount() ?>" style="height: 30px; width:80px; " >
-                                 	                	
+                    <input type="number" name="loan-material[<?= $loan_material->ID()?>][amount]" class="form-control" id="material_count_min" value="<?= $loan_material->Amount() ?>" style="height: 30px; width:80px; " min="1" max="10">                                 	                	
                 	<td>
                 		<a href="#" onclick="$('#delete-material-<?= $loan_material->ID() ?>').submit()">
                 			<i class="fa fa-times-circle" aria-hidden="true"></i>
                 		</a>            
                 	</td>                	    
-                </tr>
-
-                <form id="delete-material-<?= $loan_material->ID() ?>" action="/alumnos/prestamo/eliminar-material/<?= $loan_material->ID()?>" method="post" style="display:none">		         		           
-                	<input type="hidden" name="test">
-		          </form>
+                </tr>                            
       			<?php endforeach ?>                       
+            </form>
+            <?php foreach ($loan->LoanMaterials() as $loan_material): ?>
+            <form id="delete-material-<?= $loan_material->ID() ?>" action="/alumnos/prestamo/eliminar-material/<?= $loan_material->ID()?>" method="post" style="display:none">                           
+                <input type="hidden" name="test">
+            </form>
+            <?php endforeach ?>                       
 
             <?php if (count($loan->LoanMaterials()) == 0): ?>
                <tr><td colspan="3"><h4 class="text-center">Agrega los materiales de la lista.</h4></td></tr>
@@ -38,8 +40,7 @@
     <?php endif ?>
   	
 
-  	<div class="clearfix"></div>
-    <form id="confirm-loan" action="/alumnos/prestamo/confirmar/<?= $loan->ID()?>" method="post" style="display:none">                           
+  	<div class="clearfix"></div>    
         
-    </form>
+    
 </div>
