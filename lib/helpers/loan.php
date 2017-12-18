@@ -57,6 +57,24 @@ function FetchLoanWithID($id=0) {
   return $user;
 }
 
+function FetchLoansWithStudentId($id_student=0){
+  global $BASE;
+  $loads = null;
+
+  try{
+       $stmt = $BASE->DB()->prepare("SELECT * FROM `loans` WHERE `id_student` = :id_student");
+    
+    $stmt->bindParam(':id_student', $id_student, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $loads = $stmt->fetchObject('Loan');
+  } catch(PDOException $e) {
+    die($e->getMessage());
+  }
+
+  return $loads;
+}
+
 function FetchLoanWithStudent($id_student=0, $status = LOAN_STATUS_DRAFT) {
   global $BASE;
 

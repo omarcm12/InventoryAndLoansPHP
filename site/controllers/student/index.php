@@ -1,16 +1,14 @@
 <?php
+
 if ($BASE->Session()->LoggedOut()) {
   $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
-}else if(!adminCurrentUser()->IsStudent()) {
+}else if(!adminCurrentUser()->IsAdmin()) {
 	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
-$user = FetchUserWithID(adminCurrentUser()->ID());
-$loads = FetchLoansWithStudentId(adminCurrentUser()->ID());
-$vars = [
-	'user' => $user,
-	'loads' => $loads
-];
+$students = FetchUsers($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $BASE->GetParam('o'));
+$students->SetResultsTotal(UsersCount());
+
 
 
 $BASE->Response()->Render($BASE->Template(), $vars);
