@@ -20,6 +20,7 @@ $routes = [
   'GET:/admin/prestamos' => 'loan/index',
   'POST:/admin/prestamos/entregar/(\d+)' => 'loan/deliver',
   'POST:/admin/prestamos/regresar/(\d+)' => 'loan/return',
+  'GET:/admin/alumnos' => 'student/index',
 
   'GET:/alumnos' => 'alumnos/menu',
   'GET:/alumnos/infopersonal' => 'alumnos/infopersonal',
