@@ -33,6 +33,39 @@ VALUES
   (3, 'Sergio', 'Jimenez', 'alumno2@mail.com', 1);
 
 
+DROP TABLE IF EXISTS `students`;
+CREATE TABLE `students` (
+  `id_student` int(11) unsigned DEFAULT 0,
+  `carrer` varchar(255) DEFAULT '',  
+  `semester` int(11) unsigned DEFAULT 0,
+  `enrollment` int(11) unsigned DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_student`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `students` (`id_student`, `carrer`, `semester`,`enrollment` )
+VALUES
+  (2, 'Ing Quimica', 4, 12321),
+  (3, 'Quimico Farmacobiologo', 6, 231234);
+
+DROP TABLE IF EXISTS `employees`;
+CREATE TABLE `employees` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,  
+  `num_employee` int(11) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `service`;
+CREATE TABLE `service` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 DROP TABLE IF EXISTS `moves`;

@@ -10,7 +10,6 @@ $custom_js_plugins = [
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="content">
-
         <div class="col-md-12">                      
             <div class="card">                        
                 <div class="header">

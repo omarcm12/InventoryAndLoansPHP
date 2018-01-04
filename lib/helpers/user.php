@@ -82,4 +82,6 @@ function imagesUploadFolderIsWriteable() {
   return is_writable(BASE_UPLOADS_FOLDER);
 }
 
+
+
 ?>

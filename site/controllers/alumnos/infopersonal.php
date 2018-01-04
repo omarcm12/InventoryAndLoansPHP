@@ -5,10 +5,11 @@ if ($BASE->Session()->LoggedOut()) {
 	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
-$user = FetchUserWithID(adminCurrentUser()->ID());
+$student = FetchStudentWithID(adminCurrentUser()->ID());
 $loads = FetchLoansWithStudentId(adminCurrentUser()->ID());
+
 $vars = [
-	'user' => $user,
+	'student' => $student,
 	'loads' => $loads
 ];
 
