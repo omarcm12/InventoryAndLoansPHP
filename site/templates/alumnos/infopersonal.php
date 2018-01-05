@@ -17,6 +17,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                 </div>
             <ul class="nav nav-tabs">
               <li class="active"><a href="#datos" data-toggle="tab">Mis datos</a></li>
+             
               <li><a href="#prestamos" data-toggle="tab">Mis prestamos</a></li>
               <li><a href="#adeudos" data-toggle="tab">Mis adeudos</a></li>
             </ul>
@@ -29,14 +30,20 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                 <button type="submit" class="btn btn-info btn-fill pull-right btn-uabc-green" style = "margin: 10px">Actualizar Informacion</button>
                 <div class="clearfix"></div>
               </form>
+
             </div>
+            
+         
 
             <div class="tab-pane fade" id="prestamos" class="card">
                 <div class="content table-responsive table-full-width stock-list">
                   <table class="table table-hover table-striped">
                       <thead>
                         <th>
-                          Fecha                                                       
+                          Id Prestamo              
+                        </th>
+                        <th>
+                          Fecha              
                         </th>
                         <th>                            
                           Estado                       
@@ -44,11 +51,11 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         <th></th>
                       </thead>
                       <tbody>
-                        <?php if (count($loads) == 0) { ?>
+                        <?php if (count($loans) == 0) { ?>
                           <tr><td colspan="7"><h4 class="text-center">No hay prestamos disponibles.</h4></td></tr>
                           <?php } else { ?>
                             <?php                              
-                            foreach ($loads as $load) {                              
+                            foreach ($loans as $loan) {                              
                               include(BASE_SECTION_TEMPLATES_FOLDER . 'alumnos/_load_item.php');
                             }
                             ?>

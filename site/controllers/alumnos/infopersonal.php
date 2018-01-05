@@ -6,11 +6,11 @@ if ($BASE->Session()->LoggedOut()) {
 }
 
 $student = FetchStudentWithID(adminCurrentUser()->ID());
-$loads = FetchLoansWithStudentId(adminCurrentUser()->ID());
+$loans = FetchLoansWithStudentId(adminCurrentUser()->ID());
 
 $vars = [
 	'student' => $student,
-	'loads' => $loads
+	'loans' => $loans
 ];
 
 
