@@ -6,9 +6,11 @@ if ($BASE->Session()->LoggedOut()) {
 	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
-$students = FetchUsers($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $BASE->GetParam('o'));
-$students->SetResultsTotal(UsersCount());
+$students = FetchAllStudents();
 
+$vars = [
+	'students' => $students
+];
 
 
 $BASE->Response()->Render($BASE->Template(), $vars);
