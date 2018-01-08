@@ -10,8 +10,6 @@ class User extends BaseModel {
   public $last_name;
   public $email;
   public $type;
-  public $carrer;
-  public $semester;
 
   
   public function AttributesForCreate() {
@@ -40,13 +38,6 @@ class User extends BaseModel {
     return $this->last_name;
   }
 
-  public function Carrer() {
-    return $this->carrer;
-  }
-
-  public function Semester() {
-    return $this->semester;
-  }
 
   public function Name() {
     return $this->name;

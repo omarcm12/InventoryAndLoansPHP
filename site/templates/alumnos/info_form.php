@@ -4,13 +4,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Nombre(s)</label>
-            <input type="text" class="form-control" name="user[full_name]" id="user_catalog_number" value="<?= $user->Name() ?>" >
+            <input type="text" class="form-control" name="student[full_name]" id="student_catalog_number" value="<?= $student->Name() ?>" >
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
             <label>Apellidos</label>
-            <input type="text" class="form-control" name="user[full_name]" id="user_catalog_number" value="<?= $user->LastName() ?>" >
+            <input type="text" class="form-control" name="student[full_name]" id="student_catalog_number" value="<?= $student->LastName() ?>" >
         </div>
     </div>                            
 </div>
@@ -18,13 +18,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Correo UABC</label>
-            <input type="text" class="form-control" name="user[email]" id="user_name" value="<?= $user->Email() ?>" >
+            <input type="text" class="form-control" name="student[email]" id="student_name" value="<?= $student->Email() ?>" >
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
             <label>Matricula</label>
-            <input type="text" class="form-control" name="user[email]" id="user_name" value="<?= $user->Name() ?>" >
+            <input type="text" class="form-control" name="student[enrollment]" id="student_name" value="<?= $student->Enrollment() ?>" >
         </div>
     </div>                            
 </div>
@@ -32,13 +32,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Carrera</label>
-            <input type="text" class="form-control" name="user[carrer]" id="user_carrer" value="<?= $user->Carrer() ?>" >
+            <input type="text" class="form-control" name="student[carrer]" id="student_carrer" value="<?= $student->Carrer() ?>" >
         </div>
     </div>                            
     <div class="col-md-6">
         <div class="form-group">
             <label>Semestre</label>
-            <input type="number" class="form-control" name="user[semester]" id="user_semester" value="<?= $user->Semester() / 100 ?>" >
+            <input type="number" class="form-control" name="student[semester]" id="student_semester" value="<?= $student->Semester() ?>" >
         </div>
     </div>                            
 </div>

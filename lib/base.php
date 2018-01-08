@@ -20,6 +20,7 @@ require_once(BASE_MODELS_FOLDER . 'material.php');
 require_once(BASE_MODELS_FOLDER . 'move.php');
 require_once(BASE_MODELS_FOLDER . 'loan.php');
 require_once(BASE_MODELS_FOLDER . 'loan_material.php');
+require_once(BASE_MODELS_FOLDER . 'student.php');
 
 class BaseCMS {
   private $config;

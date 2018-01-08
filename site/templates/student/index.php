@@ -31,16 +31,11 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <table class="table table-hover table-striped">
                         <thead>
                           <th>
-                            Matricula                             
-                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_CATALOG << 1) + ($sort_type == 1 ? 0 : 1)?>&s=<?= $search_default_value ?>">
-                              <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_CATALOG ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
-                            </a>                           
+                            Matricula                                                     
                           </th>
                           <th>                            
                             Nombre 
-                            <a href="/admin/inventario?o=<?= (MATERIAL_SORT_NAME << 1) + ($sort_type == 1 ? 0 : 1)?>&s=<?= $search_default_value ?>">
-                            <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_NAME ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
-                            </a>                           
+                                                 
                           </th>
                           <th>Correo</th>
                           <th>Carrera</th>
@@ -48,11 +43,11 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                           <th></th>
                         </thead>
                         <tbody>
-                            <?php if (count($materials) == 0) { ?>
+                            <?php if (count($students) == 0) { ?>
                             <tr><td colspan="7"><h4 class="text-center">No hay alumnos disponibles.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
-                              foreach ($materials as $material) {                              
+                              foreach ($students as $student) {                              
                                 include(BASE_SECTION_TEMPLATES_FOLDER . 'student/_list_item.php');
                               }
                               ?>
