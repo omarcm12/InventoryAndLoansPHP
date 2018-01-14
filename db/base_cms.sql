@@ -11,7 +11,7 @@
 
 /*!40101 SET NAMES utf8 */;
 
-
+DROP TABLE IF EXISTS `students`;
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
@@ -20,19 +20,22 @@ CREATE TABLE `users` (
   `last_name` varchar(255) NOT NULL DEFAULT '',
   `email` varchar(255) DEFAULT NULL,  
   `type` int(11) unsigned NOT NULL,
+  `carrer` varchar(255) DEFAULT '',  
+  `semester` int(11) unsigned DEFAULT 0,
+  `enrollment` int(11) unsigned DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),  
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `type`)
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `type`,`carrer`, `semester`,`enrollment`)
 VALUES
-  (1, 'Juan', 'Perez', 'test@mail.com', 0),
-  (2, 'Cristian', 'Martinez', 'alumno@mail.com', 1),
-  (3, 'Sergio', 'Jimenez', 'alumno2@mail.com', 1);
+  (1, 'Juan', 'Perez', 'test@mail.com', 0,'empleado',0,12123),
+  (2, 'Jose', 'Sanchez', 'alumno@mail.com', 1,'Ing Quimica', 4, 12321),
+  (3, 'Sergio', 'Ramirez', 'alumno2@mail.com', 1,'Quimico Farmacobiologo', 6, 231234);
 
-
+/*
 DROP TABLE IF EXISTS `students`;
 CREATE TABLE `students` (
   `id_student` int(11) unsigned DEFAULT 0,
@@ -41,14 +44,15 @@ CREATE TABLE `students` (
   `enrollment` int(11) unsigned DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_student`)
+  PRIMARY KEY (`id_student`),
+  FOREIGN KEY (`id_student`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `students` (`id_student`, `carrer`, `semester`,`enrollment` )
 VALUES
   (2, 'Ing Quimica', 4, 12321),
   (3, 'Quimico Farmacobiologo', 6, 231234);
-
+*/
 DROP TABLE IF EXISTS `employees`;
 CREATE TABLE `employees` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,  
