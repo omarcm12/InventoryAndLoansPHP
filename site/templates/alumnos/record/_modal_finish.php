@@ -14,7 +14,8 @@
             <tr>
               <th>Material</th>            	
             	<th>Cantidad</th>
-              <th>Devueltos</th>               
+              <th>Devueltos</th>
+              <th>Observacion</th>               
             </tr>
         	</thead>
             <tbody>
@@ -26,6 +27,7 @@
                 	</td>                	
                 	<td><?= $loan_material->Amount() ?></td>  
                   <td><?= $loan_material->ReturnedAmount() ?></td> 
+                  <td><?= $loan_material->Description() ?></td>
                 </tr>
 
                 </tr>

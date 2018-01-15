@@ -6,6 +6,7 @@
   <td>
   	<?php if ($loan->Status() == LOAN_STATUS_WAITING): ?>
   		  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-deliver-<?= $loan->ID()?>">Entregar</a>
+          <a class="btn btn-info btn-sm btn-fill btn-uabc-green" href="/admin/prestamos/borrar/<?= $loan->ID()?>">Eliminar</a>
   	<?php endif ?>
 
   	<?php if ($loan->Status() == LOAN_STATUS_IN_PROGRESS): ?>

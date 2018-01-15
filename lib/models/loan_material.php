@@ -16,7 +16,7 @@ class LoanMaterial extends BaseModel {
     return [
       'id_loan' => PDO::PARAM_INT,      
       'id_material' => PDO::PARAM_INT, 
-      'description' => PDO::PARAM_INT,      
+      'description' => PDO::PARAM_STR,      
       'amount' => PDO::PARAM_INT,
       'returned_amount' => PDO::PARAM_INT                  
     ];

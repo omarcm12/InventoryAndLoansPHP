@@ -14,12 +14,14 @@ if (empty($loan)) {
 foreach ($loan->LoanMaterials() as $loan_material){
 	$send_loan_material = $_POST["loan-material"][$loan_material->ID()];
 	$returned = $send_loan_material["amount"];
+	$description = $send_loan_material["description"];
 	if($returned > $loan_material->Amount()){
 		$returned = $loan_material->Amount();
 	}else if($loan_material->Amount() < 0){
 		$returned = 0;
 	}
 	$loan_material->returned_amount = $returned;
+	$loan_material->returned_amount = $description;
 	$loan_material->Update();
 }
 

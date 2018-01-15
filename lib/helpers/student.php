@@ -57,7 +57,25 @@ function FetchStudentWithID($id=0) {
   return $students;
 }*/
 
-function FetchAllStudents(){
+function FetchAllStudents($page=1, $per=20, $search = ""){
+  //SELECT * FROM `users` join (student) on (users.id = student.id)
+  global $BASE;
+  $students = null;
+
+  try{
+       $stmt = $BASE->DB()->query("SELECT * FROM `users` WHERE `type` = 1 AND `id` IN (SELECT `id` FROM `users` WHERE `name` LIKE '%$search%' OR `last_name` LIKE '%$search%' OR `carrer` LIKE '%$search%' OR `enrollment` LIKE '%$search%' OR `email` LIKE '%$search%') ORDER BY `id` DESC" );
+    
+   // $stmt->bindParam(':id_student', $id_student, PDO::PARAM_INT);
+    $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
+    $results = new DBResults($results, $page, $per);
+  } catch(PDOException $e) {
+    die($e->getMessage());
+  }
+
+  return $results;
+}
+
+/*function FetchAllStudents(){
   //SELECT * FROM `users` join (student) on (users.id = student.id)
   global $BASE;
   $students = null;
@@ -74,7 +92,7 @@ function FetchAllStudents(){
   }
 
   return $students;
-}
+}*/
 
 function UpdateInfoStudent($name, $last_name, $enrollment, $carrer, $semester){
   $table_name = "users";

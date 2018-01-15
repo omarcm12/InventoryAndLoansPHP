@@ -6,7 +6,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
     <div class="row">
       
     <div class="col-md-12"> 
-        <form id="search-form" action="/admin/inventario/" method="get">
+        <form id="search-form" action="/admin/alumnos/" method="get">
           <div class="input-group"> 
             <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
             <div class="input-group-btn"> 
@@ -19,6 +19,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
             </div> 
           </div>          
           <input type="submit" style="display: none" />
+          <br>
         </form>
     </div>
      
@@ -61,5 +62,5 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
     </div>
 </div>
 
-<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_modal_moves.php'); ?>
+
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
