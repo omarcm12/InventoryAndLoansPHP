@@ -15,6 +15,64 @@ function LoansCount() {
   return $count;
 }
 
+function UpdateLoanForEdit($id_loan=0){
+  global $BASE;  
+  $algo = 0;
+  try {
+   
+    $stmt = $BASE->DB()->prepare("UPDATE `loans` SET `status` = 0 WHERE `id` = :id_loan;");
+    $stmt->bindParam(':id_loan', $id_loan, PDO::PARAM_INT);
+    $stmt->execute();
+
+  } catch(PDOException $e) {
+    $count = 0;
+    die($e->getMessage());
+  }
+
+}
+
+function DeleteLoanForEdit($id_student=0){
+  global $BASE;  
+  $algo = 0;
+  try {
+   
+    $stmt = $BASE->DB()->prepare("DELETE FROM `loans` WHERE `status` = 0 AND `id_student` = :id_student;");
+    $stmt->bindParam(':id_student', $id_student, PDO::PARAM_INT);
+    $stmt->execute();
+
+  } catch(PDOException $e) {
+    $count = 0;
+    die($e->getMessage());
+  }
+
+  /*DELETE FROM loans WHERE status = 0 AND id_student = 3*/
+}
+
+function FetchLoansWithStudentId($page = 1, $per = 20, $search = "", $status = LOAN_STATUS_WAITING, $id_student=0){
+
+  global $BASE;
+
+  $page = intval($page);
+  if ($page < 1) { $page = 1; }
+  $offset = $per * ($page - 1);
+
+  $search_numer = 0;
+  if(!empty($search) && is_numeric($search))  
+    $search_numer = (int) $search;
+
+  try {        
+    $stmt = $BASE->DB()->query("SELECT * FROM `loans` WHERE `status` = $status AND `id_student` IN (SELECT `id` FROM `users` WHERE `name` = '%$search%' OR `last_name` LIKE '%$search%' OR `created_at` LIKE '%$search%' OR `updated_at` LIKE '%$search%' OR `id` = $search_numer) AND `id_student` = $id_student ORDER BY `id` DESC LIMIT $per OFFSET $offset;");        
+    $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Loan');
+    $results = new DBResults($results, $page, $per);
+  } catch(PDOException $e) {
+    $results = null;
+    die($e->getMessage());
+  }
+
+  return $results;
+
+}
+
 function FetchAllLoans($page = 1, $per = 20, $search = "", $status = LOAN_STATUS_WAITING) {
   global $BASE;
 
@@ -75,7 +133,7 @@ function FetchLoanWithID($id=0) {
   return $loads;
 }*/
 
-function FetchLoansWithStudentId($id_student=0){
+/*function FetchLoansWithStudentId($id_student=0){
   global $BASE;
   $loads = null;
 
@@ -91,7 +149,7 @@ function FetchLoansWithStudentId($id_student=0){
   }
 
   return $loads;
-}
+}*/
 
 function FetchLoanWithStudent($id_student=0, $status = LOAN_STATUS_DRAFT) {
   global $BASE;

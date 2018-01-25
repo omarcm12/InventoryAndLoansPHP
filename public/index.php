@@ -23,8 +23,12 @@ $routes = [
   'GET:/admin/alumnos' => 'student/index',
 
   'GET:/alumnos' => 'alumnos/menu',
-  'GET:/alumnos/infopersonal' => 'alumnos/infopersonal',
+  'GET:/alumnos/infopersonal' => 'alumnos/information/index',
+  'GET:/alumnos/historial' => 'alumnos/record/index',
   'GET:/alumnos/prestamos' => 'alumnos/prestamos',
+  'POST:/alumnos/infopersonal/update/(\d+)' => 'alumnos/update',
+  'GET:/alumnos/historial/borrar/(\d+)' => 'alumnos/record/delete',
+  'GET:/alumnos/historial/editar/(\d+)' => 'alumnos/record/edit',
   'POST:/alumnos/prestamo/agregar-material' => 'alumnos/loan/add',
   'POST:/alumnos/prestamo/eliminar-material/(\d+)' => 'alumnos/loan/remove',
   'POST:/alumnos/prestamo/confirmar/(\d+)' => 'alumnos/loan/confirm',

@@ -10,6 +10,9 @@ class User extends BaseModel {
   public $last_name;
   public $email;
   public $type;
+  public $enrollment;
+  public $carrer;
+  public $semester;
 
   
   public function AttributesForCreate() {
@@ -25,8 +28,9 @@ class User extends BaseModel {
     return [
       'name' => PDO::PARAM_STR,      
       'last_name' => PDO::PARAM_STR,
-      'email' => PDO::PARAM_STR,
-      'type' => PDO::PARAM_INT                  
+      'enrollment' => PDO::PARAM_STR,
+      'carrer' => PDO::PARAM_STR,
+      'semester' => PDO::PARAM_STR                  
     ];
   }
 
@@ -54,6 +58,18 @@ class User extends BaseModel {
 
   public function Type() {
     return $this->type;
+  }
+
+  public function Carrer() {
+    return $this->carrer;
+  }
+
+  public function Semester() {
+    return $this->semester;
+  }
+
+  public function Enrollment() {
+    return $this->enrollment;
   }
 
   public function IsAdmin(){
