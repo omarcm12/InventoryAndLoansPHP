@@ -17,6 +17,7 @@ foreach ($loan->LoanMaterials() as $loan_material){
 		$loan_material->Destroy();
 	}else{
 		$loan_material->amount = $send_loan_material["amount"];
+		$loan_material->description = $send_loan_material["description"];
 		$loan_material->Update();
 	}
 }

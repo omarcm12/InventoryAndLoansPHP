@@ -40,7 +40,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
           <a href="alumnos/prestamos">
             <img class="img-responsive" src="<?= BASE_IMAGE_ASSETS_PATH ?>pagos.png" alt="" width = "100%" href = "#" >
           <div class="caption">
-            <p>Pagos</p>
+            <p>Adeudos</p>
           </div>
           </a>
         </div>

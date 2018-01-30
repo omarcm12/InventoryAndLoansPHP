@@ -114,6 +114,8 @@ CREATE TABLE `loans` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_student` int(11) unsigned NOT NULL,
   `id_employee` int(11) unsigned DEFAULT NULL,
+  `id_employee_deliver` int(11) unsigned DEFAULT NULL,
+  `id_employee_return` int(11) unsigned DEFAULT NULL,
   `status` varchar(10) DEFAULT '',  
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

@@ -14,7 +14,8 @@
             <tr>
           		<th>Entregado</th>
               <th>Material</th>            	
-            	<th>Cantidad</th>               
+            	<th>Cantidad</th>
+              <th>Observacion</th>               
             </tr>
         	</thead>
             <tbody>
@@ -28,7 +29,10 @@
                 	<td>                		
                 		<?= $loan_material->Material()->CatalogNumber() . " - " . $loan_material->Material()->Name()?>		
                 	</td>                	
-                	<td><input name="loan-material[<?= $loan_material->ID() ?>][amount]" type="number" class="form-control in-table" value="<?= $loan_material->Amount() ?>" style="width: 58px;"></td>                  
+                	<td><input name="loan-material[<?= $loan_material->ID() ?>][amount]" type="number" class="form-control in-table" value="<?= $loan_material->Amount() ?>" style="width: 58px;"></td>        
+                  <td>
+                    <input name="loan-material[<?= $loan_material->ID() ?>][description]" type="text" class="form-control in-table" value="<?= $loan_material->Description() ?>"></td>
+                  </td>
                 </tr>
       			<?php endforeach ?>  
             <?php if (count($loan->LoanMaterials()) == 0): ?>
@@ -37,8 +41,8 @@
             </tbody>
             </form>
         </table>
-
       </div>
+
       <div class="modal-footer">
         <a id="btn-create-move" class="btn btn-info btn-sm btn-fill btn-uabc-green" onclick="$('#form-loan-<?= $loan->ID() ?>').submit()">Entregar</a>
         <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Cancelar</button>
