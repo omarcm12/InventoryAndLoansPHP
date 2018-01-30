@@ -33,6 +33,50 @@ function MaterialsCount() {
   return $count;
 }
 
+function ReportAllMaterials(){
+  global $BASE;
+ // $page = intval($page);
+  //if ($page < 1) { $page = 1; }
+
+  //$offset = $per * ($page - 1);
+
+  try {
+    $stmt = $BASE->DB()->query("SELECT * 
+      FROM `materials`;");
+    /*$results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Material');
+    $results = new DBResults($results, $page, $per);*/
+
+  $csv_array = array();
+    if($stmt){
+      while ($row = $stmt->fetch()) {
+        $csv_array[] = $row;
+      }
+    }
+    //cabeceras para descarga
+    header('Content-Type: application/octet-stream');
+    header("Content-Transfer-Encoding: Binary"); 
+    header("Content-disposition: attachment; filename=\"my_csv_file.csv\""); 
+     
+    //preparar el wrapper de salida
+    $outputBuffer = fopen("php://output", 'w');
+ 
+    //volcamos el contenido del array en formato csv
+    foreach($column_array as $val) {
+        fputcsv($outputBuffer, $val);
+    }
+    //cerramos el wrapper
+    fclose($outputBuffer);
+    exit; 
+
+  } catch(PDOException $e) {
+    $results = null;
+    die($e->getMessage());
+  }
+
+  return $results;
+
+}
+
 function FetchAllMaterials($page = 1, $per = 20, $search = "", $sort = 0) {
   global $BASE;
   $page = intval($page);

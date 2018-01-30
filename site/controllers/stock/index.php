@@ -8,7 +8,7 @@ if ($BASE->Session()->LoggedOut()) {
 
 $materials = FetchAllMaterials($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $BASE->GetParam('o'));
 $materials->SetResultsTotal(MaterialsCount());
-
+//ReportAllMaterials();
 $sort_code = $BASE->GetParam('o');
 $vars = [
 	'materials' => $materials,
