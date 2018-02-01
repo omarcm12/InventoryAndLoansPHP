@@ -154,7 +154,7 @@ function FetchLoanWithID($id=0) {
 function FetchLoanWithStudent($id_student=0, $status = LOAN_STATUS_DRAFT) {
   global $BASE;
 
-  $user = null;
+  $loan = null;
 
   try {
     $stmt = $BASE->DB()->prepare("SELECT * FROM `loans` WHERE `status` = :status AND `id_student` = :id_student LIMIT 1;");
@@ -163,11 +163,11 @@ function FetchLoanWithStudent($id_student=0, $status = LOAN_STATUS_DRAFT) {
 
     $stmt->execute();
 
-    $user = $stmt->fetchObject('Loan');
+    $loan = $stmt->fetchObject('Loan');
   } catch(PDOException $e) {
     die($e->getMessage());
   }
 
-  return $user;
+  return $loan;
 }
 ?>

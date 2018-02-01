@@ -21,7 +21,7 @@ foreach ($loan->LoanMaterials() as $loan_material){
 		$returned = 0;
 	}
 	$loan_material->returned_amount = $returned;
-	$loan_material->returned_amount = $description;
+	//$loan_material->returned_amount = $description;
 	$loan_material->Update();
 }
 

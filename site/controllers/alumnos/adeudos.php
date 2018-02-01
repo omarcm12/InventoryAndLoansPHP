@@ -8,8 +8,9 @@ if ($BASE->Session()->LoggedOut()) {
 /*$vars = [
 	
 ];*/
-
+$materials;
 $vars = [
+	'materials' => $materials,
 	'user' => new User()
 ];
 
