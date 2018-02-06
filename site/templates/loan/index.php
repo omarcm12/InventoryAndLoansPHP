@@ -1,11 +1,14 @@
 <?php /* templates/admin/sessions/new */
-
+$js_assets = [
+  "report.js"
+];
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
     <div class="row">
       
     <div class="col-md-12"> 
+      <!--<button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>-->
         <form id="search-form" action="/admin/prestamos/" method="get">
           <div class="input-group"> 
             <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 

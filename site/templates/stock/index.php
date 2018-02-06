@@ -1,18 +1,50 @@
 <?php /* templates/admin/sessions/new */
 
 $js_assets = [
-  "moves/create_api.js"
+  "moves/create_api.js",
+  "report.js"
 ];
 
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
+<!--<script type="text/javascript">
+    
+    function downloadCSV(csv, filename) {
+        var csvFile;
+        var downloadLink;
+
+        csvFile = new Blob([csv], {type: "text/csv"});
+        downloadLink = document.createElement("a");
+        downloadLink.download = filename;
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+    }
+
+    function exportTableToCSV(filename) {
+        var csv = [];
+        var rows = document.querySelectorAll("table tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = [], cols = rows[i].querySelectorAll("td, th");
+            
+            for (var j = 0; j < cols.length; j++) 
+                row.push(cols[j].innerText);
+            
+            csv.push(row.join(","));        
+        }
+
+        downloadCSV(csv.join("\n"), filename);
+    }
+  </script>-->
 <div class="container-fluid">
     <div class="row">
       
     <div class="col-md-12"> 
         <a href="/admin/inventario/nuevo" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 14px;">Crear material</a>
         <a href="/admin/movimientos" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Movimientos</a>
-       
+        <button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>
         <form id="search-form" action="/admin/inventario/" method="get">
           <div class="input-group"> 
             <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
@@ -38,7 +70,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <table class="table table-hover table-striped">
                         <thead>
                           <th>
-                            Núm catalogo                             
+                            No. catalogo                        
                             <a href="/admin/inventario?o=<?= (MATERIAL_SORT_CATALOG << 1) + ($sort_type == 1 ? 0 : 1)?>&s=<?= $search_default_value ?>">
                               <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_CATALOG ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
                             </a>                           
