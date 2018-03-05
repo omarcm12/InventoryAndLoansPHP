@@ -787,6 +787,12 @@ margin-bottom:20px;
       top:-18px !important;
     }
 
+    .inputPenalty:focus ~ label.magic-placeholder, .inputPenalty:valid ~ label.magic-placeholder{
+      font-size:13px !important;
+      top:-18px !important;
+    }
+
+
     .modal-dialog {
           margin: 30px auto;
     }
@@ -1009,6 +1015,13 @@ input{
 }
 
 #material_search{
+  border: 1px solid #ddd !important;
+  border-right: 0 none !important;
+  width: auto;
+  background-color: #fff !important;
+}
+
+#penalty_search{
   border: 1px solid #ddd !important;
   border-right: 0 none !important;
   width: auto;

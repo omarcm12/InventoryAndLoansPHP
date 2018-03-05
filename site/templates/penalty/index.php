@@ -1,55 +1,60 @@
 <?php /* templates/admin/sessions/new */
+
 $js_assets = [
+  "moves/create_api.js",
   "report.js"
 ];
+
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
     <div class="row">
       
     <div class="col-md-12"> 
-      <button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>
-        <form id="search-form" action="/admin/movimientos/" method="get">
+        <a href="/admin/pagos" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Pagos</a>
+        <button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>
+
+        <form id="search-form" action="/admin/adeudos/" method="get">
           <div class="input-group"> 
-            <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
+            <input type="text" id="penalty_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control" style="border: 1px solid #ddd !important; border-right: 0 none !important; width: auto; background-color: #fff !important;"> 
             <div class="input-group-btn"> 
               <button type="button" class="btn btn-default" onclick="$('#search-form').submit()">
                 <span class="glyphicon glyphicon-search"></span>
               </button>
-              <button type="button" class="btn btn-default" onclick="$('#material_search').val('');$('#search-form').submit();">
+              <button type="button" class="btn btn-default" onclick="$('#penalty_search').val('');$('#search-form').submit();">
                 <span class="glyphicon glyphicon-remove"></span>
               </button> 
             </div> 
           </div>          
           <input type="submit" style="display: none" />
-          <br>
         </form>
+
     </div>
      
         <div class="col-md-12">                      
             <div class="card">                        
                 <div class="header">
-                    <h3 class="title">Movimientos</h3>                       
+                    <h3 class="title">Multas</h3>                       
                 </div>
                 <div class="content table-responsive table-full-width stock-list">
                     <table class="table table-hover table-striped">
                         <thead>
-                          <th>Num orden</th>
+                          <th>Id</th>
+                          <th>Prestamo</th>
+                          <th>Alumno</th>
                           <th>Material</th>
-                          <th>Piezas</th>
-                          <th>Tipo</th>
-                          <th>Usuario</th>                      
+                          <th>Piezas/Dias</th>
+                          <th>Monto</th>
                           <th>Fecha</th>
-                          <th>Descripcion</th>
-                          
+                          <th></th>
                         </thead>
                         <tbody>
-                            <?php if (count($moves) == 0) { ?>
-                            <tr><td colspan="6"><h4 class="text-center">No hay movimientos disponibles.</h4></td></tr>
+                            <?php if (count($penaltys) == 0) { ?>
+                            <tr><td colspan="7"><h4 class="text-center">No hay multas disponible.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
-                              foreach ($moves as $move) {                              
-                                include(BASE_SECTION_TEMPLATES_FOLDER . 'moves/_list_item.php');
+                              foreach ($penaltys as $penalty) {                              
+                                include(BASE_SECTION_TEMPLATES_FOLDER . 'penalty/_list_item.php');
                               }
                               ?>
                             <?php } ?>                            
@@ -61,4 +66,6 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         </div>
     </div>
 </div>
+
+<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_modal_moves.php'); ?>
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>

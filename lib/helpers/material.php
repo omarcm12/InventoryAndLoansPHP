@@ -107,4 +107,7 @@ function SortParamsMaterial($id){
   $sortType = $id & 0x1 == 1 ? "DESC" : "ASC";
   return "ORDER BY `" . $sorts[ ($id >> 1) & 0x3] . "` " . $sortType;
 }
+
+
+
 ?>

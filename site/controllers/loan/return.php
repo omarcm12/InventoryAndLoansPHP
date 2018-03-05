@@ -22,6 +22,9 @@ foreach ($loan->LoanMaterials() as $loan_material){
 	}
 	$loan_material->returned_amount = $returned;
 	//$loan_material->returned_amount = $description;
+	$material = FetchMaterialWithID($loan_material->Material()->ID());
+		$material->borrowed_count -= $returned;
+	$material->Update();
 	$loan_material->Update();
 }
 

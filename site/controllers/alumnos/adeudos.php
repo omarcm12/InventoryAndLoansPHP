@@ -5,15 +5,14 @@ if ($BASE->Session()->LoggedOut()) {
 	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
-/*$vars = [
-	
-];*/
-$materials;
+$penaltys = FetchPenaltysWithIDStudent($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $BASE->GetParam('o'), adminCurrentUser()->ID());
+$penaltys->SetResultsTotal(PenaltysCount());
+//ReportAllMaterials();
+$sort_code = $BASE->GetParam('o');
 $vars = [
-	'materials' => $materials,
-	'user' => new User()
+	'penaltys' => $penaltys,
+	'search_default_value' => $BASE->GetParam('s')
 ];
-
 
 $BASE->Response()->Render($BASE->Template(), $vars);
 

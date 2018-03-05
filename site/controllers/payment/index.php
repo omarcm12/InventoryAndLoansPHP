@@ -6,11 +6,12 @@ if ($BASE->Session()->LoggedOut()) {
 	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
-$moves = FetchAllMoves($BASE->GetParam('page'), 20, $BASE->GetParam('s'));
-$moves->SetResultsTotal(MovesCount());
-
+$payments = FetchAllPayments($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $BASE->GetParam('o'));
+$payments->SetResultsTotal(PaymentsCount());
+//ReportAllMaterials();
+$sort_code = $BASE->GetParam('o');
 $vars = [
-	'moves' => $moves,
+	'payments' => $payments,
 	'search_default_value' => $BASE->GetParam('s')
 ];
 

@@ -11,21 +11,33 @@ class Loan extends BaseModel {
   public $id_student;
   public $id_employee;
   public $status;
+  public $deliver_at;
+  public $return_at;
 
   private $student;
   private $employee;
   private $materials;
+
   
   public function AttributesForCreate() {
     return [
       'id_student' => PDO::PARAM_INT,      
       'id_employee' => PDO::PARAM_INT,      
-      'status' => PDO::PARAM_INT      
+      'status' => PDO::PARAM_INT,
+      'deliver_at' => MYSQLI_TYPE_TIMESTAMP   
     ];
   }
 
   public function AttributesForUpdate() {
     return $this->AttributesForCreate();
+  }
+
+  public function DeliverAt(){
+    return $this->deliver_at;
+  }
+
+  public function ReturnAt(){
+    return $this->return_at;
   }
 
   public function AttributesWithTimestamps() {

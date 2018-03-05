@@ -22,6 +22,8 @@ $routes = [
   'POST:/admin/prestamos/regresar/(\d+)' => 'loan/return',
   'GET:/admin/prestamos/borrar/(\d+)' => 'loan/delete',
   'GET:/admin/alumnos' => 'student/index',
+  'GET:/admin/adeudos' => 'penalty/index',
+  'GET:/admin/pagos' => 'payment/index',
 
   'GET:/alumnos' => 'alumnos/menu',
   'GET:/alumnos/infopersonal' => 'alumnos/information/index',

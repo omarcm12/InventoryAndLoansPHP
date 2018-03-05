@@ -16,9 +16,14 @@ foreach ($loan->LoanMaterials() as $loan_material){
 	if($send_loan_material["amount"] == 0 || $send_loan_material["deliver"] == 0){
 		$loan_material->Destroy();
 	}else{
+
 		$loan_material->amount = $send_loan_material["amount"];
 		$loan_material->description = $send_loan_material["description"];
 		$loan_material->Update();
+
+		$material = FetchMaterialWithID($loan_material->Material()->ID());
+		$material->borrowed_count += $loan_material->Amount(); 
+		$material->Update();
 	}
 }
 

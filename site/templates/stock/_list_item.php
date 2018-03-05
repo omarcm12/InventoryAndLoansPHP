@@ -6,7 +6,7 @@
     <span><?= $material->TotalCount() ?></span>
     <i class="fa fa-plus-circle" aria-hidden="true" onclick="showCreateMoveModal(<?=MOVE_TYPE_ADD?>,<?= $material->ID()?>, '<?= $material->Name()?>')"></i>    
   </td>
-  <td>0</td>  
+  <td><?= $material->Borrowedcount() ?></td>  
   <td><?= '$'. $material->PricePerUnit() / 100 ?></td>  
   <td>    
     <span class="label label-<?= $material->StatusLabel() ?>"><?= $material->StatusName() ?></span>
