@@ -20,7 +20,8 @@ class Material extends BaseModel {
   public $borrowed_count;  
   public $total_count;  
   public $price_per_unit;  
-  public $image_path;   
+  public $image_path;
+  public $days;   
 
   public function AttributesForCreate() {
     return [
@@ -32,7 +33,8 @@ class Material extends BaseModel {
       'stock_max' => PDO::PARAM_INT,
       'borrowed_count' => PDO::PARAM_INT,
       'total_count' => PDO::PARAM_INT,
-      'price_per_unit' => PDO::PARAM_INT,  
+      'price_per_unit' => PDO::PARAM_INT,
+      'days' => PDO::PARAM_INT,  
       'image_path' => PDO::PARAM_STR       
     ];
   }
@@ -49,6 +51,9 @@ class Material extends BaseModel {
     return $this->catalog_number;
   }
 
+  public function Days(){
+    return $this->days;
+  }
   public function BorrowedCount(){
     return $this->borrowed_count;
   }

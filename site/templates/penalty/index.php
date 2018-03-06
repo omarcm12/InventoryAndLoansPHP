@@ -53,8 +53,10 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                             <tr><td colspan="7"><h4 class="text-center">No hay multas disponible.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
-                              foreach ($penaltys as $penalty) {                              
-                                include(BASE_SECTION_TEMPLATES_FOLDER . 'penalty/_list_item.php');
+                              foreach ($penaltys as $penalty) {  
+                                if($penalty->Status()!=2){
+                                  include(BASE_SECTION_TEMPLATES_FOLDER . 'penalty/_list_item.php');  
+                                  }                  
                               }
                               ?>
                             <?php } ?>                            

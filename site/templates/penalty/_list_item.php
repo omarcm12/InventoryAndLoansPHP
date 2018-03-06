@@ -22,25 +22,26 @@
           <h4 class="modal-title">Saldar multa</h4>
         </div>
         <div class="modal-body">
-        <form id="create-move-form" method="post">
+        <form id="create-move-form" method="post" action="/admin/pagos/nuevo/<?= $penalty->ID() ?>" >
           <label>Material</label>
           <input id="material-name" type="text" class="form-control" value="<?= $penalty->Material()->CatalogNumber() ?>-<?= $penalty->Material()->Name() ?>">                            
           <label>Alumno</label>
-          <input name="move[no-order]" type="text" class="form-control" value="<?= $penalty->Student()->Enrollment()?> - <?= $penalty->Student()->FullName() ?>">
+          <input name="student" type="text" class="form-control" value="<?= $penalty->Student()->Enrollment()?> - <?= $penalty->Student()->FullName() ?>">
           <label>Número de piezas</label>
-          <input name="move[pieces]" type="text" class="form-control" value="<?= $penalty->Pieces() ?>">
+          <input name="pieces" type="text" class="form-control" value="<?= $penalty->Pieces() ?>">
           <label>Multa $</label>
-          <input name="move[pieces]" type="text" class="form-control" value="<?= $penalty->Amount() ?>">
+          <input name="payment[amount]" type="text" class="form-control" value="<?= $penalty->Amount() ?>">
           <label>Pagar $</label>
-          <input name="move[pieces]" type="text" class="form-control" value="<?= $penalty->Amount() ?>">
+          <input name="payment[amount_payd]" type="text" class="form-control" value="<?= $penalty->Amount() ?>">
           <label>Descripción</label>
-          <textarea class="form-control" type="text" name="move[description]" placeholder="(Opcional)" class="form-control"></textarea>          
-          <input id="move-material-id" name="move[id_material]" type="hidden" value="">
-          <input id="move-type" name="move[type]" type="hidden">
+          <textarea class="form-control" type="text" name="payment[description]" placeholder="(Opcional)" class="form-control"></textarea>          
+          <input name="payment[id_student]" type="hidden" value="<?= $penalty->Student()->ID() ?>">
+          <input name="payment[id_material]" type="hidden" value="<?= $penalty->Material()->ID() ?>">
+          <button type="submit" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin-left: 5px; margin-top:15px;">Guardar Pago</button>
+        </div>
         </form>
         <div class="modal-footer">
-          <button type="button" class="btn btn-info btn-sm btn-fill btn-uabc-green" data-dismiss="modal">Cancelar</button>
-        </div>
+          <!--<button type="button" class="btn btn-info btn-sm btn-fill btn-uabc-green" data-dismiss="modal">Cancelar</button>-->
       </div>
       
     </div>

@@ -8,6 +8,8 @@ class LoanMaterial extends BaseModel {
   public $amount;
   public $description;
   public $returned_amount;
+  public $deliver_at;
+  public $return_at;
 
   private $loan;
   private $material;
@@ -18,12 +20,23 @@ class LoanMaterial extends BaseModel {
       'id_material' => PDO::PARAM_INT, 
       'description' => PDO::PARAM_STR,      
       'amount' => PDO::PARAM_INT,
-      'returned_amount' => PDO::PARAM_INT                  
+      'returned_amount' => PDO::PARAM_INT,
+      'deliver_at' => MYSQLI_TYPE_TIMESTAMP,
+      'return_at' => MYSQLI_TYPE_TIMESTAMP                   
     ];
   }
 
   public function AttributesForUpdate() {
     return $this->AttributesForCreate();
+  }
+
+  public function DeliverAt(){
+    /*return $this->deliver_at;*/
+    return empty($this->deliver_at) ? null : strtotime($this->deliver_at);
+  }
+
+  public function ReturnAt(){
+    return empty($this->return_at) ? null : strtotime($this->return_at);
   }
 
   public function Material() {

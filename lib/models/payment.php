@@ -7,9 +7,9 @@ class Payment extends BaseModel {
   public $id_penalty;
   public $id_student;
   public $id_employee;
-  private $description;
-  private $amount;
-  private $amount_payd;
+  public $description;
+  public $amount;
+  public $amount_payd;
 
   private $student;
   private $employee;

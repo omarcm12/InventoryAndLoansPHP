@@ -8,8 +8,10 @@ class Penalty_material extends BaseModel {
   public $id_material;
   public $id_loan_material;
   public $id_student;
-  private $amount;
-  private $pieces;
+  public $amount;
+  public $pieces;
+  public $status;
+  public $days;
 
   private $material;
   private $loan_material;
@@ -21,7 +23,9 @@ class Penalty_material extends BaseModel {
       'id_material' => PDO::PARAM_INT,
       'id_loan_material' => PDO::PARAM_INT,
       'pieces' => PDO::PARAM_INT,      
-      'amount' => PDO::PARAM_INT      
+      'amount' => PDO::PARAM_INT,
+      'status' => PDO::PARAM_INT,
+      'days' => PDO::PARAM_INT      
     ];
   }
 
@@ -29,8 +33,16 @@ class Penalty_material extends BaseModel {
     return $this->AttributesForCreate();
   }
 
+  public function Status(){
+    return $this->status;
+  }
+
   public function Amount(){
     return $this->amount;
+  }
+
+  public function Days(){
+    return $this->days;
   }
 
   public function Pieces(){

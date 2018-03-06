@@ -5,7 +5,7 @@ function FetchPenaltyWithID($id=0) {
   $penalty = null;
 
   try {
-    $stmt = $BASE->DB()->prepare("SELECT * FROM `penalty_material` WHERE `id` = :id LIMIT 1;");
+    $stmt = $BASE->DB()->prepare("SELECT * FROM `penalty_materials` WHERE `id` = :id LIMIT 1;");
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
     $stmt->execute();
@@ -26,7 +26,7 @@ function FetchAllPenaltys($page = 1, $per = 20, $search = "", $sort = 0) {
   $offset = $per * ($page - 1);
 
   try {
-    $stmt = $BASE->DB()->query("SELECT * FROM `penalty_material` WHERE `id` LIKE '%$search%' OR `id_material` LIKE '%$search%' OR `id_student` LIKE '%$search%' LIMIT $per OFFSET $offset;");
+    $stmt = $BASE->DB()->query("SELECT * FROM `penalty_materials` WHERE `id` LIKE '%$search%' OR `id_material` LIKE '%$search%' OR `id_student` LIKE '%$search%' LIMIT $per OFFSET $offset;");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Penalty_material');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {
@@ -45,7 +45,7 @@ function FetchPenaltysWithIDStudent($page = 1, $per = 20, $search = "", $sort = 
   $offset = $per * ($page - 1);
 
   try {
-    $stmt = $BASE->DB()->query("SELECT * FROM `penalty_material` WHERE `id_student` = $id AND  `id_material` LIKE '%$search%' LIMIT $per OFFSET $offset;");
+    $stmt = $BASE->DB()->query("SELECT * FROM `penalty_materials` WHERE `id_student` = $id AND  `id_material` LIKE '%$search%' LIMIT $per OFFSET $offset;");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Penalty_material');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {
@@ -61,7 +61,7 @@ function PenaltysCount() {
   global $BASE;  
 
   try {
-    $stmt = $BASE->DB()->query("SELECT COUNT(id) AS `counted` FROM `penalty_material`;");
+    $stmt = $BASE->DB()->query("SELECT COUNT(id) AS `counted` FROM `penalty_materials`;");
     $count = $stmt->fetch(PDO::FETCH_OBJ);
     $count = $count->counted;
   } catch(PDOException $e) {

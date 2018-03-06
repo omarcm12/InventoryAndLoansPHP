@@ -13,7 +13,7 @@
             <thead>
             <tr>          		
               <th>Material</th>            	
-            	<th>Regresados / Pedidos</th>    
+            	<th>Regresar / Pedidos</th>    
               <th>Observacion</th>        
             </tr>
         	</thead>
@@ -25,8 +25,8 @@
                 		<?= $loan_material->Material()->CatalogNumber() . " - " . $loan_material->Material()->Name()?>		
                 	</td>                	
                 	<td>
-                    <input name="loan-material[<?= $loan_material->ID() ?>][amount]" type="number" class="form-control in-table" value="<?= $loan_material->Amount() ?>" style="width: 58px; float:left;">
-                    <span class="loan-amount-total"> / <?= $loan_material->Amount() ?></span>
+                    <input name="loan-material[<?= $loan_material->ID() ?>][amount]" type="number" class="form-control in-table" value="<?= $loan_material->Amount() - $loan_material->ReturnedAmount() ?>" style="width: 58px; float:left;">
+                    <span class="loan-amount-total"> / <?= $loan_material->Amount() - $loan_material->ReturnedAmount() ?></span>
                   </td>
                   <td>
                     <input name="loan-material[<?= $loan_material->ID() ?>][description]" type="text" class="form-control in-table" value="<?= $loan_material->Description() ?>">

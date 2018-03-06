@@ -24,7 +24,8 @@ class Loan extends BaseModel {
       'id_student' => PDO::PARAM_INT,      
       'id_employee' => PDO::PARAM_INT,      
       'status' => PDO::PARAM_INT,
-      'deliver_at' => MYSQLI_TYPE_TIMESTAMP   
+      'deliver_at' => MYSQLI_TYPE_TIMESTAMP,
+      'return_at' => MYSQLI_TYPE_TIMESTAMP   
     ];
   }
 

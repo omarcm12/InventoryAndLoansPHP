@@ -24,6 +24,7 @@ $routes = [
   'GET:/admin/alumnos' => 'student/index',
   'GET:/admin/adeudos' => 'penalty/index',
   'GET:/admin/pagos' => 'payment/index',
+  'POST:/admin/pagos/nuevo/(\d+)' => 'payment/new',
 
   'GET:/alumnos' => 'alumnos/menu',
   'GET:/alumnos/infopersonal' => 'alumnos/information/index',

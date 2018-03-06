@@ -14,6 +14,7 @@
             <tr>
               <th>Material</th>            	
             	<th>Cantidad</th>
+              <th>Fecha Devolucion</th>
               <th>Observacion</th>               
             </tr>
         	</thead>
@@ -25,6 +26,7 @@
                 		<?= $loan_material->Material()->CatalogNumber() . " - " . $loan_material->Material()->Name()?>		
                 	</td>                	
                 	<td><?= $loan_material->Amount() ?></td>
+                  <td><?= $loan_material->DeliverAt() ?></td>
                   <td><?= $loan_material->Description() ?></td>                  
                 </tr>
       			<?php endforeach ?>  

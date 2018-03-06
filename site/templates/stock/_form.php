@@ -1,21 +1,20 @@
 <input type="hidden" name="utf8" value="✓" />
 <input type="hidden" name="MAX_FILE_SIZE" value="8000000" />
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="form-group">
             <label>Núm. Catálogo</label>
             <input type="text" class="form-control" name="material[catalog_number]" id="material_catalog_number" value="<?= $material->CatalogNumber() ?>" >
         </div>
-    </div>                            
-</div>
-<div class="row">
-    <div class="col-md-12">
+    </div>  
+    <div class="col-md-6">
         <div class="form-group">
             <label>Nombre</label>
             <input type="text" class="form-control" name="material[name]" id="material_name" value="<?= $material->Name() ?>" >
         </div>
-    </div>                            
+    </div>                           
 </div>
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
@@ -48,6 +47,14 @@
             <input type="text" class="form-control" name="material[stock_max]" id="material_count_min" value="<?= $material->StockMax() ?>" >
         </div>
     </div>                            
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Dias de prestamo</label>
+            <input type="text" class="form-control" name="material[days]" id="material_type" value="<?= $material->Days() ?>" >
+        </div>
+    </div>
 </div>
 
 <div class="row">

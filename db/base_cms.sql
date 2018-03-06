@@ -86,6 +86,7 @@ CREATE TABLE `materials` (
   `borrowed_count` int(11) unsigned DEFAULT 0,
   `total_count` int(11) unsigned DEFAULT 0,
   `price_per_unit` int(11) unsigned DEFAULT 0,
+  `days` int(11) unsigned DEFAULT 0,
   `image_path` varchar(255) DEFAULT '',  
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -117,9 +118,9 @@ CREATE TABLE `loans` (
   `id_employee_deliver` int(11) unsigned DEFAULT NULL,
   `id_employee_return` int(11) unsigned DEFAULT NULL,
   `status` varchar(10) DEFAULT '',  
-  `created_at` timestamp NULL DEFAULT NULL,
   `deliver_at` timestamp NULL DEFAULT NULL,
   `return_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -132,6 +133,8 @@ CREATE TABLE `loan_materials` (
   `id_loan` int(11) unsigned NOT NULL,     
   `id_material` int(11) unsigned NOT NULL,
   `amount` int(11) unsigned NOT NULL,
+  `deliver_at` timestamp NULL DEFAULT NULL,
+  `return_at` timestamp NULL DEFAULT NULL,
   `returned_amount` int(11) unsigned NOT NULL,
   `description` text DEFAULT '',
   PRIMARY KEY (`id`),
@@ -139,23 +142,25 @@ CREATE TABLE `loan_materials` (
   UNIQUE KEY `id_material_id_loanx` (`id_material`, `id_loan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `penalty_material`;
+DROP TABLE IF EXISTS `penalty_materials`;
 
-CREATE TABLE `penalty_material` (
+CREATE TABLE `penalty_materials` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_material` int(11) unsigned NOT NULL,
   `id_loan_material` int(11) unsigned NOT NULL,
   `id_student` int(11) unsigned NOT NULL, 
   `amount` int(11) unsigned NOT NULL,
-  `pieces` int(11) unsigned NOT NULL,              
+  `pieces` int(11) unsigned NOT NULL,
+  `status` int(11) unsigned NOT NULL,   
+  `days` int(11) unsigned NOT NULL,            
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `payment`;
+DROP TABLE IF EXISTS `payments`;
 
-CREATE TABLE `payment` (
+CREATE TABLE `payments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_penalty` int(11) unsigned NOT NULL,
   `id_student` int(11) unsigned NOT NULL,
