@@ -32,11 +32,13 @@ class LoanMaterial extends BaseModel {
 
   public function DeliverAt(){
     /*return $this->deliver_at;*/
-    return empty($this->deliver_at) ? null : strtotime($this->deliver_at);
+    //return empty($this->deliver_at) ? null : strtotime($this->deliver_at);
+    return strftime('%d-%m-%Y',strtotime($this->deliver_at));
   }
 
   public function ReturnAt(){
-    return empty($this->return_at) ? null : strtotime($this->return_at);
+    /*return empty($this->return_at) ? null : strtotime($this->return_at);*/
+    return strftime('%d-%m-%Y',strtotime($this->return_at));
   }
 
   public function Material() {

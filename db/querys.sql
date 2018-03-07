@@ -7,3 +7,5 @@ SELECT * FROM `users` join (student) on (users.id = student.id)
 
 //un estudiante
 SELECT * FROM `users` join (student) on (users.id = student.id) and users.id = 2
+
+SELECT loan_materials.id, loan_materials.id_loan, loan_materials.id_material, loan_materials.amount, loan_materials.deliver_at, loan_materials.return_at, loan_materials.returned_amount, loan_materials.description FROM `loan_materials` LEFT JOIN `loans` ON loans.id = loan_materials.id_loan WHERE loans.status = '2'

@@ -34,7 +34,8 @@ class Loan extends BaseModel {
   }
 
   public function DeliverAt(){
-    return $this->deliver_at;
+    /*return $this->deliver_at;*/
+    return strftime('%d-%m-%Y',strtotime($this->deliver_at));
   }
 
   public function ReturnAt(){

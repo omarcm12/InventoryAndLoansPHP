@@ -26,7 +26,7 @@
                 		<?= $loan_material->Material()->CatalogNumber() . " - " . $loan_material->Material()->Name()?>		
                 	</td>                	
                 	<td><?= $loan_material->Amount() ?></td>
-                  <td><?= $loan_material->DeliverAt() ?></td>
+                  <td><?= $loan_material->ReturnAt() ?></td>
                   <td><?= $loan_material->Description() ?></td>                  
                 </tr>
       			<?php endforeach ?>  
@@ -46,3 +46,5 @@
 
   </div>
 </div>
+
+

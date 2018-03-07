@@ -115,6 +115,44 @@ function FetchLoanWithID($id=0) {
   return $user;
 }
 
+function FetchAgeCaduce($MaxDias=3){
+  //Esta pequeña funcion me crea una fecha de entrega sin sabados ni domingos  
+    $fechaInicial = time();//date("Y-m-d"); //obtenemos la fecha de hoy, solo para usar como referencia al usuario  
+
+    $fecha = date("d/m/Y",$FechaFinal);
+    $fechaInicial = strtotime("d/m/Y",$fecha);
+  
+    //$MaxDias = 3; //Cantidad de dias maximo para el prestamo, este sera util para crear el for  
+  
+      
+         //Creamos un for desde 0 hasta 3  
+         for ($i=0; $i<$MaxDias; $i++)  
+          {  
+                        //Acumulamos la cantidad de segundos que tiene un dia en cada vuelta del for  
+              $Segundos = $Segundos + 86400;  
+                
+                        //Obtenemos el dia de la fecha, aumentando el tiempo en N cantidad de dias, segun la vuelta en la que estemos  
+              $caduca = time()+$Segundos;//date("D",time()+$Segundos);  
+              $var = date("D",$caduca);
+                                 //Comparamos si estamos en sabado o domingo, si es asi restamos una vuelta al for, para brincarnos el o los dias...  
+                  if ($var == "Sat")  
+                  {  
+                      $i--;  
+                  }  
+                  else if ($var == "Sun")  
+                  {  
+                      $i--;  
+                  }  
+                  else  
+                  {  
+                                          //Si no es sabado o domingo, y el for termina y nos muestra la nueva fecha  
+                      $FechaFinal = time()+$Segundos;  
+                  }  
+          }  
+
+          return $FechaFinal;
+}
+
 /*function FetchLoansWithStudentId($id_student=0){
   global $BASE;
   $loads = null;

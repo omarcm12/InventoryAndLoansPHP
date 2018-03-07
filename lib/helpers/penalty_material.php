@@ -37,6 +37,24 @@ function FetchAllPenaltys($page = 1, $per = 20, $search = "", $sort = 0) {
   return $results;
 }
 
+function FetchPossiblePenaltys($page = 1, $per = 20, $search = "", $sort = 0) {
+  global $BASE;
+  $page = intval($page);
+  if ($page < 1) { $page = 1; }
+
+  $offset = $per * ($page - 1);
+  try {
+    $stmt = $BASE->DB()->query("SELECT loan_materials.id, loan_materials.id_loan,loan_materials.id_material, loan_materials.amount, loan_materials.deliver_at, loan_materials.return_at, loan_materials.returned_amount, loan_materials.description FROM `loan_materials` LEFT JOIN `loans` ON loans.id = loan_materials.id_loan WHERE loans.status = '2'");
+    $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'LoanMaterial');
+    $results = new DBResults($results, $page, $per);
+  } catch(PDOException $e) {
+    $results = null;
+    die($e->getMessage());
+  }
+
+  return $results;
+}
+
 function FetchPenaltysWithIDStudent($page = 1, $per = 20, $search = "", $sort = 0, $id=0) {
   global $BASE;
   $page = intval($page);

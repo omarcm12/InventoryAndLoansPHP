@@ -8,9 +8,11 @@ if ($BASE->Session()->LoggedOut()) {
 
 $penaltys = FetchAllPenaltys($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $BASE->GetParam('o'));
 $penaltys->SetResultsTotal(PenaltysCount());
+$loans_materials = FetchPossiblePenaltys();
 //ReportAllMaterials();
 $sort_code = $BASE->GetParam('o');
 $vars = [
+	'loans_materials' => $loans_materials,
 	'penaltys' => $penaltys,
 	'search_default_value' => $BASE->GetParam('s')
 ];
