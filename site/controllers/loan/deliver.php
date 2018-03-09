@@ -38,11 +38,24 @@ $format = BASE_SIMPLE_DATE_FORMAT;
 /*
 $loan->deliver_at = strtotime($loan->deliver_at);*/
 $loan->deliver_at = strftime($format, $timestamp = time());
-$mañana  = mktime(date("Y")  ,date("m"), date("d")+3);
+/*$mañana  = mktime(date("Y")  ,date("m"), date("d")+3);
 
 $entrega = time() + (3*24*60*60);
 
+$loan->return_at = strftime($format,$entrega);*/
+
+$tiempo = time();
+
+$prueba = date("Y-m-d",$tiempo);
+/*$prueba = "-" . date("m",$tiempo);
+$prueba = "-" . date("d",$tiempo);*/
+
+$ageunix = mktime(0,0,0,date("m",$tiempo), date("d",$tiempo), date("Y",$tiempo));
+
+//$otra = strtotime("Y-m-d",$prueba);
+$entrega = $ageunix + (3*24*60*60);
 $loan->return_at = strftime($format,$entrega);
+
 
 if($loan->Update()){
 	$BASE->Session()->SetFlash(['success' => 'Prestamo entregado.']);
