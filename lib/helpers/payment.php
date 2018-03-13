@@ -45,7 +45,7 @@ function FetchPaymentsWithIDStudent($page = 1, $per = 20, $search = "", $sort = 
   $offset = $per * ($page - 1);
 
   try {
-    $stmt = $BASE->DB()->query("SELECT * FROM `payments` WHERE `id_student` = $id AND  `id_material` LIKE '%$search%' LIMIT $per OFFSET $offset;");
+    $stmt = $BASE->DB()->query("SELECT * FROM `payments` WHERE `id_student` = $id AND  `id_penalty` LIKE '%$search%' LIMIT $per OFFSET $offset;");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Payment');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {

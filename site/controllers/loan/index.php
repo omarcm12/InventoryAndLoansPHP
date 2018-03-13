@@ -8,8 +8,15 @@ if ($BASE->Session()->LoggedOut()) {
 
 $filter = $BASE->GetParam('f');
 if(empty($filter)) $filter = 1;
-
+$configuration = FetchConfiguration();
 $loans = FetchAllLoans($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $filter);
+foreach ($loans as $loan) {
+	if($loan->Status() == 1){//request loans
+		if(DaysCount(strtotime($loan->RequestAt())) > $configuration->DaysExpiredLoan()){
+			$loan->Destroy();
+		}
+	}
+}
 $loans->SetResultsTotal(LoansCount());
 
 $vars = [

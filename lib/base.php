@@ -24,6 +24,7 @@ require_once(BASE_MODELS_FOLDER . 'student.php');
 require_once(BASE_MODELS_FOLDER . 'payment.php');
 require_once(BASE_MODELS_FOLDER . 'penalty_material.php');
 require_once(BASE_MODELS_FOLDER . 'payment.php');
+require_once(BASE_MODELS_FOLDER . 'configuration.php');
 
 class BaseCMS {
   private $config;

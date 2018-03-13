@@ -13,7 +13,8 @@
   </td>
   <td>
   	<a style="margin-left: 10px" href="/admin/inventario/<?= $material->ID()?>" class="btn btn-info btn-sm btn-fill btn-uabc-green">Editar</a>
-  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-<?= $material->ID()?>">Eliminar</a>    
+  	<a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-delete-<?= $material->ID()?>">Eliminar</a>  
+      
   </td>
 
   <!-- Modal -->

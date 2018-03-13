@@ -23,6 +23,28 @@ $penalty = FetchPenaltyWithID($id);
 if ($payment->Valid() && $payment->Create()) {
 	$penalty->status = 2;
 	$penalty->Update();			
+	if($postParams['deliver'] == 1){
+		/* Delete of the loan */
+		
+		$loan_material = $payment->Penalty()->LoanMaterial();
+		$loan_material->returned_amount = $loan_material->Amount();
+		$loan_material->Update();
+
+		/* en caso que el prestamo ya no tenga materiales pensientes se cambia a entregado */
+		$flag = 1;
+		$loan = $loan_material->Loan();
+		$loans = $loan->LoanMaterials();
+		foreach ($loans as $var) {
+			if($var->ReturnedAmount() != $var->Amount()){
+				$flag = 0;
+			}
+		}
+		if($flag==1){
+			$loan->status = 3;
+			$loan->Update();
+		}
+		
+	}
 	$BASE->Session()->SetFlash(['success' => 'Pago Registrado.']);
 	$BASE->Response()->RedirectAndExit('/admin/adeudos', BASE_RESPONSE_REDIRECT_OTHER);
 }

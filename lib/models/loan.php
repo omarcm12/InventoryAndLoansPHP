@@ -13,6 +13,7 @@ class Loan extends BaseModel {
   public $status;
   public $deliver_at;
   public $return_at;
+  public $request_at;
 
   private $student;
   private $employee;
@@ -25,8 +26,13 @@ class Loan extends BaseModel {
       'id_employee' => PDO::PARAM_INT,      
       'status' => PDO::PARAM_INT,
       'deliver_at' => MYSQLI_TYPE_TIMESTAMP,
-      'return_at' => MYSQLI_TYPE_TIMESTAMP   
+      'return_at' => MYSQLI_TYPE_TIMESTAMP,
+      'request_at' => MYSQLI_TYPE_TIMESTAMP  
     ];
+  }
+
+  public function IdStudent(){
+    return $this->id_student;
   }
 
   public function AttributesForUpdate() {
@@ -39,7 +45,18 @@ class Loan extends BaseModel {
   }
 
   public function ReturnAt(){
-    return $this->return_at;
+    //return $this->return_at;
+    return strftime('%d-%m-%Y',strtotime($this->return_at));
+  }
+
+
+  public function RequestAt(){
+    //return $this->request_at;
+    return strftime('%d-%m-%Y',strtotime($this->request_at));
+  }
+
+  public function AgeRequest(){
+    return strftime('%d-%m-%Y',(strtotime($this->request_at)-1000));
   }
 
   public function AttributesWithTimestamps() {

@@ -53,6 +53,14 @@ class LoanMaterial extends BaseModel {
     return $this->loan;
   }
 
+  public function Loan(){
+    if(empty($this->loan)){
+      return FetchLoanWithID($this->id_loan);
+    }else{
+      return $this->student;
+    }
+  }
+
   public function Amount() {
     return $this->amount;
   }

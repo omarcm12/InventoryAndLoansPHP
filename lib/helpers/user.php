@@ -82,6 +82,20 @@ function imagesUploadFolderIsWriteable() {
   return is_writable(BASE_UPLOADS_FOLDER);
 }
 
+function updateStatusStudentWithID($id=0, $status=1){
+    global $BASE;  
+    
+    try {
+     
+      $stmt = $BASE->DB()->prepare("UPDATE `users` SET `status` = :status WHERE `id` = :id;");
+      $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+      $stmt->bindParam(':status', $status, PDO::PARAM_INT);
+      $stmt->execute();
 
+    } catch(PDOException $e) {
+      $count = 0;
+      die($e->getMessage());
+    }
+}
 
 ?>

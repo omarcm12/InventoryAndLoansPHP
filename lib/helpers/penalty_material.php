@@ -18,6 +18,28 @@ function FetchPenaltyWithID($id=0) {
   return $penalty;
 }
 
+function FetchPenaltyWithIDLoanMaterial($id=0){
+
+  global $BASE;
+
+  $penalty = null;
+
+  try {
+    $stmt = $BASE->DB()->prepare("SELECT * FROM `penalty_materials` WHERE `id_loan_material` = :id LIMIT 1;");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+    $stmt->execute();
+
+    $penalty = $stmt->fetchObject('Penalty_material');
+  } catch(PDOException $e) {
+    die($e->getMessage());
+  }
+
+  return $penalty;
+
+
+}
+
 function FetchAllPenaltys($page = 1, $per = 20, $search = "", $sort = 0) {
   global $BASE;
   $page = intval($page);
@@ -90,5 +112,20 @@ function PenaltysCount() {
   return $count;
 }
 
+function FetchDaysPenalty($age=0){
+  $days = 0;
+  $secconds = 0;
+  $now = time();
+  while($now >  $age){
+    $age = $age + 86400;  //one day is 86400 secconds
+    $var = date("D",$age);
+    if($var != "Sat" && $var !="Sun"){
+      $days++;
+    } 
+  }
+ // $days = (time() - strtotime($age))/86400;
+  
+  return $days;
+}
 
 ?>

@@ -21,6 +21,7 @@ CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,  
   `type` int(11) unsigned NOT NULL,
   `carrer` varchar(255) DEFAULT '',  
+  `status` int(11) unsigned DEFAULT 1,
   `semester` int(11) unsigned DEFAULT 0,
   `enrollment` int(11) unsigned DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -29,11 +30,11 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `type`,`carrer`, `semester`,`enrollment`)
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `type`,`carrer`,`status`, `semester`,`enrollment`)
 VALUES
-  (1, 'Juan', 'Perez', 'test@mail.com', 0,'empleado',0,12123),
-  (2, 'Jose', 'Sanchez', 'alumno@mail.com', 1,'Ing Quimica', 4, 12321),
-  (3, 'Sergio', 'Ramirez', 'alumno2@mail.com', 1,'Quimico Farmacobiologo', 6, 231234);
+  (1, 'Juan', 'Perez', 'test@mail.com', 0,'empleado',1,0,12123),
+  (2, 'Jose', 'Sanchez', 'alumno@mail.com', 1,'Ing Quimica',1, 4, 12321),
+  (3, 'Sergio', 'Ramirez', 'alumno2@mail.com', 1,'Quimico Farmacobiologo',1, 6, 231234);
 
 /*
 DROP TABLE IF EXISTS `students`;
@@ -120,6 +121,7 @@ CREATE TABLE `loans` (
   `status` varchar(10) DEFAULT '',  
   `deliver_at` timestamp NULL DEFAULT NULL,
   `return_at` timestamp NULL DEFAULT NULL,
+  `request_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -174,12 +176,16 @@ CREATE TABLE `payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-DROP TABLE IF EXISTS `configuration`;
+DROP TABLE IF EXISTS `configurations`;
 
-CREATE TABLE `configuration` (
+CREATE TABLE `configurations` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `days_loan` int(11) unsigned NOT NULL,     
   `days_price` int(11) unsigned NOT NULL,
   `days_expired_loan` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `configurations` (`id`, `days_loan`, `days_price`, `days_expired_loan`)
+VALUES
+  (1, 3, 4, 2);

@@ -20,7 +20,8 @@ foreach ($loan->LoanMaterials() as $loan_material){
 		$loan_material->Update();
 	}
 }
-
+$format = BASE_SIMPLE_DATE_FORMAT;
+$loan->request_at = strftime($format, time());
 $loan->status = LOAN_STATUS_WAITING;
 
 if (!$loan->Update()) {

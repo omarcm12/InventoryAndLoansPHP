@@ -15,6 +15,23 @@ function LoansCount() {
   return $count;
 }
 
+function CountWithIDStudent($id=0){
+  global $BASE;
+  try {
+    $stmt = $BASE->DB()->prepare("SELECT `id` FROM `loans` WHERE `id_student` = :id AND `status` = 2;");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    //$stmt->execute();
+    $stmt->execute();
+    //$stmt->store_result();
+    $count = $stmt->rowCount();
+  } catch(PDOException $e) {
+    $count = 0;
+    die($e->getMessage());
+  }
+
+  return $count;
+}
+
 function UpdateLoanForEdit($id_loan=0){
   global $BASE;  
   $algo = 0;
@@ -29,6 +46,23 @@ function UpdateLoanForEdit($id_loan=0){
     die($e->getMessage());
   }
 
+}
+
+
+
+function DaysCount($age=0){
+    
+  $now = time();
+  $days=0;
+  while($age<$now){
+      $var = date("D",$age);
+      if($var != "Sar" && $var != "Sun"){
+          $days++;
+      }
+      $age = $age+86400;
+  }
+
+  return $days;
 }
 
 function DeleteLoanForEdit($id_student=0){
@@ -117,14 +151,11 @@ function FetchLoanWithID($id=0) {
 
 function FetchAgeCaduce($MaxDias=3){
   //Esta pequeña funcion me crea una fecha de entrega sin sabados ni domingos  
-    $fechaInicial = time();//date("Y-m-d"); //obtenemos la fecha de hoy, solo para usar como referencia al usuario  
+    $now = time();
+    $Segundos = 0;
+    $fechaInicial = mktime(0,0,0,date("m",$now), date("d",$now), date("Y",$now));//date("Y-m-d"); //obtenemos la fecha de hoy, solo para usar como referencia al usuario  
 
-    $fecha = date("d/m/Y",$FechaFinal);
-    $fechaInicial = strtotime("d/m/Y",$fecha);
-  
-    //$MaxDias = 3; //Cantidad de dias maximo para el prestamo, este sera util para crear el for  
-  
-      
+   
          //Creamos un for desde 0 hasta 3  
          for ($i=0; $i<$MaxDias; $i++)  
           {  
@@ -146,48 +177,13 @@ function FetchAgeCaduce($MaxDias=3){
                   else  
                   {  
                                           //Si no es sabado o domingo, y el for termina y nos muestra la nueva fecha  
-                      $FechaFinal = time()+$Segundos;  
+                      $FechaFinal = $fechaInicial+$Segundos;  
                   }  
           }  
 
           return $FechaFinal;
 }
 
-/*function FetchLoansWithStudentId($id_student=0){
-  global $BASE;
-  $loads = null;
-
-  try{
-       $stmt = $BASE->DB()->prepare("SELECT * FROM `loans` WHERE `id_student` = :id_student");
-    
-    $stmt->bindParam(':id_student', $id_student, PDO::PARAM_INT);
-    $stmt->execute();
-
-    $loads = $stmt->fetchObject('Loan');
-  } catch(PDOException $e) {
-    die($e->getMessage());
-  }
-
-  return $loads;
-}*/
-
-/*function FetchLoansWithStudentId($id_student=0){
-  global $BASE;
-  $loads = null;
-
-  try{
-       $stmt = $BASE->DB()->prepare("SELECT * FROM `loans` WHERE `id_student` = :id_student");
-    
-    $stmt->bindParam(':id_student', $id_student, PDO::PARAM_INT);
-    $stmt->execute();
-
-    $loads = $stmt->fetchAll(PDO::FETCH_CLASS,'Loan');
-  } catch(PDOException $e) {
-    die($e->getMessage());
-  }
-
-  return $loads;
-}*/
 
 function FetchLoanWithStudent($id_student=0, $status = LOAN_STATUS_DRAFT) {
   global $BASE;

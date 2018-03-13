@@ -1,54 +1,56 @@
 <?php /* templates/admin/sessions/new */
-$js_assets = [  /*Include javascript*/
+
+$js_assets = [
+  "moves/create_api.js",
   "report.js"
 ];
+
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
     <div class="row">
       
     <div class="col-md-12"> 
-        <button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>
-        <form id="search-form" action="/admin/alumnos/" method="get">
+        <form id="search-form" action="/alumnos/pagos/" method="get">
           <div class="input-group"> 
-            <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
+            <input type="text" id="penalty_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control" style="border: 1px solid #ddd !important; border-right: 0 none !important; width: auto; background-color: #fff !important;"> 
             <div class="input-group-btn"> 
               <button type="button" class="btn btn-default" onclick="$('#search-form').submit()">
                 <span class="glyphicon glyphicon-search"></span>
               </button>
-              <button type="button" class="btn btn-default" onclick="$('#material_search').val('');$('#search-form').submit();">
+              <button type="button" class="btn btn-default" onclick="$('#penalty_search').val('');$('#search-form').submit();">
                 <span class="glyphicon glyphicon-remove"></span>
               </button> 
             </div> 
           </div>          
           <input type="submit" style="display: none" />
-          <br>
         </form>
+
     </div>
      
         <div class="col-md-12">                      
             <div class="card">                        
                 <div class="header">
-                    <h3 class="title">Alumnos</h3>                       
+                    <h3 class="title">Mis multas</h3>                       
                 </div>
                 <div class="content table-responsive table-full-width stock-list">
                     <table class="table table-hover table-striped">
                         <thead>
-                          <th>Matricula</th>
-                          <th>Nombre</th>
-                          <th>Correo</th>
-                          <th>Carrera</th>
-                          <th>Prestamos ativos</th>
-                          <th>Estatus</th>
-                          <th></th>
+                          <th>Id</th>
+                          <th>Multa</th>
+                          <th>Material</th>
+                          <th>Monto/Dias</th>
+                          <th>Monto Pagado</th>
+                          <th>Fecha</th>
+                          <th>Descripcion</th>
                         </thead>
                         <tbody>
-                            <?php if (count($students) == 0) { ?>
-                            <tr><td colspan="7"><h4 class="text-center">No hay alumnos disponibles.</h4></td></tr>
+                            <?php if (count($payments) == 0) { ?>
+                            <tr><td colspan="7"><h4 class="text-center">No hay multas disponible.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
-                              foreach ($students as $student) {                              
-                                include(BASE_SECTION_TEMPLATES_FOLDER . 'student/_list_item.php');
+                              foreach ($payments as $payment) {                              
+                                include(BASE_SECTION_TEMPLATES_FOLDER . 'alumnos/payment/_list_item.php');
                               }
                               ?>
                             <?php } ?>                            
@@ -61,5 +63,5 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
     </div>
 </div>
 
-
+<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'stock/_modal_moves.php'); ?>
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>

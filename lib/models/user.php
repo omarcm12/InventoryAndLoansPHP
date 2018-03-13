@@ -5,6 +5,10 @@ if(count(get_included_files()) == 1) exit("Direct access not permitted.");
 define('USER_ADMIN', 0);
 define('USER_STUDENT', 1);
 
+define('STUDENT_ACTIVE',1);
+define('STUDENT_LOW',0);
+define('STUDENT_EVALUATION',2);
+
 class User extends BaseModel {
   public $name;
   public $last_name;
@@ -13,6 +17,7 @@ class User extends BaseModel {
   public $enrollment;
   public $carrer;
   public $semester;
+  public $status;
 
   
   public function AttributesForCreate() {
@@ -48,7 +53,7 @@ class User extends BaseModel {
   }  
 
   public function FullName() {
-    $full_name = $this->name . " " .$this->last_name;
+    $full_name = $this->last_name . " " .$this->name;
     return $full_name;
   }
 
@@ -78,6 +83,26 @@ class User extends BaseModel {
 
  public function IsStudent(){
     return $this->type == USER_STUDENT;
+  }
+
+  public function StatusName(){
+    $status = "Activo";
+    if($this->status == STUDENT_LOW){
+      $status = "Baja";
+    }else if($this->status == STUDENT_EVALUATION){
+      $status = "EP";
+    }
+    return $status;
+  }
+
+  public function StatusLabel(){
+    $status = "normal";
+    if($this->status == STUDENT_LOW){
+      $status = "danger";
+    }else if($this->status == STUDENT_EVALUATION){
+      $status = "overage";
+    }
+    return $status;
   }
 
   public function Valid() {

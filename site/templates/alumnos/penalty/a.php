@@ -1,17 +1,12 @@
 <?php /* templates/admin/sessions/new */
-$js_assets = [  /*Include javascript*/
-  "report.js"
-];
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
-    <div class="row">
-      
-    <div class="col-md-12"> 
-        <button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>
-        <form id="search-form" action="/admin/alumnos/" method="get">
+    <div class="row">  
+        <div class="col-md-12">
+        <form id="search-form" action="/alumnos/prestamos/" method="get">
           <div class="input-group"> 
-            <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
+            <input type="text" id="material_search" name="s" placeholder="Buscar" value="" class="form-control"> 
             <div class="input-group-btn"> 
               <button type="button" class="btn btn-default" onclick="$('#search-form').submit()">
                 <span class="glyphicon glyphicon-search"></span>
@@ -22,44 +17,48 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
             </div> 
           </div>          
           <input type="submit" style="display: none" />
-          <br>
         </form>
+        </div>
     </div>
      
-        <div class="col-md-12">                      
+     <div class="row">
+     	<div class="col-xs-8">                      
             <div class="card">                        
                 <div class="header">
-                    <h3 class="title">Alumnos</h3>                       
+                    <h3 class="title">Inventario</h3>                       
                 </div>
-                <div class="content table-responsive table-full-width stock-list">
+                <div class="content table-responsive stock-list">
                     <table class="table table-hover table-striped">
                         <thead>
-                          <th>Matricula</th>
+                          <th>Núm catalogo</th>
                           <th>Nombre</th>
-                          <th>Correo</th>
-                          <th>Carrera</th>
-                          <th>Prestamos ativos</th>
-                          <th>Estatus</th>
+                          <th>Cantidad</th>                          
                           <th></th>
                         </thead>
                         <tbody>
-                            <?php if (count($students) == 0) { ?>
-                            <tr><td colspan="7"><h4 class="text-center">No hay alumnos disponibles.</h4></td></tr>
+                            <?php if (count($materials) == 0) { ?>
+                            <tr><td colspan="7"><h4 class="text-center">No hay materiales disponible.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
-                              foreach ($students as $student) {                              
-                                include(BASE_SECTION_TEMPLATES_FOLDER . 'student/_list_item.php');
+                              foreach ($materials as $material) {                              
+                                if(!$loan->isInMaterials($material)){
+                                  include(BASE_SECTION_TEMPLATES_FOLDER . 'alumnos/_list_item.php');
+                                }
                               }
                               ?>
                             <?php } ?>                            
                         </tbody>
+                       	<!-- Aqui se despliegan los materiales -->
                     </table>
 
                 </div>
             </div>
         </div>
+
+		<div class="col-xs-4">
+			<?php include(BASE_SECTION_TEMPLATES_FOLDER . 'alumnos/loan_list.php'); ?>
+		</div>
+     </div>
     </div>
 </div>
-
-
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
