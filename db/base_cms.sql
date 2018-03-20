@@ -144,6 +144,28 @@ CREATE TABLE `loan_materials` (
   UNIQUE KEY `id_material_id_loanx` (`id_material`, `id_loan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `move_loans`;
+CREATE TABLE `move_loans` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_loan` int(11) unsigned NOT NULL, 
+  `id_student` int(11) unsigned NOT NULL,
+  `id_user` int(11) unsigned NOT NULL,
+  `type` int(10) unsigned NOT NULL,
+  `pieces` int(10) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `move_loan_materials`;
+CREATE TABLE `move_loan_materials` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_move_loan` int(11) unsigned NOT NULL,     
+  `id_material` int(11) unsigned NOT NULL,
+  `amount` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `penalty_materials`;
 
 CREATE TABLE `penalty_materials` (

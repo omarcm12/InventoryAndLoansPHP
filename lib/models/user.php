@@ -77,6 +77,10 @@ class User extends BaseModel {
     return $this->enrollment;
   }
 
+  public function Status(){
+    return $this->status;
+  }
+
   public function IsAdmin(){
     return $this->type == USER_ADMIN;
   }

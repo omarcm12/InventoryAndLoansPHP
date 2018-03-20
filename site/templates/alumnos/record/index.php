@@ -20,6 +20,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
           </div>          
           <input type="submit" style="display: none" />
           <br>
+          <input name="f" value="<?= $filter?>" type="hidden">
         </form>
     </div>
      

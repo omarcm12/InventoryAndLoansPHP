@@ -1,10 +1,16 @@
 <tr>
   <td><?= $loan->ID()?></td>
-  <td><?=$loan->CreatedAtFormatted()?></td>
+  <td>
+    <?php if ($loan->Status() ==1): ?> <?= $loan->RequestAt() ?> <?php endif ?>
+    <?php if ($loan->Status() ==2): ?> <?= $loan->DeliverAt() ?> <?php endif ?>
+    <?php if ($loan->Status() ==3): ?> <?= $loan->ReturnAt() ?> <?php endif ?>
+
+
+  </td>
   <td>	
   	<?php if ($loan->Status() ==1): ?>Solicitud<?php endif ?>
-	<?php if ($loan->Status() ==2): ?>En proceso<?php endif ?>
-	<?php if ($loan->Status() ==3): ?>Entregado<?php endif ?>
+	 <?php if ($loan->Status() ==2): ?>En proceso<?php endif ?>
+	 <?php if ($loan->Status() ==3): ?>Entregado<?php endif ?>
   </td>  
   
   <td>

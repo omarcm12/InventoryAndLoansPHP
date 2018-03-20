@@ -46,7 +46,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                         </thead>
                         <tbody>
                             <?php if (count($payments) == 0) { ?>
-                            <tr><td colspan="7"><h4 class="text-center">No hay multas disponible.</h4></td></tr>
+                            <tr><td colspan="7"><h4 class="text-center">No hay pagos disponible.</h4></td></tr>
                             <?php } else { ?>
                               <?php                              
                               foreach ($payments as $payment) {                              

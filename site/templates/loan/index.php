@@ -9,9 +9,9 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
       
     <div class="col-md-12"> 
       <!--<button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>-->
-        <form id="search-form" action="/admin/prestamos/" method="get">
+        <form id="search-form" action="/admin/prestamos" method="get">
           <div class="input-group"> 
-            <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
+            <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value?>" class="form-control"> 
             <div class="input-group-btn"> 
               <button type="button" class="btn btn-default" onclick="$('#search-form').submit()">
                 <span class="glyphicon glyphicon-search"></span>
@@ -22,6 +22,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
             </div> 
           </div>          
           <input type="submit" style="display: none" />
+          <input name="f" value="<?= $filter?>" type="hidden">
           <br>
         </form>
     </div>

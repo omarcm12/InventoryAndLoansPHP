@@ -52,6 +52,10 @@ class Move extends BaseModel {
     return $this->type;
   }
 
+  public function Age() {
+    return strftime('%d-%m-%Y',strtotime($this->created_at));
+  } 
+
   public function TypeName() {
     return $this->type == MOVE_TYPE_ADD ? "Alta" : "Baja";
   }

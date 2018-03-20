@@ -5,7 +5,10 @@ $custom_css_plugins = [
 $custom_js_plugins = [
   'bootstrap-fileinput/bootstrap-fileinput.js',
 ];
-
+$js_assets = [
+  "tablesorter/main.js",
+  "jquery.tablesorter.js"
+];
 
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>

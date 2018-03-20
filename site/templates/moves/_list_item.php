@@ -11,7 +11,7 @@
       <i class="fa fa-arrow-<?= $move->Type() == MOVE_TYPE_ADD ? 'up' : 'down' ?>" aria-hidden="true"></i>
   </td>
   <td><?= $move->User()->FullName() ?></td>  
-  <td><?= $move->CreatedAtFormatted() ?></td>
+  <td><?= $move->Age() ?></td>
   <td><button class="btn btn-info btn-sm" type="button"  data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-search" aria-hidden="true"></button></td>
   
 

@@ -116,12 +116,14 @@ function FetchDaysPenalty($age=0){
   $days = 0;
   $secconds = 0;
   $now = time();
-  while($now >  $age){
-    $age = $age + 86400;  //one day is 86400 secconds
+  $now = mktime(0,0,0,date("m",$now), date("d",$now), date("Y",$now));
+  //;
+  while($now >=  $age){
     $var = date("D",$age);
     if($var != "Sat" && $var !="Sun"){
       $days++;
     } 
+    $age = $age + 86400;  //one day is 86400 secconds
   }
  // $days = (time() - strtotime($age))/86400;
   

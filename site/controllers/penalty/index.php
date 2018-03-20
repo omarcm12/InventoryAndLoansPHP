@@ -26,7 +26,7 @@ $loans_materials = FetchPossiblePenaltys();
 			}
 		}
 		$configuration = FetchConfiguration();
-		$student = $loan_material->Student();
+		$student = $loan_material->Loan()->Student();
 		if($student->Status() == 1 || $student->Status() == 2 ){  /* STATUS 1 = ACTIVE, STATUS 2 = EVALUATION*/
 			$penalty->days = FetchDaysPenalty(strtotime($loan_material->ReturnAt()));
 			$penalty->amount = $penalty->Days()*$penalty->Pieces() * $configuration->DaysPrice();

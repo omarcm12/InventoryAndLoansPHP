@@ -41,6 +41,10 @@ class LoanMaterial extends BaseModel {
     return strftime('%d-%m-%Y',strtotime($this->return_at));
   }
 
+  public function AgeReturnAt(){
+    return strftime('%d-%m-%Y',strtotime($this->return_at)-100); 
+  }
+
   public function Material() {
     if(is_null($this->material))
       $this->material = FetchMaterialWithID($this->id_material);    
@@ -57,7 +61,7 @@ class LoanMaterial extends BaseModel {
     if(empty($this->loan)){
       return FetchLoanWithID($this->id_loan);
     }else{
-      return $this->student;
+      return $this->loan;
     }
   }
 
@@ -68,6 +72,7 @@ class LoanMaterial extends BaseModel {
   public function ReturnedAmount() {
     return $this->returned_amount;
   }
+
 
   public function Description() {
     return $this->description;
