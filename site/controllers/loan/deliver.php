@@ -12,6 +12,15 @@ if (empty($loan)) {
   $BASE->Response()->ExitWithNotFound('Prestamo no encontrado.', 'Prestamo: ' . $BASE->RouteParam(0));
 }
 
+/* BITACORA */
+$move_loan = new MoveLoan();
+$move_loan->id_loan = $loan->ID();
+$move_loan->id_student = $loan->Student()->ID();
+$move_loan->id_user = adminCurrentUser()->ID();
+$move_loan->type = MOVE_TYPE_DELIVER;
+$move_loan->Create();
+/* END BITACORA */
+
 foreach ($loan->LoanMaterials() as $loan_material){
 	$send_loan_material = $_POST["loan-material"][$loan_material->ID()];
 	if($send_loan_material["amount"] == 0 || $send_loan_material["deliver"] == 0){
@@ -30,6 +39,15 @@ foreach ($loan->LoanMaterials() as $loan_material){
 		
 		$material->borrowed_count += $loan_material->Amount(); 
 		$material->Update();
+
+		/*   BITACORA  */
+		$move_loan_material = new MoveLoanMaterial();
+		$move_loan_material->id_move_loan = $move_loan->ID();
+		$move_loan_material->id_material = $loan_material->Material()->ID();
+		$move_loan_material->amount = $send_loan_material["amount"];
+		$move_loan_material->Create();
+
+		/*END BITACORA  */
 	}
 }
 

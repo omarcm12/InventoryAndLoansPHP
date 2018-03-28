@@ -9,20 +9,19 @@ class MoveLoan extends BaseModel {
   public $id_loan;
   public $id_student;
   public $id_user;
-  public $type;
-  public $pieces;  
+  public $type; 
 
   private $student;
   private $loan;
   private $user;
+  private $materials;
 
   public function AttributesForCreate() {
     return [   
       'id_loan' => PDO::PARAM_INT,
       'id_user' => PDO::PARAM_INT,
       'id_student' => PDO::PARAM_INT,
-      'type' => PDO::PARAM_INT,
-      'pieces' => PDO::PARAM_INT,            
+      'type' => PDO::PARAM_INT           
     ];
   }
 
@@ -31,13 +30,19 @@ class MoveLoan extends BaseModel {
       'id_loan' => PDO::PARAM_INT,
       'id_user' => PDO::PARAM_INT,
       'id_student' => PDO::PARAM_INT,
-      'type' => PDO::PARAM_INT,
-      'pieces' => PDO::PARAM_INT,
+      'type' => PDO::PARAM_INT
     ];
   }
 
   public function AttributesWithTimestamps() {
     return true;
+  }
+
+  public function Materials(){
+    if(empty($this->materials)){
+      $this->materials = FetchMoveLoanMaterialWithMoveLoanID($this->ID());
+    }
+    return $this->materials;
   }
 
   public function IdUser() {
@@ -48,12 +53,15 @@ class MoveLoan extends BaseModel {
     return $this->id_student;
   }
 
-  public function Pieces() {
-    return $this->pieces;
-  } 
-
   public function Type() {
     return $this->type;
+  }
+
+  public function Loan(){
+    if(empty($this->loan)){
+      $this->loan = FetchLoanWithID($this->id_loan);
+    }
+    return $this->loan;
   }
 
   public function TypeName() {
@@ -79,7 +87,6 @@ class MoveLoan extends BaseModel {
     if (empty($this->id_student)) { return false; } 
     if (empty($this->id_loan)) { return false; }       
     if (empty($this->type)) { return false; }
-    if (empty($this->pieces)) { return false; }
     return true;
   }
 }

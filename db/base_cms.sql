@@ -151,7 +151,6 @@ CREATE TABLE `move_loans` (
   `id_student` int(11) unsigned NOT NULL,
   `id_user` int(11) unsigned NOT NULL,
   `type` int(10) unsigned NOT NULL,
-  `pieces` int(10) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) 
