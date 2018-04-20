@@ -1,6 +1,10 @@
 <?php /* templates/admin/sessions/new */
 $js_assets = [
-  "report.js"
+  "moves/create_api.js",
+  "report.js",
+  "tablesorter/jquery-3.3.1.min.js",
+  "tablesorter/jquery.tablesorter.js",
+  "tablesorter/main.js"
 ];
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
@@ -9,6 +13,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
       
     <div class="col-md-12"> 
       <!--<button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>-->
+      <a href="/admin/prestamos/bitacora" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Bitacora</a>
         <form id="search-form" action="/admin/prestamos" method="get">
           <div class="input-group"> 
             <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value?>" class="form-control"> 
@@ -25,6 +30,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
           <input name="f" value="<?= $filter?>" type="hidden">
           <br>
         </form>
+
     </div>
      
         <div class="col-md-12">                      
@@ -44,7 +50,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                   </li>
                 </ul>
                 <div class="content table-responsive table-full-width stock-list">
-                    <table class="table table-hover table-striped">
+                    <table id="myTable" class="table table-hover table-striped">
                         <thead>
                           <th>ID de Prestamo</th>
                           <th>Matrícula</th>
