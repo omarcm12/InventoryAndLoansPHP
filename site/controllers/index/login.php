@@ -26,6 +26,8 @@ if($user->Type() == USER_ADMIN){
 	$BASE->Response()->RedirectAndExit('/admin/', BASE_RESPONSE_REDIRECT_OTHER);
 }else if($user->Type() == USER_STUDENT){
 	$BASE->Response()->RedirectAndExit('/alumnos/', BASE_RESPONSE_REDIRECT_OTHER);
+}else if($user->Type() == USER_SERVICE){
+	$BASE->Response()->RedirectAndExit('/servicio/', BASE_RESPONSE_REDIRECT_OTHER);
 }
 
 

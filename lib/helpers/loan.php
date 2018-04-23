@@ -155,15 +155,14 @@ function FetchAgeCaduce($MaxDias=3){
     $Segundos = 0;
     $fechaInicial = mktime(0,0,0,date("m",$now), date("d",$now), date("Y",$now));//date("Y-m-d"); //obtenemos la fecha de hoy, solo para usar como referencia al usuario  
 
-   
-         //Creamos un for desde 0 hasta 3  
          for ($i=0; $i<$MaxDias; $i++)  
           {  
                         //Acumulamos la cantidad de segundos que tiene un dia en cada vuelta del for  
               $Segundos = $Segundos + 86400;  
                 
                         //Obtenemos el dia de la fecha, aumentando el tiempo en N cantidad de dias, segun la vuelta en la que estemos  
-              $caduca = time()+$Segundos;//date("D",time()+$Segundos);  
+              //$caduca = time()+$Segundos;//date("D",time()+$Segundos);  
+              $caduca = $fechaInicial+$Segundos;
               $var = date("D",$caduca);
                                  //Comparamos si estamos en sabado o domingo, si es asi restamos una vuelta al for, para brincarnos el o los dias...  
                   if ($var == "Sat")  

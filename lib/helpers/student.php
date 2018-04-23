@@ -63,7 +63,7 @@ function FetchAllStudents($page=1, $per=20, $search = ""){
   $students = null;
 
   try{
-       $stmt = $BASE->DB()->query("SELECT * FROM `users` WHERE `type` = 1 AND `id` IN (SELECT `id` FROM `users` WHERE `name` LIKE '%$search%' OR `last_name` LIKE '%$search%' OR `carrer` LIKE '%$search%' OR `enrollment` LIKE '%$search%' OR `email` LIKE '%$search%') ORDER BY `id` DESC" );
+       $stmt = $BASE->DB()->query("SELECT * FROM `users` WHERE `type` = 1 OR `type` = 2 AND `id` IN (SELECT `id` FROM `users` WHERE `name` LIKE '%$search%' OR `last_name` LIKE '%$search%' OR `carrer` LIKE '%$search%' OR `enrollment` LIKE '%$search%' OR `email` LIKE '%$search%') ORDER BY `id` DESC" );
     
    // $stmt->bindParam(':id_student', $id_student, PDO::PARAM_INT);
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');

@@ -48,7 +48,7 @@ class Payment extends BaseModel {
 
   public function Student() {
     if(is_null($this->student))
-      $this->student = FetchStudentWithID($this->id_student);
+      $this->student = FetchUserWithID($this->id_student);
     return $this->student;
   }
 
@@ -82,4 +82,5 @@ require_once(BASE_LIB_FOLDER . 'helpers/user.php');
 require_once(BASE_LIB_FOLDER . 'helpers/material.php');
 require_once(BASE_LIB_FOLDER . 'helpers/loan_material.php');
 require_once(BASE_LIB_FOLDER . 'helpers/payment.php');
+
 ?>

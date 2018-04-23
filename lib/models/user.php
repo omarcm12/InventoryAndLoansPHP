@@ -4,6 +4,7 @@ if(count(get_included_files()) == 1) exit("Direct access not permitted.");
 
 define('USER_ADMIN', 0);
 define('USER_STUDENT', 1);
+define('USER_SERVICE',2);
 
 define('STUDENT_ACTIVE',1);
 define('STUDENT_LOW',0);
@@ -35,7 +36,7 @@ class User extends BaseModel {
       'last_name' => PDO::PARAM_STR,
       'enrollment' => PDO::PARAM_STR,
       'carrer' => PDO::PARAM_STR,
-      'semester' => PDO::PARAM_STR                  
+      'semester' => PDO::PARAM_STR              
     ];
   }
 
@@ -83,6 +84,10 @@ class User extends BaseModel {
 
   public function IsAdmin(){
     return $this->type == USER_ADMIN;
+  }
+
+  public function IsService(){
+    return $this->type == USER_SERVICE;
   }
 
  public function IsStudent(){

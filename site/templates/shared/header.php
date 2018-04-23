@@ -28,7 +28,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?= adminCurrentUser()->IsAdmin() ? '/admin' : '/alumnos' ?>">
+                    <?php if(adminCurrentUser()->IsAdmin()):?>
+                      <a class="navbar-brand" href="/admin">
+                    <?php  elseif (adminCurrentUser()->IsStudent()): ?>
+                      <a class="navbar-brand" href="/alumnos">
+                    <?php  else: ?>
+                        <a class="navbar-brand" href="/servicio">                      
+                    <?php endif ?>
+
+                    <!--<a class="navbar-brand" href="<?= adminCurrentUser()->IsAdmin() ? '/admin' : adminCurrentUser()->IsStudent() ? '/alumnos' : '/servicio' ?>">-->
                       <img class="logo-nav" src="<?= BASE_IMAGE_ASSETS_PATH ?>logo-small.png" >
                       <h3>Almacen de Química</h3><br>
                       <span>FACULTAD DE CIENCIAS QUÍMICAS E INGENIERÍA</span>

@@ -39,26 +39,61 @@
           <label>Carrera - Semestre</label>
             <input id="material-name" type="text" class="form-control" value="<?= $student->Carrer() ?> - <?= $student->Semester() ?>" disabled>
           </div>
-          
+          <div class="row">
+            <label>Estado</label>
+          </div>
           <div class="row">
             <div class="col-md-3">
             <label>Dado de baja</label>
               <input name="student[baja]" type="hidden" class="list-checkbox" value="0">
-                    <input name="student[baja]" type="checkbox" class="list-checkbox" value="1">
+                    <?php if ($student->Status() == 0 ):?>
+                    <input name="student[baja]" type="checkbox" class="list-checkbox" value="1" checked>
+                  <?php else: ?>
+                  <input name="student[baja]" type="checkbox" class="list-checkbox" value="1">
+                    <?php endif ?>
             </div>
             <div class="col-md-3">
               <label>Alumno activo</label>
               <input name="student[active]" type="hidden" class="list-checkbox" value="0">
-                    <input name="student[active]" type="checkbox" class="list-checkbox" value="1">
+                    <?php if ($student->Status() == 1 ):?>
+                    <input name="student[active]" type="checkbox" class="list-checkbox" value="1" checked>
+                    <?php else: ?>
+                      <input name="student[active]" type="checkbox" class="list-checkbox" value="1">
+                    <?php endif ?>
             </div>
             <div class="col-md-3">
-              <label>Evaluacion Permanente</label>
+              <label>EP</label>
               <input name="student[ep]" type="hidden" class="list-checkbox" value="0">
-                    <input name="student[ep]" type="checkbox" class="list-checkbox" value="1">
+                    <?php if ($student->Status() == 2 ):?>
+                    <input name="student[ep]" type="checkbox" class="list-checkbox" value="1" checked>
+                    <?php else: ?>
+                      <input name="student[ep]" type="checkbox" class="list-checkbox" value="1">
+                    <?php endif ?>
             </div>
           </div>
-
-          
+          <div class="row">
+            <label>Servicio social</label>
+          </div>
+          <div class="row">
+          <div class="col-md-3">
+            <label>Si</label>
+              <input name="student[service]" type="hidden" class="list-checkbox" value="0">
+                    <?php if ($student->IsStudent() == 0 ):?>
+                    <input name="student[service]" type="checkbox" class="list-checkbox" value="1" checked>
+                  <?php else: ?>
+                  <input name="student[service]" type="checkbox" class="list-checkbox" value="1">
+                    <?php endif ?>
+            </div>
+            <div class="col-md-3">
+              <label>No</label>
+              <input name="student[notService]" type="hidden" class="list-checkbox" value="0">
+                    <?php if ($student->IsStudent() == 1 ):?>
+                    <input name="student[notService]" type="checkbox" class="list-checkbox" value="1" checked>
+                    <?php else: ?>
+                      <input name="student[notService]" type="checkbox" class="list-checkbox" value="1">
+                    <?php endif ?>
+            </div>  
+          </div>
           <button type="submit" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin-left: 5px; margin-top:15px;">Guardar Cambios</button>
         </form>
         </div>

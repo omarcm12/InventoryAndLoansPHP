@@ -98,4 +98,21 @@ function updateStatusStudentWithID($id=0, $status=1){
     }
 }
 
+function updateTypeStudentWithID($id=0, $type=1){
+    global $BASE;  
+    
+    try {
+     
+      $stmt = $BASE->DB()->prepare("UPDATE `users` SET `type` = :type WHERE `id` = :id;");
+      $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+      $stmt->bindParam(':type', $type, PDO::PARAM_INT);
+      $stmt->execute();
+
+    } catch(PDOException $e) {
+      $count = 0;
+      die($e->getMessage());
+    }
+}
+
+
 ?>

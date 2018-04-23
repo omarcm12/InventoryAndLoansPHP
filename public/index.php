@@ -46,6 +46,13 @@ $routes = [
 
   'GET:/logout' => 'index/logout',
   'POST:/login' => 'index/login',
+
+  'GET:/servicio' => 'service/menu',
+  'GET:/servicio/inventario' => 'service/stock/index',
+  'GET:/servicio/alumnos' => 'service/student/index',
+  'GET:/servicio/prestamos' => 'service/loan/index',
+  'GET:/servicio/pagos' => 'service/payment',
+  'GET:/servicio/adeudos' => 'service/penalty',
 ];
 
 $BASE = new BaseCMS($config, $routes);
