@@ -1,17 +1,18 @@
 <tr>
-  <td><?= $payment->ID() ?></td> 
-  <td><?= $payment->Penalty()->ID() ?></td>  
-  <td><?= $payment->Penalty()->Material()->ID() ?>-<?= $payment->Penalty()->Material()->Name() ?></td>
-  <td><?= $payment->Amount() ?> / <?= $payment->Penalty()->Days() ?></td>
-  <td><?= $payment->AmountPayd() ?></td>
+  <td><?= $payment->ID() ?></td>  
+  <td><?= $payment->Penalty()->ID()?></td>
+  <td><?= $payment->Student()->FullName()?></td>
+  <td><?= $payment->Employee()->FullName()?></td>
+  <td>$ <?= $payment->Amount() ?></td>
+  <td>$ <?= $payment->AmountPayd() ?></td>
   <td><?= $payment->CreatedAtFormatted()?></td>
-  <td>
+    <td>
     <button class="btn btn-info btn-sm" type="button"  data-toggle="modal" data-target="#myModal-<?= $payment->ID() ?>"><span class="glyphicon glyphicon-search" aria-hidden="true">
   </td>
-
 </tr>
 
-<!-- Modal -->
+
+  <!-- Modal -->
   <div class="modal fade" id="myModal-<?= $payment->ID() ?>" role="dialog">
     <div class="modal-dialog">
     

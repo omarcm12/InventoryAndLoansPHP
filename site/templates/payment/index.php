@@ -16,7 +16,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
     <div class="col-md-12"> 
         <button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>
 
-        <form id="search-form" action="/admin/adeudos/" method="get">
+        <form id="search-form" action="/admin/pagos/" method="get">
           <div class="input-group"> 
             <input type="text" id="payment_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control" style="border: 1px solid #ddd !important; border-right: 0 none !important; width: auto; background-color: #fff !important;"> 
             <div class="input-group-btn"> 

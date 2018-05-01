@@ -51,8 +51,14 @@ $routes = [
   'GET:/servicio/inventario' => 'service/stock/index',
   'GET:/servicio/alumnos' => 'service/student/index',
   'GET:/servicio/prestamos' => 'service/loan/index',
-  'GET:/servicio/pagos' => 'service/payment',
-  'GET:/servicio/adeudos' => 'service/penalty',
+  'GET:/servicio/prestamos/bitacora' => 'service/binnacle/index',
+  'POST:/servicio/prestamos/entregar/(\d+)' => 'service/loan/deliver',
+  'POST:/servicio/prestamos/regresar/(\d+)' => 'service/loan/return',
+  'GET:/servicio/prestamos/borrar/(\d+)' => 'service/loan/delete',
+  'GET:/servicio/pagos' => 'service/payment/index',
+  'POST:/servicio/pagos/nuevo/(\d+)' => 'service/payment/new',
+  'GET:/servicio/adeudos' => 'service/penalty/index',
+
 ];
 
 $BASE = new BaseCMS($config, $routes);

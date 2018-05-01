@@ -13,7 +13,6 @@ $postParams = $BASE->PostParam('configuration');
 if (empty($postParams)) { $postParams = []; }
 
 $configuration->days_expired_loan = $postParams['days_expired'];
-$configuration->days_loan = $postParams['days_loan'];
 $configuration->days_price = $postParams['days_price'];
 
 if ($configuration->Valid() && $configuration->Update()) {

@@ -68,6 +68,7 @@ function FetchPossiblePenaltys($page = 1, $per = 20, $search = "", $sort = 0) {
   try {
     $stmt = $BASE->DB()->query("SELECT loan_materials.id, loan_materials.id_loan,loan_materials.id_material, loan_materials.amount, loan_materials.deliver_at, loan_materials.return_at, loan_materials.returned_amount, loan_materials.description FROM `loan_materials` LEFT JOIN `loans` ON loans.id = loan_materials.id_loan WHERE loans.status = '2'");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'LoanMaterial');
+
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {
     $results = null;
@@ -85,7 +86,7 @@ function FetchPenaltysWithIDStudent($page = 1, $per = 20, $search = "", $sort = 
   $offset = $per * ($page - 1);
 
   try {
-    $stmt = $BASE->DB()->query("SELECT * FROM `penalty_materials` WHERE `id_student` = $id AND  `id_material` LIKE '%$search%' LIMIT $per OFFSET $offset;");
+    $stmt = $BASE->DB()->query("SELECT * FROM `penalty_materials` WHERE `id_student` = $id AND `status` = 1 AND  `id_material` LIKE '%$search%' LIMIT $per OFFSET $offset;");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'Penalty_material');
     $results = new DBResults($results, $page, $per);
   } catch(PDOException $e) {

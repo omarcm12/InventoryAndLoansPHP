@@ -55,9 +55,9 @@ $loan->status = LOAN_STATUS_IN_PROGRESS;
 $format = BASE_SIMPLE_DATE_FORMAT;
 
 $loan->deliver_at = strftime($format, $timestamp = time());  
-$now = time();
-$ageunix = mktime(0,0,0,date("m",$now), date("d",$now), date("Y",$now));
-$entrega = $ageunix + (3*24*60*60);
+/*$now = time();
+$ageunix = mktime(0,0,0,date("m",$now), date("d",$now), date("Y",$now));*/
+$entrega = FetchAgeCaduce(3);
 $loan->return_at = strftime($format,$entrega);
 
 

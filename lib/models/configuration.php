@@ -5,13 +5,11 @@ if(count(get_included_files()) == 1) exit("Direct access not permitted.");
 
 class Configuration extends BaseModel {
   public $days_expired_loan;
-  public $days_loan;
   public $days_price;
   
   public function AttributesForCreate() {
     return [   
       'days_expired_loan' => PDO::PARAM_INT,
-      'days_loan' => PDO::PARAM_INT,
       'days_price' => PDO::PARAM_INT
                
     ];
@@ -20,8 +18,6 @@ class Configuration extends BaseModel {
   public function AttributesForUpdate() {
     return [
       'days_expired_loan' => PDO::PARAM_INT,
-      'days_loan' => PDO::PARAM_INT,
-
       'days_price' => PDO::PARAM_INT
                
     ];
@@ -35,9 +31,6 @@ class Configuration extends BaseModel {
     return $this->days_expired_loan;
   }  
 
-  public function DaysLoan() {
-    return $this->days_loan;
-  } 
 
   public function DaysPrice() {
     return $this->days_price;
@@ -45,8 +38,7 @@ class Configuration extends BaseModel {
 
 
   public function Valid() {     
-    if (empty($this->days_expired_loan)) { return false; }    
-    if (empty($this->days_loan)) { return false; }       
+    if (empty($this->days_expired_loan)) { return false; }           
     if (empty($this->days_price)) { return false; }
     return true;
   }

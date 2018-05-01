@@ -31,7 +31,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         <div class="col-md-12">                      
             <div class="card">                        
                 <div class="header">
-                    <h3 class="title">Mis multas</h3>                       
+                    <h3 class="title">Mis pagos</h3>                       
                 </div>
                 <div class="content table-responsive table-full-width stock-list">
                     <table class="table table-hover table-striped">
@@ -43,6 +43,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                           <th>Monto Pagado</th>
                           <th>Fecha</th>
                           <th>Descripcion</th>
+                          <th></th>
                         </thead>
                         <tbody>
                             <?php if (count($payments) == 0) { ?>

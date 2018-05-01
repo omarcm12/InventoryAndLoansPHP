@@ -13,8 +13,8 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
       
     <div class="col-md-12"> 
       <!--<button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>-->
-      <a href="/admin/prestamos/bitacora" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Bitacora</a>
-        <form id="search-form" action="/admin/prestamos" method="get">
+      <a href="/servicio/prestamos/bitacora" class="btn btn-info btn-fill pull-right btn-uabc-green" style="margin: 10px 5px;">Bitacora</a>
+        <form id="search-form" action="/servicio/prestamos" method="get">
           <div class="input-group"> 
             <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value?>" class="form-control"> 
             <div class="input-group-btn"> 
@@ -64,7 +64,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                             <?php } else { ?>
                               <?php                              
                               foreach ($loans as $loan) {                              
-                                include(BASE_SECTION_TEMPLATES_FOLDER . 'loan/_list_item.php');
+                                include(BASE_SECTION_TEMPLATES_FOLDER . 'service/loan/_list_item.php');
                               }
                               ?>
                             <?php } ?>                            
@@ -80,7 +80,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 <?php if ($filter == LOAN_STATUS_WAITING): ?>
 <?php                              
   foreach ($loans as $loan) {                              
-    include(BASE_SECTION_TEMPLATES_FOLDER . 'loan/_modal_deliver.php');
+    include(BASE_SECTION_TEMPLATES_FOLDER . 'service/loan/_modal_deliver.php');
   }
 ?>
 <?php endif ?>
@@ -88,7 +88,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 <?php if ($filter == LOAN_STATUS_IN_PROGRESS): ?>
 <?php                              
   foreach ($loans as $loan) {                              
-    include(BASE_SECTION_TEMPLATES_FOLDER . 'loan/_modal_return.php');
+    include(BASE_SECTION_TEMPLATES_FOLDER . 'service/loan/_modal_return.php');
   }
 ?>
 <?php endif ?>
@@ -96,7 +96,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 <?php if ($filter == LOAN_STATUS_ENDED): ?>
 <?php                              
   foreach ($loans as $loan) {                              
-    include(BASE_SECTION_TEMPLATES_FOLDER . 'loan/_modal_view.php');
+    include(BASE_SECTION_TEMPLATES_FOLDER . 'service/loan/_modal_view.php');
   }
 ?>
 <?php endif ?>
