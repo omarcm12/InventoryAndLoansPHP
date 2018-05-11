@@ -11,7 +11,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header_login.php');
 				<div class="app-title">
 					<h1>Iniciar Sesión</h1>
 				</div>
-				<img src="<?= BASE_IMAGE_ASSETS_PATH ?>logo.png" width="50">
+				<img src="<?= BASE_IMAGE_ASSETS_PATH ?>logo-small.png" width="50">
 				<br>
 				<form method="post" action="/login" accept-charset="UTF-8">
 				<div class="login-form">

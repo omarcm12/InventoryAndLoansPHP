@@ -9,6 +9,7 @@ if ($BASE->Session()->LoggedOut()) {
 $loans_materials = FetchPossiblePenaltys();
 //if(!empty($loans_materials)){
 	foreach ($loans_materials as $loan_material) {
+		//$BASE->Session()->SetFlash(['danger' => 'Error al actualizar multas.'+ strtotime($loan_material->ReturnAt()) ]);
 		if(strtotime($loan_material->ReturnAt())<time()){
 			$penalty = FetchPenaltyWithIDLoanMaterial($loan_material->ID());
 		if(empty($penalty)){

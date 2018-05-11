@@ -46,7 +46,7 @@ if ($payment->Valid() && $payment->Create()) {
 		
 	}
 	$BASE->Session()->SetFlash(['success' => 'Pago Registrado.']);
-	$BASE->Response()->RedirectAndExit('/admin/adeudos', BASE_RESPONSE_REDIRECT_OTHER);
+	$BASE->Response()->RedirectAndExit('/servicio/adeudos', BASE_RESPONSE_REDIRECT_OTHER);
 }
 
 $BASE->Session()->SetFlash(['danger' => 'Error guardando el movimiento.']);
