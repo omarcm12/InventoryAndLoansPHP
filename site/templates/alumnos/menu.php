@@ -11,7 +11,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
       <div class=" matrix container col-xs-12">
         <div class=" options col-lg-6" style="position:relative;">
           <a href="alumnos/infopersonal">
-            <img class="img-responsive" src="<?= BASE_IMAGE_ASSETS_PATH ?>inventario.png"  alt="" width = "100%" href = "#" >
+            <img class="img-responsive" src="<?= BASE_IMAGE_ASSETS_PATH ?>personalInfo.png"  alt="" width = "100%" href = "#" >
           <div class="caption">
             <p>Información personal</p>
           </div>
