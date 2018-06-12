@@ -28,7 +28,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header_login.php');
 					<button type="submit" id="btn-login" class="btn btn-primary btn-large btn-block">Iniciar</button>						
 				</div>
 				</form>
-				<!--<a type="submit" href="/login" class="btn btn-primary btn-large btn-block" > Acceso para alumnos </a>  -->
+				<a type="submit" href="<?= $url ?>" class="btn btn-primary btn-large btn-block" > Acceso para alumnos </a>  
 				
 			</div>
 		</div>

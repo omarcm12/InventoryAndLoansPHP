@@ -45,7 +45,8 @@ $routes = [
   'GET:/alumnos/historial_prestamos' => 'alumnos/historial',
 
   'GET:/logout' => 'index/logout',
-  'POST:/login' => 'index/login',
+  'POST:/pre-login' => 'index/google_login',
+  'GET:/login' => 'index/login',
 
   'GET:/servicio' => 'service/menu',
   'GET:/servicio/inventario' => 'service/stock/index',

@@ -4,3 +4,5 @@ uploads/*
 lib/Vendor/HTMLPurifier/standalone/HTMLPurifier/DefinitionCache/*
 .DS_Store
 *.swp
+
+/vendor/
