@@ -9,10 +9,12 @@ define('USER_SERVICE',2);
 define('STUDENT_ACTIVE',1);
 define('STUDENT_LOW',0);
 define('STUDENT_EVALUATION',2);
+define('STUDENT_PENDING',9);
 
 class User extends BaseModel {
   public $name;
   public $last_name;
+  public $google_id;
   public $email;
   public $type;
   public $enrollment;
@@ -24,9 +26,11 @@ class User extends BaseModel {
   public function AttributesForCreate() {
     return [
       'name' => PDO::PARAM_STR,      
-      'last_name' => PDO::PARAM_STR,
+      'last_name' => PDO::PARAM_STR,      
       'email' => PDO::PARAM_STR,
-      'type' => PDO::PARAM_INT                  
+      'type' => PDO::PARAM_INT,
+      'google_id' => PDO::PARAM_STR,
+      'status' => PDO::PARAM_INT
     ];
   }
 
@@ -36,7 +40,8 @@ class User extends BaseModel {
       'last_name' => PDO::PARAM_STR,
       'enrollment' => PDO::PARAM_STR,
       'carrer' => PDO::PARAM_STR,
-      'semester' => PDO::PARAM_STR              
+      'semester' => PDO::PARAM_STR,      
+      'status' => PDO::PARAM_INT       
     ];
   }
 
@@ -80,6 +85,10 @@ class User extends BaseModel {
 
   public function Status(){
     return $this->status;
+  }
+
+  public function GoogleID(){
+    return $this->googleID;
   }
 
   public function IsAdmin(){

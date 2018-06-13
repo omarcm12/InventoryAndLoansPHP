@@ -22,8 +22,9 @@ CREATE TABLE `users` (
   `type` int(11) unsigned NOT NULL,
   `carrer` varchar(255) DEFAULT '',  
   `status` int(11) unsigned DEFAULT 1,
-  `semester` int(11) unsigned DEFAULT 0,
-  `enrollment` int(11) unsigned DEFAULT 0,
+  `semester` int(11) unsigned DEFAULT 1,
+  `enrollment` varchar(255) DEFAULT '',
+  `google_id` varchar(255) DEFAULT NULL,  
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),  
@@ -32,9 +33,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `type`,`carrer`,`status`, `semester`,`enrollment`)
 VALUES
-  (1, 'Juan', 'Perez', 'test@mail.com', 0,'empleado',1,0,12123),
-  (2, 'Jose', 'Sanchez', 'alumno@mail.com', 1,'Ing Quimica',1, 4, 12321),
-  (3, 'Sergio', 'Ramirez', 'alumno2@mail.com', 1,'Quimico Farmacobiologo',1, 6, 231234);
+  (1, 'Juan', 'Perez', 'test@mail.com', 0,'empleado',1,0,'12123'),
+  (2, 'Jose', 'Sanchez', 'alumno@mail.com', 1,'Ing Quimica',1, 4, '12321'),
+  (3, 'Sergio', 'Ramirez', 'alumno2@mail.com', 1,'Quimico Farmacobiologo',1, 6, '231234');
 
 /*
 DROP TABLE IF EXISTS `students`;
@@ -79,7 +80,7 @@ DROP TABLE IF EXISTS `materials`;
 CREATE TABLE `materials` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT '',
-  `description` text DEFAULT '',  
+  `description` text,  
   `catalog_number` varchar(255) DEFAULT '',  
   `stock_count` int(11) unsigned DEFAULT 0,
   `stock_min` int(11) unsigned DEFAULT 0,
@@ -102,7 +103,7 @@ CREATE TABLE `moves` (
   `id_user` int(11) unsigned NOT NULL,
   `type` varchar(10) DEFAULT '',
   `no_order` varchar(255) DEFAULT '',
-  `description` text DEFAULT '', 
+  `description` text, 
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`), 
@@ -138,7 +139,7 @@ CREATE TABLE `loan_materials` (
   `deliver_at` timestamp NULL DEFAULT NULL,
   `return_at` timestamp NULL DEFAULT NULL,
   `returned_amount` int(11) unsigned NOT NULL,
-  `description` text DEFAULT '',
+  `description` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_loan_id_materialx` (`id_loan`,`id_material`),
   UNIQUE KEY `id_material_id_loanx` (`id_material`, `id_loan`)
@@ -188,7 +189,7 @@ CREATE TABLE `payments` (
   `id_penalty` int(11) unsigned NOT NULL,
   `id_student` int(11) unsigned NOT NULL,
   `id_employee` int(11) unsigned NOT NULL,
-  `description` text DEFAULT '', 
+  `description` text, 
   `amount` int(11) unsigned NOT NULL,
   `amount_payd` int(11) unsigned NOT NULL,              
   `created_at` timestamp NULL DEFAULT NULL,

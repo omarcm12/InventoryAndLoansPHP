@@ -18,7 +18,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Correo UABC</label>
-            <input type="text" class="form-control" name="student[email]" id="student_email" value="<?= $student->Email() ?>" >
+            <input type="text" class="form-control" name="student[email]" id="student_email" value="<?= $student->Email() ?>" disabled>
         </div>
     </div>
     <div class="col-md-6">

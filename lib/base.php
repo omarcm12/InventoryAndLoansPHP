@@ -28,6 +28,8 @@ require_once(BASE_MODELS_FOLDER . 'penalty_material.php');
 require_once(BASE_MODELS_FOLDER . 'payment.php');
 require_once(BASE_MODELS_FOLDER . 'configuration.php');
 
+require_once(BASE_INSTALL_FOLDER . 'vendor/autoload.php');
+
 class BaseCMS {
   private $config;
   private $admin;

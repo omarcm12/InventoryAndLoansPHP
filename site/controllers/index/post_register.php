@@ -1,13 +1,15 @@
-<?php
-if ($BASE->Session()->LoggedOut()) {
-  $BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
-}else if(!adminCurrentUser()->IsStudent()) {
-	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
-}else if (adminCurrentUser()->Status() == STUDENT_PENDING){
-	$BASE->Response()->RedirectAndExit('/post-registro/', BASE_RESPONSE_REDIRECT_OTHER);
-}
+<?php 
 
 $student = FetchStudentWithID(adminCurrentUser()->ID());
+
+if(!$student->IsStudent()){
+	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
+}else if ($student->Status() != STUDENT_PENDING){
+	$BASE->Response()->RedirectAndExit('/alumnos', BASE_RESPONSE_REDIRECT_OTHER);
+}
+
+if(is_null($student))
+	$BASE->Response()->RedirectAndExit('/', BASE_RESPONSE_REDIRECT_OTHER);
 
 if ($BASE->SessionParam('student')) {
 	$postParams = $BASE->SessionParam('student');
@@ -26,4 +28,4 @@ $vars = [
 
 $BASE->Response()->Render($BASE->Template(), $vars);
 
-?>
+ ?>

@@ -1,0 +1,12 @@
+{
+    "name": "uabc/almacen",
+    "authors": [
+        {
+            "name": "Uriel Cebreros",
+            "email": "urielcebreros@gmail.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.0"
+    }
+}
