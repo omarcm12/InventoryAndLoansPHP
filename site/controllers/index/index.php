@@ -1,7 +1,7 @@
 <?php
 
 if ($BASE->Session()->LoggedIn()) {
-  $BASE->Response()->RedirectAndExit('/admin/', BASE_RESPONSE_REDIRECT_OTHER);
+  $BASE->Response()->RedirectAndExit('/alumnos', BASE_RESPONSE_REDIRECT_OTHER);
 }
 
 $googleClient = new Google_Client();

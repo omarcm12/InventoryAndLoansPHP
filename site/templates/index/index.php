@@ -13,22 +13,12 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header_login.php');
 				</div>
 				<img src="<?= BASE_IMAGE_ASSETS_PATH ?>logo-small.png" width="50">
 				<br>
-				<form method="post" action="/login" accept-charset="UTF-8">
-				<div class="login-form">
-					<div class="control-group">
-					<input type="text" class="login-field" name="login[email]" placeholder="Correo @uabc.edu.mx" id="login-name">
-					<label class="login-field-icon fui-user" for="login-name"></label>
-					</div>
-
-					<div class="control-group">
-					<input type="password" class="login-field" name="login[pass]" placeholder="Contraseña" id="login-pass">
-					<label class="login-field-icon fui-lock" for="login-pass"></label>
-					</div>
-
-					<button type="submit" id="btn-login" class="btn btn-primary btn-large btn-block">Iniciar</button>						
-				</div>
-				</form>
-				<a type="submit" href="<?= $url ?>" class="btn btn-primary btn-large btn-block" > Acceso para alumnos </a>  
+				<br>
+				<br>
+				<h3>Bienvenido</h3>					
+				<a href="<?= $url ?>"> 
+					<img src="<?= BASE_IMAGE_ASSETS_PATH ?>1x.png" style="display: block;width: 210px;margin: 40px auto;">
+				 </a>  
 				
 			</div>
 		</div>

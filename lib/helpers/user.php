@@ -73,6 +73,25 @@ function FetchUserWithEmail($email='') {
   return $user;
 }
 
+function FetchUserWithEnrollment($enrollment='') {
+  global $BASE;
+
+  $user = null;
+  $enrollment = mb_strtolower($enrollment);  
+  try {
+    $stmt = $BASE->DB()->prepare("SELECT * FROM `users` WHERE `enrollment` = :enrollment LIMIT 1;");
+    $stmt->bindParam(':enrollment', $enrollment, PDO::PARAM_STR);
+
+    $stmt->execute();
+
+    $user = $stmt->fetchObject('User');
+  } catch(PDOException $e) {
+    die($e->getMessage());
+  }
+
+  return $user;
+}
+
 function userSlugFromName($name) {
   $slug=trim(preg_replace('/[^a-z0-9-]+/', '-', normalizeUTF8String(mb_strtolower($name))), '-');
   return $slug;
