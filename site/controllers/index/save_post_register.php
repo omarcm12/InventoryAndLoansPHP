@@ -43,7 +43,7 @@ if(!is_numeric($student->enrollment)){
 }
 
 $oldStudent = FetchUserWithEnrollment($student->enrollment);
-if($oldStudent){
+if($oldStudent && $oldStudent->enrollment == $student->enrollment){
 	$BASE->Session()->SetFlash(['danger' => 'Matricula ya se encuentra registrada: ' . $student->enrollment]);
   	$BASE->Response()->RedirectAndExit('/post-registro/', BASE_RESPONSE_REDIRECT_OTHER);	
 }
