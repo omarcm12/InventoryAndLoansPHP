@@ -9,7 +9,7 @@ $js_assets = [
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
-    <div class="row">
+  <div class="row">
       
     <div class="col-md-12"> 
       <!--<button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>-->
@@ -70,9 +70,13 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                             <?php } ?>                            
                         </tbody>
                     </table>
-
-                </div>
+                  </div>
             </div>
+            <!-- The paginator -->
+            <?php 
+              for( $i = 1; $i<=ceil(($total_items)/$item_per_page); $i++)
+                echo "<a href='/admin/prestamos?page=$i&f=$filter' class='btn btn-info btn-sm btn-fill btn-uabc-green pag_button'>".$i."</a>";
+            ?>            
         </div>
     </div>
 </div>

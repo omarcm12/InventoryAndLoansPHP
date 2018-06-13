@@ -39,13 +39,17 @@ $loans_materials = FetchPossiblePenaltys();
 		}
 		
 	}
-
-$penaltys = FetchPenaltysWithIDStudent($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $BASE->GetParam('o'), adminCurrentUser()->ID());
+$item_per_page = 50;
+$complete_list = FetchPenaltysWithIDStudent(1, 10000, $BASE->GetParam('s'), $BASE->GetParam('o'), adminCurrentUser()->ID());
+$total_items = count($complete_list);
+$penaltys = FetchPenaltysWithIDStudent($BASE->GetParam('page'), $item_per_page, $BASE->GetParam('s'), $BASE->GetParam('o'), adminCurrentUser()->ID());
 $penaltys->SetResultsTotal(PenaltysCount());
 //ReportAllMaterials();
 $sort_code = $BASE->GetParam('o');
 $vars = [
 	'penaltys' => $penaltys,
+	'total_items' => $total_items,
+	'item_per_page' => $item_per_page,
 	'search_default_value' => $BASE->GetParam('s')
 ];
 

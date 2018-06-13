@@ -6,11 +6,16 @@ if ($BASE->Session()->LoggedOut()) {
 	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
-$students = FetchAllStudents($BASE->GetParam('page'), 20, $BASE->GetParam('s'));
+$item_per_page = 50;
+$complete_list = FetchAllStudents(1, 10000, $BASE->GetParam('s'));
+$total_items = count($complete_list);
+$students = FetchAllStudents($BASE->GetParam('page'), $item_per_page, $BASE->GetParam('s'));
 $students->SetResultsTotal(UsersCount());
 
 $vars = [
 	'students' => $students,
+	'total_items' => $total_items,
+	'item_per_page' => $item_per_page,
 	'search_default_value' => $BASE->GetParam('s')
 ];
 

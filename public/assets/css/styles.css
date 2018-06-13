@@ -27,6 +27,10 @@
 	display: inline;
 }
 
+.pag_button{
+	margin: 3px !important;
+}
+
 #table-1
 {
 	background-color: #81c784;

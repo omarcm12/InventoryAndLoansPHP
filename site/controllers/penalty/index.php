@@ -43,7 +43,10 @@ $loans_materials = FetchPossiblePenaltys();
 
 //}
 
-$penaltys = FetchAllPenaltys($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $BASE->GetParam('o'));
+$item_per_page = 50;
+$complete_list = FetchAllPenaltys(1, 10000, $BASE->GetParam('s'), $BASE->GetParam('o'));
+$total_items = count($complete_list);
+$penaltys = FetchAllPenaltys($BASE->GetParam('page'), $item_per_page, $BASE->GetParam('s'), $BASE->GetParam('o'));
 $penaltys->SetResultsTotal(PenaltysCount());
 $loans_materials = FetchPossiblePenaltys();
 //ReportAllMaterials();
@@ -51,6 +54,8 @@ $sort_code = $BASE->GetParam('o');
 $vars = [
 	'loans_materials' => $loans_materials,
 	'penaltys' => $penaltys,
+	'total_items' => $total_items,
+	'item_per_page' => $item_per_page,
 	'search_default_value' => $BASE->GetParam('s')
 ];
 

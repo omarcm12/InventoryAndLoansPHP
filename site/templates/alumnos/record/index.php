@@ -3,7 +3,7 @@
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
 <div class="container-fluid">
-    <div class="row">
+  <div class="row">
       
     <div class="col-md-12"> 
         <form id="search-form" action="/alumnos/historial/" method="get">
@@ -64,8 +64,13 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 
                 </div>
             </div>
+            <?php 
+              for( $i = 1; $i<=ceil(($total_items)/$item_per_page); $i++)
+                echo "<a href='/alumnos/historial?page=$i&f=$filter' class='btn btn-info btn-sm btn-fill btn-uabc-green pag_button'>".$i."</a>";
+            ?>
         </div>
-    </div>
+  </div>
+  <!-- The paginator -->
 </div>
 
 <?php if ($filter == LOAN_STATUS_WAITING): ?>

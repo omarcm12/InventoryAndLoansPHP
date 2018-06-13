@@ -53,6 +53,11 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 
                 </div>
             </div>
+            <!-- The paginator -->
+            <?php 
+              for( $i = 1; $i<=ceil(($total_items)/$item_per_page); $i++)
+                echo "<a href='/alumnos/prestamos/?page=$i' class='btn btn-info btn-sm btn-fill btn-uabc-green pag_button'>".$i."</a>";
+            ?>
         </div>
 
 		<div class="col-xs-4">
