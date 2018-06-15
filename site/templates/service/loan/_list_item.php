@@ -20,7 +20,7 @@
   	<?php endif ?>
 
     <?php if ($loan->Status() == LOAN_STATUS_ENDED): ?>
-         <td><?= $loan->ReturnAt() ?></td>
+         <td><?= date("d-m-Y",$loan->UpdatedAt()) ?></td>
           <!--<td>
           <a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-deliver-<?= $loan->ID()?>">Editar</a>
           </td>-->
