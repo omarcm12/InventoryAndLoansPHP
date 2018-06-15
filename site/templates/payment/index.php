@@ -46,7 +46,9 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                           <th>Alumno</th>
                           <th>Almacenista</th>
                           <th>Monto</th>
-                          <th>Monto Pagado</th>     <th>Fecha</th>
+                          <th>Monto Pagado</th>     
+                          <th>No. Recibo</th>
+                          <th>Fecha</th>
                           
                           <th>Descripcion</th>
                         </thead>

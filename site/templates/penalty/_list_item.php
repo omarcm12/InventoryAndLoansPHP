@@ -1,11 +1,12 @@
 <tr>
   <td><?= $penalty->ID() ?></td> 
-  <td><?= $penalty->LoanMaterial()->ID() ?></td>  
+  <td><?= $penalty->LoanMaterial()->Loan()->ID() ?></td> 
   <td><?= $penalty->Student()->Enrollment()?> - <?= $penalty->Student()->FullName() ?></td>
   <td><?= $penalty->Material()->CatalogNumber() ?>-<?= $penalty->Material()->Name() ?></td>
   <td><?= $penalty->Pieces() ?>/<?= $penalty->Days() ?></td>
   <td>$<?= $penalty->Amount() ?></td>
   <td><?= $penalty->LoanMaterial()->AgeReturnAt()?></td>
+  
     <td>
     <a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-pay-<?= $penalty->ID()?>">Pagar</a>   
   </td>
@@ -52,7 +53,12 @@
                     <input name="payment[deliver]" type="checkbox" class="list-checkbox" value="1">
             </div>
           </div>
-
+          <div class="row">
+            <div class="col-md-6">
+            <label>No. recibo</label>
+            <input name="payment[receipt]" type="text" class="form-control" value="0">
+            </div>
+          </div>
           <label>Descripción</label>
           <textarea class="form-control" type="text" name="payment[description]" placeholder="(Opcional)" class="form-control"></textarea>          
           <input name="payment[id_student]" type="hidden" value="<?= $penalty->Student()->ID() ?>">

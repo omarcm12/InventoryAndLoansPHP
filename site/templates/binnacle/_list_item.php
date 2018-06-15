@@ -9,7 +9,7 @@
       <i class="fa fa-arrow-<?= $move->Type() == MOVE_TYPE_RETURN ? 'up' : 'down' ?>" aria-hidden="true"></i>
   </td>
 
-  <td><?= $move->CreatedAtFormatted() ?></td>
+  <td><?= date("d-m-Y",$move->CreatedAt()) ?></td>
   <td>
 
    <!-- <button class="btn btn-info btn-sm" type="button"  data-toggle="modal" data-target="#modal-move-<?= $move->ID() ?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>-->
@@ -17,7 +17,7 @@
   <!--<button class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-move-<?= $move->ID()?>">Ver Detalles</button>-->
   <button href="#myModal-move-<?= $move->ID()?>" id="openBtn" data-toggle="modal" class="btn btn-info btn-sm btn-fill btn-uabc-green">Ver detalles</button>
 
-  <div class="modal fade" id="myModal-move-<?= $move->ID()?>">
+   <div class="modal fade" id="myModal-move-<?= $move->ID()?>">
 <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -58,8 +58,10 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
   </td>
+
 </tr>
 
 
+
+  

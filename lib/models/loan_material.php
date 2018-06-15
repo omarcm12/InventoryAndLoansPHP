@@ -2,6 +2,7 @@
 
 if(count(get_included_files()) == 1) exit("Direct access not permitted.");
 
+
 class LoanMaterial extends BaseModel {
   public $id_loan;
   public $id_material;
@@ -10,6 +11,7 @@ class LoanMaterial extends BaseModel {
   public $returned_amount;
   public $deliver_at;
   public $return_at;
+  public $return_unix;
 
   private $loan;
   private $material;
@@ -21,8 +23,9 @@ class LoanMaterial extends BaseModel {
       'description' => PDO::PARAM_STR,      
       'amount' => PDO::PARAM_INT,
       'returned_amount' => PDO::PARAM_INT,
+      'return_unix' => PDO::PARAM_INT,
       'deliver_at' => MYSQLI_TYPE_TIMESTAMP,
-      'return_at' => MYSQLI_TYPE_TIMESTAMP                   
+      'return_at' => MYSQLI_TYPE_TIMESTAMP,                   
     ];
   }
 
@@ -38,11 +41,14 @@ class LoanMaterial extends BaseModel {
 
   public function ReturnAt(){
     /*return empty($this->return_at) ? null : strtotime($this->return_at);*/
-    return strftime('%d-%m-%Y',strtotime($this->return_at));
+    return date('%d-%m-%Y',strtotime($this->return_at));
   }
 
   public function AgeReturnAt(){
-    return strftime('%d-%m-%Y',strtotime($this->return_at)-100); 
+    //return strftime('%d-%m-%Y',strtotime($this->return_at)-100); 
+    $format = BASE_SIMPLE_DATE_FORMAT;
+   // return /*strftime($format, */$this->return_at;
+    return date("d-m-Y",$this->return_unix); // php 5.6.x
   }
 
   public function Material() {
@@ -71,6 +77,10 @@ class LoanMaterial extends BaseModel {
 
   public function ReturnedAmount() {
     return $this->returned_amount;
+  }
+
+  public function ReturnUnix() {
+    return $this->return_unix;
   }
 
 

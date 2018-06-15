@@ -1,9 +1,13 @@
 <?php /* templates/admin/sessions/new */
 
+
 $js_assets = [
   "moves/create_api.js",
-  "report.js"
+  "report.js",
+  "tablesorter/jquery.tablesorter.js",
+  "tablesorter/main.js"
 ];
+
 
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>
@@ -34,7 +38,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <h3 class="title">Mis pagos</h3>                       
                 </div>
                 <div class="content table-responsive table-full-width stock-list">
-                    <table class="table table-hover table-striped">
+                    <table id="myTable" class="table table-hover table-striped">
                         <thead>
                           <th>Id</th>
                           <th>Multa</th>

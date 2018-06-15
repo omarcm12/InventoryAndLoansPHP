@@ -28,10 +28,12 @@ foreach ($loan->LoanMaterials() as $loan_material){
 	}else{
 		$material = FetchMaterialWithID($loan_material->Material()->ID());
 		$format = BASE_SIMPLE_DATE_FORMAT;
-		$loan_material->deliver_at = strftime($format, $timestamp = time());
-		
+		//$loan_material->deliver_at = strftime($format, $timestamp = time()); php 7.1.x
+		$loan_material->deliver_at = date(("Y-m-d H:m:s"), time());  //php 5.6.x
 		$entrega = FetchAgeCaduce($material->Days());
-		$loan_material->return_at = strftime($format,$entrega);
+		//$loan_material->return_at = strftime($format,$entrega);  php 7.1x
+		$loan_material->return_at = date(("Y-m-d H:m:s"), $entrega);  //php 5.6.x
+		$loan_material->return_unix = $entrega;
 		$loan_material->amount = $send_loan_material["amount"];
 		$loan_material->description = $send_loan_material["description"];
 		$loan_material->Update();
@@ -54,11 +56,12 @@ foreach ($loan->LoanMaterials() as $loan_material){
 $loan->status = LOAN_STATUS_IN_PROGRESS;
 $format = BASE_SIMPLE_DATE_FORMAT;
 
-$loan->deliver_at = strftime($format, $timestamp = time());  
+//$loan->deliver_at = strftime($format, $timestamp = time());    php 7.1.x
 /*$now = time();
 $ageunix = mktime(0,0,0,date("m",$now), date("d",$now), date("Y",$now));*/
+$loan->deliver_at = date(("Y-m-d H:m:s"), time());
 $entrega = FetchAgeCaduce(3);
-$loan->return_at = strftime($format,$entrega);
+$loan->return_at = date(("Y-m-d H:m:s"),$entrega);
 
 
 if($loan->Update()){

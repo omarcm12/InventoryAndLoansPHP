@@ -47,7 +47,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                           <th>Piezas/Dias</th>
                           <th>Monto</th>
                           <th>Costo Material</th>
-                          <th>Fecha de devolucion</th>
+                          <th>Fecha limite</th>
                           <th></th>
                         </thead>
                         <tbody>
