@@ -9,7 +9,10 @@ if ($BASE->Session()->LoggedOut()) {
 $filter = $BASE->GetParam('f');
 if(empty($filter)) $filter = 1;
 $configuration = FetchConfiguration();
-$loans = FetchAllLoans($BASE->GetParam('page'), 20, $BASE->GetParam('s'), $filter);
+$item_per_page = 50;
+$complete_list = FetchAllLoans(1, 10000, $BASE->GetParam('s'), $filter);
+$total_items = count($complete_list);
+$loans = FetchAllLoans($BASE->GetParam('page'), $item_per_page, $BASE->GetParam('s'), $filter);
 foreach ($loans as $loan) {
 	if($loan->Status() == 1){//request loans
 		if(DaysCount(strtotime($loan->RequestAt())) > $configuration->DaysExpiredLoan()){
@@ -21,6 +24,8 @@ $loans->SetResultsTotal(LoansCount());
 
 $vars = [
 	'loans' => $loans,
+	'total_items' => $total_items,
+	'item_per_page' => $item_per_page,
 	'search_default_value' => $BASE->GetParam('s'),
 	'filter' => $filter
 ];

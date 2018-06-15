@@ -24,6 +24,7 @@ foreach ($loan->LoanMaterials() as $loan_material){
 }
 $format = BASE_SIMPLE_DATE_FORMAT;
 $loan->request_at = strftime($format, time());
+echo $loan->request_at;
 $loan->status = LOAN_STATUS_WAITING;
 
 if (!$loan->Update()) {
