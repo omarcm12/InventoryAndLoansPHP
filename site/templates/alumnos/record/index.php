@@ -1,6 +1,11 @@
 <?php /* templates/admin/sessions/new */
 
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
+$js_assets = [
+  //"tablesorter/jquery-3.3.1.min.js",
+  "tablesorter/jquery.tablesorter.js",
+  "tablesorter/main.js"
+];
 ?>
 <div class="container-fluid">
   <div class="row">
@@ -41,7 +46,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                   </li>
                 </ul>
                 <div class="content table-responsive table-full-width stock-list">
-                    <table class="table table-hover table-striped">
+                    <table id="myTable" class="table table-hover table-striped">
                         <thead>
                           <th>ID de Prestamo</th>
                           <th>Fecha</th>

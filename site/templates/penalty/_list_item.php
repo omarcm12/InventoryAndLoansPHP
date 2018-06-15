@@ -1,10 +1,11 @@
 <tr>
   <td><?= $penalty->ID() ?></td> 
-  
+  <td><?= $penalty->LoanMaterial()->Loan()->ID() ?></td> 
   <td><?= $penalty->Student()->Enrollment()?> - <?= $penalty->Student()->FullName() ?></td>
   <td><?= $penalty->Material()->CatalogNumber() ?>-<?= $penalty->Material()->Name() ?></td>
   <td><?= $penalty->Pieces() ?>/<?= $penalty->Days() ?></td>
   <td>$<?= $penalty->Amount() ?></td>
+  <td><?= $penalty->LoanMaterial()->AgeReturnAt()?></td>
   
     <td>
     <a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-pay-<?= $penalty->ID()?>">Pagar</a>   

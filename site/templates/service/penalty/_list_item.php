@@ -1,6 +1,6 @@
 <tr>
   <td><?= $penalty->ID() ?></td> 
-  <td><?= $penalty->LoanMaterial()->ID() ?></td>  
+  <td><?= $penalty->LoanMaterial()->Loan()->ID() ?></td>  
   <td><?= $penalty->Student()->Enrollment()?> - <?= $penalty->Student()->FullName() ?></td>
   <td><?= $penalty->Material()->CatalogNumber() ?>-<?= $penalty->Material()->Name() ?></td>
   <td><?= $penalty->Pieces() ?>/<?= $penalty->Days() ?></td>
