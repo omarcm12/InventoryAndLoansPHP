@@ -6,11 +6,16 @@ if ($BASE->Session()->LoggedOut()) {
 	$BASE->Response()->ExitWithNotFound('Pagina no encontrada', '');
 }
 
-$moves = FetchAllMoveLoans($BASE->GetParam('page'), 20, $BASE->GetParam('s'));
+$item_per_page = 50;
+$complete_list = FetchAllMoveLoans(1, 10000, $BASE->GetParam('s'));
+$total_items = count($complete_list);
+$moves = FetchAllMoveLoans($BASE->GetParam('page'), $item_per_page, $BASE->GetParam('s'));
 $moves->SetResultsTotal(MovesCount());
 
 $vars = [
 	'moves' => $moves,
+	'total_items' => $total_items,
+	'item_per_page' => $item_per_page,
 	'search_default_value' => $BASE->GetParam('s')
 ];
 

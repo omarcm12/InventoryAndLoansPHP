@@ -947,10 +947,28 @@ box-shadow: none;
 /* ALMACEN ADMIN STYLE */
 
 .logo-nav{
-  width: 50px;
-  margin: -5px 30px;
+  width: 350px;
+  margin-top: -0.6em;
   display: block;
   float: left;
+}
+
+@media only screen and (max-width: 700px) {
+    .logo-nav{
+      width: 350px;
+      margin-top: -1em;
+      display: block;
+      float: left;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .logo-nav{
+      width: 350px;
+      margin-top: -3.5em;
+      display: block;
+      float: left;
+    }
 }
 
 .navbar-brand h3{
@@ -975,8 +993,8 @@ box-shadow: none;
 
 .caption{
   position: absolute;
+  margin-left: 0.5em;
   bottom: 20px;  
-  width: 30%;
 }
 
 .caption p{

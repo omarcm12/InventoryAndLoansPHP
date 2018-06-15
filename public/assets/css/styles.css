@@ -4,6 +4,10 @@
 	height: 200px;
 }
 
+.login-screen{
+	text-align: center;
+}
+
 .tittle{
 	position: relative;
 	top:70%;
@@ -81,7 +85,7 @@
 }
 
 .caption{
-	background-color: rgba(0, 26, 15, 0.8);
+	background-color: rgba(0, 26, 15, 0.6);
   	color: white;
   	padding: 5px;  	  	
   	text-align: center;
