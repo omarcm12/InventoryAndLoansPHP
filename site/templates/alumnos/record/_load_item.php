@@ -3,7 +3,7 @@
   <td>
     <?php if ($loan->Status() ==1): ?> <?= $loan->RequestAt() ?> <?php endif ?>
     <?php if ($loan->Status() ==2): ?> <?= $loan->DeliverAt() ?> <?php endif ?>
-    <?php if ($loan->Status() ==3): ?> <?= $loan->ReturnAt() ?> <?php endif ?>
+    <?php if ($loan->Status() ==3): ?> <?= date("d-m-Y",$loan->UpdatedAt()) ?> <?php endif ?>
 
 
   </td>

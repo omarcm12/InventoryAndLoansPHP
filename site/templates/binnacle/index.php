@@ -2,18 +2,19 @@
 
 $js_assets = [
   "report.js",
-  "tablesorter/jquery-3.3.1.min.js",
+  //"tablesorter/jquery-3.3.1.min.js",
   "tablesorter/jquery.tablesorter.js",
   "tablesorter/main.js"
 ];
 
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
+
 ?>
 <div class="container-fluid">
     <div class="row">
       
     <div class="col-md-12"> 
-      <button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>
+      <!--<button class="btn btn-info btn-fill pull-right btn-uabc-green" onclick="exportTableToCSV('datos.csv')" style="margin: 10px 5px;">Generar reporte</button>-->
         <form id="search-form" action="/admin/prestamos/bitacora" method="get">
           <div class="input-group"> 
             <input type="text" id="material_search" name="s" placeholder="Buscar" value="<?= $search_default_value ?>" class="form-control"> 
@@ -55,7 +56,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                               <?php                              
                               foreach ($moves as $move) {                              
                                 include(BASE_SECTION_TEMPLATES_FOLDER . 'binnacle/_list_item.php');
-                                include(BASE_SECTION_TEMPLATES_FOLDER . 'binnacle/_modal.php');
+                               // include(BASE_SECTION_TEMPLATES_FOLDER . 'binnacle/_modal.php');
                               }
                               ?>
                             <?php } ?>                            
@@ -67,4 +68,6 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         </div>
     </div>
 </div>
+<?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'binnacle/modal.php'); ?>
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
+

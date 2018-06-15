@@ -17,6 +17,7 @@ $payment->id_employee = adminCurrentUser()->ID();
 $payment->description = $postParams['description'];
 $payment->amount = $postParams['amount'];
 $payment->amount_payd=$postParams['amount_payd'];
+$payment->receipt=$postParams['receipt'];
 
 $penalty = FetchPenaltyWithID($id);
 

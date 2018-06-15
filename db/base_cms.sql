@@ -138,6 +138,7 @@ CREATE TABLE `loan_materials` (
   `amount` int(11) unsigned NOT NULL,
   `deliver_at` timestamp NULL DEFAULT NULL,
   `return_at` timestamp NULL DEFAULT NULL,
+  `return_unix` int(11) unsigned NOT NULL,
   `returned_amount` int(11) unsigned NOT NULL,
   `description` text,
   PRIMARY KEY (`id`),
@@ -191,7 +192,8 @@ CREATE TABLE `payments` (
   `id_employee` int(11) unsigned NOT NULL,
   `description` text, 
   `amount` int(11) unsigned NOT NULL,
-  `amount_payd` int(11) unsigned NOT NULL,              
+  `amount_payd` int(11) unsigned NOT NULL,
+  `receipt` int(11) unsigned NOT NULL,              
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
   PRIMARY KEY (`id`)

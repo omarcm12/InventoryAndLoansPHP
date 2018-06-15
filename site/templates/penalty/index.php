@@ -43,12 +43,12 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <table id="myTable" class="table table-hover table-striped">
                         <thead>
                           <th>Id</th>
-                          <th>Prestamo</th>
+                       <!--   <th>Prestamo</th>-->
                           <th>Alumno</th>
                           <th>Material</th>
                           <th>Piezas/Dias</th>
                           <th>Monto</th>
-                          <th>Fecha Limite</th>
+                        <!--  <th>Fecha Limite</th>-->
                           <th></th>
                         </thead>
                         <tbody>
