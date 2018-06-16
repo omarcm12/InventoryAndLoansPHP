@@ -23,12 +23,6 @@
       <div class="container-fluid">
         <!-- Rigth here the elements are grouped for a better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigationMenu" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <?php if(adminCurrentUser()->IsAdmin()):?>
             <a class="navbar-brand" href="/admin">
           <?php  elseif (adminCurrentUser()->IsStudent()): ?>
@@ -37,6 +31,12 @@
             <a class="navbar-brand" href="/servicio">                      
           <?php endif ?>
               <img class="logo-nav" src="<?= BASE_IMAGE_ASSETS_PATH ?>logo-small2.png" >
+            </a>
+          </div>
+          <div class="logout">
+            <a class="visible-xs visible-sm" href="/logout">                                
+              Cerrar Sesión
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
             </a>
           </div>
 
