@@ -4,6 +4,12 @@
 	height: 200px;
 }
 
+.logout{
+	text-align: right;
+	margin-top: -3em;
+	color: #9A9A9A !important;
+}
+
 .login-screen{
 	text-align: center;
 }
