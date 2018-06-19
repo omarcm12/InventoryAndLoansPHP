@@ -32,7 +32,7 @@ $js_assets = [
     </div>
      
      <div class="row">
-     	<div class="col-xs-8">                      
+     	<div class="col-xs-12 col-md-8">                      
             <div class="card">                        
                 <div class="header">
                     <h3 class="title">Inventario</h3>                       
@@ -70,7 +70,7 @@ $js_assets = [
             ?>
         </div>
 
-		<div class="col-xs-4">
+		<div class="col-xs-12 col-md-4">
 			<?php include(BASE_SECTION_TEMPLATES_FOLDER . 'alumnos/loan_list.php'); ?>
 		</div>
      </div>

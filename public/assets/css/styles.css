@@ -4,6 +4,16 @@
 	height: 200px;
 }
 
+.logout{
+	text-align: right;
+	margin-top: -3em;
+	color: #9A9A9A !important;
+}
+
+.login-screen{
+	text-align: center;
+}
+
 .tittle{
 	position: relative;
 	top:70%;
@@ -81,7 +91,7 @@
 }
 
 .caption{
-	background-color: rgba(0, 26, 15, 0.8);
+	background-color: rgba(0, 26, 15, 0.6);
   	color: white;
   	padding: 5px;  	  	
   	text-align: center;
