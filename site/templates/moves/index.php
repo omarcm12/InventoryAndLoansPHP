@@ -64,4 +64,11 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
         </div>
     </div>
 </div>
+
+<?php                              
+  foreach ($moves as $move) {                              
+    include(BASE_SECTION_TEMPLATES_FOLDER . 'moves/_modal.php');
+  }
+?>
+
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
