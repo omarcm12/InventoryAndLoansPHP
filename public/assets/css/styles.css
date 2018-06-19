@@ -30,6 +30,21 @@
 	margin: 10px;
 }
 
+.logout a{
+	color: #9A9A9A;
+}
+
+#loan_tab{
+	margin-right: 20px;
+}
+
+@media(max-width:400px){
+	#loan_tab{
+		margin-right: 0px;
+	}
+
+}
+
 .option{
 	background-color: #5f9ea0;
 	padding: 10px;
