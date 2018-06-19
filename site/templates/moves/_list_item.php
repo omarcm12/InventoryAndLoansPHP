@@ -13,57 +13,7 @@
   <td><?= $move->User()->FullName() ?></td>  
   <td><?= $move->Age() ?></td>
   <td>
-   <!-- <button class="btn btn-info btn-sm" type="button"  data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>-->
     <a class="btn btn-info btn-sm btn-fill btn-uabc-green" data-toggle="modal" data-target="#modal-<?= $move->ID()?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></a>
-
-  </td>
-  
-
-
+ </td>
 </tr>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><?= $move->NoOrder() ?>-<?= $move->Material()->Name() ?></h4>
-        </div>
-        <div class="modal-body">
-          <p><?= $move->Description() ?></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
-
-
-<!-- Modal -->
-  <div class="modal fade" id="modal-move-<?= $move->ID()?>" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Descripcion</h4>
-        </div>
-        <div class="modal-body">
-        <br>
-          <?= $move->Description() ?>
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-info btn-sm btn-fill btn-uabc-green" data-dismiss="modal">Cancelar</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
