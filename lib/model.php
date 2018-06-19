@@ -40,6 +40,15 @@ abstract class BaseModel {
     return intval($this->id);
   }
 
+  /*public function Ide(){
+    if(empty($this->id)){
+      return 100;
+    }
+    else{
+      return 89;
+    }
+  }*/
+
   public function CreatedAt() {
     return empty($this->created_at) ? null : strtotime($this->created_at);
   }

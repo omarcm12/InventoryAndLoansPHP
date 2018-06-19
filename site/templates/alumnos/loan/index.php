@@ -1,6 +1,16 @@
 <?php /* templates/admin/sessions/new */
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
+
+$js_assets = [
+  "report.js",
+  //"tablesorter/jquery-3.3.1.min.js",
+  "tablesorter/jquery.tablesorter.js",
+  "tablesorter/main.js"
+];
 ?>
+
+
+
 <div class="container-fluid">
     <div class="row">  
         <div class="col-md-12">
@@ -28,7 +38,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                     <h3 class="title">Inventario</h3>                       
                 </div>
                 <div class="content table-responsive stock-list">
-                    <table class="table table-hover table-striped">
+                    <table id="myTable" class="table table-hover table-striped">
                         <thead>
                           <th>Núm catalogo</th>
                           <th>Nombre</th>

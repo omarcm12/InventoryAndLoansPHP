@@ -1,9 +1,13 @@
 <?php /* templates/admin/sessions/new */
 
+
 $js_assets = [
   "moves/create_api.js",
-  "report.js"
+  "report.js",
+  "tablesorter/jquery.tablesorter.js",
+  "tablesorter/main.js"
 ];
+
 
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
 ?>

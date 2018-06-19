@@ -20,6 +20,7 @@ $material->catalog_number = $postParams['catalog_number'];
 $material->price_per_unit = $postParams['price_per_unit'];
 $material->price_per_unit = $postParams['price_per_unit'];
 $material->days = $postParams['days'];
+$material->borrowed_count = 0;
 
 error_log(print_r($material, true));
 if ($material->Valid() && $material->Create()) {			

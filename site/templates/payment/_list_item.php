@@ -5,7 +5,8 @@
   <td><?= $payment->Employee()->FullName()?></td>
   <td>$ <?= $payment->Amount() ?></td>
   <td>$ <?= $payment->AmountPayd() ?></td>
-  <td><?= $payment->CreatedAtFormatted()?></td>
+  <td><?= $payment->Receipt() ?></td>
+  <td><?= date("d-m-Y",$payment->CreatedAt())?></td>
     <td>
     <button class="btn btn-info btn-sm" type="button"  data-toggle="modal" data-target="#myModal-<?= $payment->ID() ?>"><span class="glyphicon glyphicon-search" aria-hidden="true">
   </td>

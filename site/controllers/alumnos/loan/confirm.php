@@ -19,12 +19,13 @@ foreach ($loan->LoanMaterials() as $loan_material){
 		$loan_material->Destroy();
 	}else{
 		$loan_material->amount = $send_loan_material["amount"];
+		//$loan_material->return_unix = 0;
 		$loan_material->Update();
 	}
 }
 $format = BASE_SIMPLE_DATE_FORMAT;
-$loan->request_at = strftime($format, time());
-echo $loan->request_at;
+//$loan->request_at = strftime($format, mktime (date("H") ,date("i") ,date("s") , date("n"),date("j"),2018,-1 ));
+$loan->request_at = date(("Y-m-d H:m:s"), time());
 $loan->status = LOAN_STATUS_WAITING;
 
 if (!$loan->Update()) {

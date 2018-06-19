@@ -3,7 +3,7 @@
 $js_assets = [
   "moves/create_api.js",
   "report.js",
-  "tablesorter/jquery-3.3.1.min.js",
+  /*"tablesorter/jquery-3.3.1.min.js",*/
   "tablesorter/jquery.tablesorter.js",
   "tablesorter/main.js"
 ];

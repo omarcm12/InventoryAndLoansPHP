@@ -11,7 +11,7 @@ if ($BASE->Session()->LoggedOut()) {
 $loans_materials = FetchPossiblePenaltys();
 //if(!empty($loans_materials)){
 	foreach ($loans_materials as $loan_material) {
-		if(strtotime($loan_material->ReturnAt())<time()){
+		if($loan_material->ReturnUnix()<time()){
 			$penalty = FetchPenaltyWithIDLoanMaterial($loan_material->ID());
 		if(empty($penalty)){
 			$penalty = new Penalty_material();
@@ -30,7 +30,7 @@ $loans_materials = FetchPossiblePenaltys();
 		$configuration = FetchConfiguration();
 		$student = $loan_material->Loan()->Student();
 		if($student->Status() == 1 || $student->Status() == 2 ){  /* STATUS 1 = ACTIVE, STATUS 2 = EVALUATION*/
-			$penalty->days = FetchDaysPenalty(strtotime($loan_material->ReturnAt()));
+			$penalty->days = FetchDaysPenalty($loan_material->ReturnUnix());
 			$penalty->amount = $penalty->Days()*$penalty->Pieces() * $configuration->DaysPrice();
 			if(!$penalty->Update()){
 				$BASE->Session()->SetFlash(['danger' => 'Error al actualizar multas.']);
