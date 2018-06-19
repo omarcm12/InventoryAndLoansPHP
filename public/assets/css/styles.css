@@ -10,10 +10,6 @@
 	color: #9A9A9A !important;
 }
 
-.logout a{
-	color: #9A9A9A;
-}
-
 .login-screen{
 	text-align: center;
 }
@@ -23,44 +19,11 @@
 	top:70%;
 }
 
-#loan_tabs{
-	margin-right: 20px;
-}
-
-@media(max-width:400px){
-  	#loan_tabs{
-		margin-right: 0px;
-	}
-}
-
 .logo{
 	background-color: #006734;
 	position: relative;
 	left: 45%;
 	bottom: 20%;
-}
-
-.logo-image{
-	margin-top: -0.5em;
-}
-
-@media(max-width:400px){
-  	.logo-image{
-		margin-top: -1.4em;
-	}
-}
-
-@media(max-width:700px){
-  	.logo-image{
-		width: 70px;
-		margin-top: -1.2em;
-	}
-}
-
-@media(min-width:3000px){
-  	.logo-image{
-		width: 200px;
-	}
 }
 
 .row{

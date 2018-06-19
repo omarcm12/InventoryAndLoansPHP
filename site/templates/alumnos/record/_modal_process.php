@@ -26,7 +26,7 @@
                 		<?= $loan_material->Material()->CatalogNumber() . " - " . $loan_material->Material()->Name()?>		
                 	</td>                	
                 	<td><?= $loan_material->Amount() ?></td>
-                  <td><?= $loan_material->AgeReturnAt() ?></td>
+                  <td><?= date("d-m-Y",$loan_material->ReturnUnix()-100) ?></td>  <!-- -100 por que se vence al dia siguien a las 00 hrs y se vea como limite el dia antes -->
                   <td><?= $loan_material->Description() ?></td>                  
                 </tr>
       			<?php endforeach ?>  

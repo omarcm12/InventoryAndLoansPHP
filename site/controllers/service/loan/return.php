@@ -23,6 +23,33 @@ $move_loan->Create();
 
 
 foreach ($loan->LoanMaterials() as $loan_material){
+
+	/* calculate the penalty */
+	if($loan_material->ReturnUnix()<time()){
+			$penalty = FetchPenaltyWithIDLoanMaterial($loan_material->ID());
+			if(empty($penalty)){
+				$penalty = new Penalty_material();
+				$penalty->id_student = $loan_material->Loan()->IdStudent();
+				$penalty->id_material = $loan_material->Material()->ID();
+				$penalty->id_loan_material = $loan_material->ID();
+				$penalty->pieces = $loan_material->Amount();
+				$penalty->status = 1;
+				$penalty->days = 0;
+				$penalty->amount = 0;
+				if(!($penalty->Valid() && $penalty->Create())){
+					$BASE->Session()->SetFlash(['danger' => 'Error creando multa. Inténtalo más tarde']);
+				$BASE->Response()->RedirectAndExit('/admin', BASE_RESPONSE_REDIRECT_OTHER);
+				}
+			}
+			$configuration = FetchConfiguration();
+			$penalty->days = FetchDaysPenalty($loan_material->ReturnUnix());
+			$penalty->amount = $penalty->Days()*$penalty->Pieces() * $configuration->DaysPrice();
+			if(!$penalty->Update()){
+					$BASE->Session()->SetFlash(['danger' => 'Error al actualizar multas.']);
+				}
+	}
+
+
 	$send_loan_material = $_POST["loan-material"][$loan_material->ID()];
 	$returned = $send_loan_material["amount"];
 	$description = $send_loan_material["description"];
@@ -40,6 +67,8 @@ foreach ($loan->LoanMaterials() as $loan_material){
 	$material->borrowed_count -= $returned;
 	$material->Update();
 	$loan_material->Update();
+
+
 
 	/*   BITACORA  */
 	$move_loan_material = new MoveLoanMaterial();

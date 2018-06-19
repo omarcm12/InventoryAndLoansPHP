@@ -10,6 +10,7 @@ class Payment extends BaseModel {
   public $description;
   public $amount;
   public $amount_payd;
+  public $receipt;
 
   private $student;
   private $employee;
@@ -22,7 +23,8 @@ class Payment extends BaseModel {
       'id_employee' => PDO::PARAM_INT,
       'description' => PDO::PARAM_INT,
       'amount_payd' => PDO::PARAM_INT,      
-      'amount' => PDO::PARAM_INT      
+      'amount' => PDO::PARAM_INT,
+      'receipt' => PDO::PARAM_INT      
     ];
   }
 
@@ -36,6 +38,10 @@ class Payment extends BaseModel {
 
   public function Amount(){
     return $this->amount;
+  }
+
+  public function Receipt(){
+    return $this->receipt;
   }
 
   public function AmountPayd(){

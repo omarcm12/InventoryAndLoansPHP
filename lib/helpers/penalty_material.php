@@ -66,7 +66,7 @@ function FetchPossiblePenaltys($page = 1, $per = 20, $search = "", $sort = 0) {
 
   $offset = $per * ($page - 1);
   try {
-    $stmt = $BASE->DB()->query("SELECT loan_materials.id, loan_materials.id_loan,loan_materials.id_material, loan_materials.amount, loan_materials.deliver_at, loan_materials.return_at, loan_materials.returned_amount, loan_materials.description FROM `loan_materials` LEFT JOIN `loans` ON loans.id = loan_materials.id_loan WHERE loans.status = '2'");
+    $stmt = $BASE->DB()->query("SELECT loan_materials.id, loan_materials.id_loan,loan_materials.id_material, loan_materials.amount, loan_materials.deliver_at, loan_materials.return_at, loan_materials.returned_amount, loan_materials.description, loan_materials.return_unix FROM `loan_materials` LEFT JOIN `loans` ON loans.id = loan_materials.id_loan WHERE loans.status = '2'");
     $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'LoanMaterial');
 
     $results = new DBResults($results, $page, $per);
@@ -117,8 +117,9 @@ function FetchDaysPenalty($age=0){
   $days = 0;
   $secconds = 0;
   $now = time();
-  $now = mktime(0,0,0,date("m",$now), date("d",$now), date("Y",$now));
+  $now = mktime(0,0,0,date("m",$now), date("d",$now), date("Y",$now));  //php7.1.x
   //;
+  //$now = time();
   while($now >=  $age){
     $var = date("D",$age);
     if($var != "Sat" && $var !="Sun"){

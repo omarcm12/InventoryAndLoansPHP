@@ -2,12 +2,13 @@
 
 $js_assets = [
   "report.js",
-  "tablesorter/jquery-3.3.1.min.js",
+  //"tablesorter/jquery-3.3.1.min.js",
   "tablesorter/jquery.tablesorter.js",
   "tablesorter/main.js"
 ];
 
 require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
+
 ?>
 <div class="container-fluid">
   <div class="row">
@@ -71,4 +72,12 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
     </div>
   </div>
 </div>
+
+<?php 
+  foreach ($moves as $move) {                              
+    include(BASE_SECTION_TEMPLATES_FOLDER . 'binnacle/modal.php');
+  }
+ ?>
+
 <?php require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/footer.php'); ?>
+
