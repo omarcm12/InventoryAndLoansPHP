@@ -32,6 +32,7 @@ $loans_materials = FetchPossiblePenaltys();
 				//$BASE->Session()->SetFlash(['danger' => $loan_material->ReturnUnix()]);
 				$penalty->days = FetchDaysPenalty($loan_material->ReturnUnix());
 				$penalty->amount = $penalty->Days()*$penalty->Pieces() * $configuration->DaysPrice();
+				
 				if(!$penalty->Update()){
 					$BASE->Session()->SetFlash(['danger' => 'Error al actualizar multas.']);
 				}

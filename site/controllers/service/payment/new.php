@@ -28,6 +28,15 @@ if ($payment->Valid() && $payment->Create()) {
 		/* Delete of the loan */
 		
 		$loan_material = $payment->Penalty()->LoanMaterial();
+		
+		if($loan_material->ReturnedAmount()  < $loan_material->Amount() ){
+			
+			$material = FetchMaterialWithID($loan_material->Material()->ID());
+			$material->total_count -= $loan_material->Amount()-$loan_material->ReturnedAmount() ;	
+			$material->borrowed_count -= $loan_material->Amount()-$loan_material->ReturnedAmount() ;	
+			$material->Update();
+		}
+
 		$loan_material->returned_amount = $loan_material->Amount();
 		$loan_material->Update();
 

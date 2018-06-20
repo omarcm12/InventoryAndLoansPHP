@@ -25,11 +25,22 @@ if ($payment->Valid() && $payment->Create()) {
 	$penalty->status = 2;
 	$penalty->Update();			
 	if($postParams['deliver'] == 1){
-		/* Delete of the loan */
-		
+		/* Delete of the loan*/
+
 		$loan_material = $payment->Penalty()->LoanMaterial();
+		
+		if($loan_material->ReturnedAmount()  < $loan_material->Amount() ){
+			
+			$material = FetchMaterialWithID($loan_material->Material()->ID());
+			$material->total_count -= $loan_material->Amount()-$loan_material->ReturnedAmount() ;	
+			$material->borrowed_count -= $loan_material->Amount()-$loan_material->ReturnedAmount() ;	
+			$material->Update();
+		}
+		
 		$loan_material->returned_amount = $loan_material->Amount();
 		$loan_material->Update();
+
+
 
 		/* en caso que el prestamo ya no tenga materiales pensientes se cambia a entregado */
 		$flag = 1;
