@@ -50,7 +50,7 @@ require_once(BASE_SECTION_TEMPLATES_FOLDER . 'shared/header.php');
                   <i class="fa fa-sort<?= $sort_id == MATERIAL_SORT_NAME ? ($sort_type == 1 ? '-desc' : '-asc') : '' ?>" aria-hidden="true"></i>
                 </a>                           
               </th>
-              <th>En almacen</th>
+              <th>Total</th>
               <th>En prestamo</th>
               <th>Costo</th>
               <th>

@@ -5,7 +5,7 @@
   <td><?= $penalty->Pieces() ?> / <?= $penalty->Days() ?></td>
   <td>$<?= $penalty->Amount() ?></td>
   <td>$<?= $penalty->Material()->PricePerUnit() / 100 ?></td>
-  <td><?= $penalty->LoanMaterial()->AgeReturnAt()?></td>
+  <td><?= date("d-m-Y",$penalty->LoanMaterial()->ReturnUnix()-100) ?></td>
     <td>   
   </td>
 </tr>

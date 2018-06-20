@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registro</title>
+  <title>Almacen FCQI</title>
   <link rel="stylesheet" href="<?=BASE_PLUGIN_ASSETS_PATH ?>bootstrap/css/bootstrap.min.css">
   <link href="<?= BASE_PLUGIN_ASSETS_PATH ?>font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>  
   <link href="<?= BASE_PLUGIN_ASSETS_PATH ?>theme/css/light-bootstrap-dashboard.css" rel="stylesheet" type="text/css"/>
