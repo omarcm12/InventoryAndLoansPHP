@@ -31,7 +31,8 @@ $loan->status = LOAN_STATUS_WAITING;
 if (!$loan->Update()) {
   $BASE->Session()->SetFlash(['danger' => 'Error eliminando Material.']);
 }else{
-	$BASE->Session()->SetFlash(['success' => 'Prestamo creado.']);
+	$configuration = FetchConfiguration();
+	$BASE->Session()->SetFlash(['success' => 'Solicitud de prestamo creada correctamente - Su solicitud EXPIRA en ' . $configuration->DaysExpiredLoan() . ' dias.']);
 }
 
 $BASE->Response()->RedirectAndExit('/alumnos/prestamos', BASE_RESPONSE_REDIRECT_OTHER);

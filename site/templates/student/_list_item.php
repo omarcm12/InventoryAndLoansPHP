@@ -46,28 +46,28 @@
             <div class="col-md-3">
             <label>Dado de baja</label>
               <input name="student[baja]" type="hidden" class="list-checkbox" value="0">
-                    <?php if ($student->Status() == 0 ):?>
-                    <input name="student[baja]" type="checkbox" class="list-checkbox" value="1" checked>
+                  <?php if ($student->Status() == 0 ):?>
+                    <input id="baja-<?= $student->ID()?>" onclick="fun1(<?= $student->ID()?>)" name="student[baja]" type="checkbox" class="list-checkbox" value="1" checked>
                   <?php else: ?>
-                  <input name="student[baja]" type="checkbox" class="list-checkbox" value="1">
+                  <input id="baja-<?= $student->ID()?>" onclick="fun1(<?= $student->ID()?>)" name="student[baja]" type="checkbox" class="list-checkbox" value="1">
                     <?php endif ?>
             </div>
             <div class="col-md-3">
               <label>Alumno activo</label>
               <input name="student[active]" type="hidden" class="list-checkbox" value="0">
                     <?php if ($student->Status() == 1 ):?>
-                    <input name="student[active]" type="checkbox" class="list-checkbox" value="1" checked>
+                    <input id="activo-<?= $student->ID()?>" onclick="fun2(<?= $student->ID()?>)" name="student[active]" type="checkbox" class="list-checkbox" value="1" checked>
                     <?php else: ?>
-                      <input name="student[active]" type="checkbox" class="list-checkbox" value="1">
+                      <input id="activo-<?= $student->ID()?>" onclick="fun2(<?= $student->ID()?>)" name="student[active]" type="checkbox" class="list-checkbox" value="1">
                     <?php endif ?>
             </div>
             <div class="col-md-3">
               <label>EP</label>
               <input name="student[ep]" type="hidden" class="list-checkbox" value="0">
                     <?php if ($student->Status() == 2 ):?>
-                    <input name="student[ep]" type="checkbox" class="list-checkbox" value="1" checked>
+                    <input id="ep-<?= $student->ID()?>" onclick="fun3(<?= $student->ID()?>)" name="student[ep]" type="checkbox" class="list-checkbox" value="1" checked>
                     <?php else: ?>
-                      <input name="student[ep]" type="checkbox" class="list-checkbox" value="1">
+                      <input id="ep-<?= $student->ID()?>" onclick="fun3(<?= $student->ID()?>)" name="student[ep]" type="checkbox" class="list-checkbox" value="1">
                     <?php endif ?>
             </div>
           </div>
@@ -79,18 +79,18 @@
             <label>Si</label>
               <input name="student[service]" type="hidden" class="list-checkbox" value="0">
                     <?php if ($student->IsStudent() == 0 ):?>
-                    <input name="student[service]" type="checkbox" class="list-checkbox" value="1" checked>
+                    <input id="yes-<?= $student->ID()?>" onclick="serv1(<?= $student->ID()?>)" name="student[service]" type="checkbox" class="list-checkbox" value="1" checked>
                   <?php else: ?>
-                  <input name="student[service]" type="checkbox" class="list-checkbox" value="1">
+                  <input id="yes-<?= $student->ID()?>" onclick="serv1(<?= $student->ID()?>)" name="student[service]" type="checkbox" class="list-checkbox" value="1">
                     <?php endif ?>
             </div>
             <div class="col-md-3">
               <label>No</label>
               <input name="student[notService]" type="hidden" class="list-checkbox" value="0">
                     <?php if ($student->IsStudent() == 1 ):?>
-                    <input name="student[notService]" type="checkbox" class="list-checkbox" value="1" checked>
+                    <input id="no-<?= $student->ID()?>" onclick="serv2(<?= $student->ID()?>)" name="student[notService]" type="checkbox" class="list-checkbox" value="1" checked>
                     <?php else: ?>
-                      <input name="student[notService]" type="checkbox" class="list-checkbox" value="1">
+                      <input id="no-<?= $student->ID()?>" onclick="serv2(<?= $student->ID()?>)" name="student[notService]" type="checkbox" class="list-checkbox" value="1">
                     <?php endif ?>
             </div>  
           </div>

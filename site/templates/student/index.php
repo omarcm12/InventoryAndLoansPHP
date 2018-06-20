@@ -1,7 +1,8 @@
 <?php /* templates/admin/sessions/new */
 $js_assets = [
   "report.js",
-  "tablesorter/jquery-3.3.1.min.js",
+  "buttons.js",
+ // "tablesorter/jquery-3.3.1.min.js",
   "tablesorter/jquery.tablesorter.js",
   "tablesorter/main.js"
   
