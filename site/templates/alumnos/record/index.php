@@ -35,7 +35,7 @@ $js_assets = [
                     <h3 class="title">Mis Prestamos</h3>                       
                 </div>
                 <ul class="nav nav-tabs nav-tabs-right">
-                  <li role="presentation" <?= $filter == LOAN_STATUS_ENDED ? 'class="active"' : ''?> style="margin-right: 20px;">
+                  <li role="presentation" id="loan_tab" <?= $filter == LOAN_STATUS_ENDED ? 'class="active"' : ''?> >
                     <a href="/alumnos/historial?s=<?= $search_default_value?>&f=<?= LOAN_STATUS_ENDED ?>">Finalizados</a>
                   </li>
                   <li role="presentation" <?= $filter == LOAN_STATUS_IN_PROGRESS ? 'class="active"' : ''?>>
