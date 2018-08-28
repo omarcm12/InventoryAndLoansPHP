@@ -1,1 +1,1 @@
-Readme del proyecto
+System of loans and inventories
